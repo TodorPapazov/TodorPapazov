@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://todorpapazov.github.io/sitemap.xml

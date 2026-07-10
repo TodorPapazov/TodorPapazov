@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todor Papazov | Data Analytics Professional</title>
+  <meta name="description" content="Todor 'Todd' Papazov — Operations Data Analyst at TRIMEDX. Expert in Python, SQL, Snowflake, Power BI, and data pipelines with proven impact: $19M cost savings, 25% error reduction on 1M+ record datasets.">
+  <meta name="author" content="Todor Papazov">
+  <link rel="canonical" href="https://todorpapazov.github.io/">
+  <meta property="og:title" content="Todor Papazov | Data Analytics Professional">
+  <meta property="og:description" content="Operations Data Analyst at TRIMEDX. Python • SQL • Snowflake • Power BI • Healthcare Operations Analytics">
+  <meta property="og:image" content="https://todorpapazov.github.io/assets/images/todor-papazov.jpg">
+  <meta property="og:url" content="https://todorpapazov.github.io/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@TodorPapazov">
+  <meta name="twitter:title" content="Todor Papazov | Data Analytics Professional">
+  <meta name="twitter:description" content="Operations Data Analyst at TRIMEDX. Python • SQL • Snowflake • Power BI">
+  <meta name="twitter:image" content="https://todorpapazov.github.io/assets/images/todor-papazov.jpg">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#1d4ed8">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%231d4ed8'/><text x='16' y='22' text-anchor='middle' fill='white' font-family='system-ui' font-weight='600' font-size='14'>TP</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Todor Papazov",
+    "alternateName": "Todd Papazov",
+    "jobTitle": "Operations Data Analyst",
+    "worksFor": { "@type": "Organization", "name": "TRIMEDX" },
+    "url": "https://todorpapazov.github.io/",
+    "image": "https://todorpapazov.github.io/assets/images/todor-papazov.jpg",
+    "address": { "@type": "PostalAddress", "addressLocality": "Westfield", "addressRegion": "IN" },
+    "sameAs": [
+      "https://www.linkedin.com/in/todorpapazov",
+      "https://x.com/TodorPapazov",
+      "https://github.com/TodorPapazov"
+    ],
+    "knowsAbout": ["Python", "SQL", "Snowflake", "Power BI", "Data Pipelines", "Healthcare Analytics"]
+  }
+  </script>
+  <style>
+    :root {
+      --accent: #1d4ed8;
+      --accent2: #3b82f6;
+      --bg: #f8fafc;
+      --surface: rgba(255, 255, 255, 0.78);
+      --surface-solid: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: rgba(29, 78, 216, 0.18);
+      --glow: rgba(29, 78, 216, 0.12);
+      --hud-line: rgba(29, 78, 216, 0.35);
+      --status: #10b981;
+      --nav-height: 4.25rem;
+      --display: 'Space Grotesk', system-ui, sans-serif;
+      --mono: 'IBM Plex Mono', ui-monospace, monospace;
+      --body: 'Inter', system-ui, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: calc(var(--nav-height) + 0.75rem);
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--body);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    h1, h2, h3, .display {
+      font-family: var(--display);
+      letter-spacing: -0.03em;
+      font-weight: 600;
+    }
+
+    .mono { font-family: var(--mono); }
+    .muted { color: var(--muted); }
+
+    /* ---- Floating logos: side margins only (clear of content) ---- */
+    .logo-float-layer {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+      will-change: transform;
+      /* Hard-clear the center content column so logos never sit under text/panels */
+      -webkit-mask-image: linear-gradient(
+        to right,
+        #000 0%,
+        #000 max(0px, calc((100% - 72rem) / 2 - 0.5rem)),
+        transparent max(0px, calc((100% - 72rem) / 2 + 0.25rem)),
+        transparent calc(100% - max(0px, calc((100% - 72rem) / 2 + 0.25rem))),
+        #000 calc(100% - max(0px, calc((100% - 72rem) / 2 - 0.5rem))),
+        #000 100%
+      );
+      mask-image: linear-gradient(
+        to right,
+        #000 0%,
+        #000 max(0px, calc((100% - 72rem) / 2 - 0.5rem)),
+        transparent max(0px, calc((100% - 72rem) / 2 + 0.25rem)),
+        transparent calc(100% - max(0px, calc((100% - 72rem) / 2 + 0.25rem))),
+        #000 calc(100% - max(0px, calc((100% - 72rem) / 2 - 0.5rem))),
+        #000 100%
+      );
+    }
+
+    .logo-float-layer__inner {
+      position: absolute;
+      inset: 0;
+      will-change: transform;
+    }
+
+    /* Side rails = empty gutters beside the centered 72rem content column */
+    .logo-rail {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: max(0px, calc((100vw - 72rem) / 2));
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      padding: 5.5rem 0.5rem 4rem;
+      box-sizing: border-box;
+    }
+
+    .logo-rail--left { left: 0; }
+    .logo-rail--right { right: 0; }
+
+    .logo-float-item {
+      position: relative;
+      width: clamp(2.1rem, 3.2vw, 3.6rem);
+      height: clamp(2.1rem, 3.2vw, 3.6rem);
+      flex-shrink: 0;
+      opacity: 0.45;
+      filter: drop-shadow(0 2px 8px rgba(15, 23, 42, 0.08));
+      animation: logo-float var(--dur, 18s) ease-in-out infinite;
+      animation-delay: var(--delay, 0s);
+    }
+
+    .logo-float-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      user-select: none;
+    }
+
+    .logo-float-item:nth-child(odd) { animation-direction: alternate-reverse; }
+    .logo-float-item:nth-child(3n) { --dur: 22s; }
+    .logo-float-item:nth-child(4n) { --dur: 26s; opacity: 0.38; }
+    .logo-float-item:nth-child(5n) { --dur: 20s; }
+
+    /* Mostly vertical float so logos stay in the margin gutters */
+    @keyframes logo-float {
+      0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg) scale(1); }
+      33% { transform: translate3d(2px, -10px, 0) rotate(2deg) scale(1.04); }
+      66% { transform: translate3d(-2px, 8px, 0) rotate(-1.5deg) scale(0.98); }
+    }
+
+    /* No side margin on narrow viewports — hide logos rather than overlapping content */
+    @media (max-width: 1180px) {
+      .logo-float-layer {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+
+    @media (min-width: 1400px) {
+      .logo-float-item {
+        width: clamp(2.6rem, 2.8vw, 4rem);
+        height: clamp(2.6rem, 2.8vw, 4rem);
+        opacity: 0.5;
+      }
+      .logo-float-item:nth-child(4n) { opacity: 0.42; }
+    }
+
+    .grid-bg {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.35;
+      background-image:
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: radial-gradient(ellipse at center, black 15%, transparent 72%);
+      -webkit-mask-image: radial-gradient(ellipse at center, black 15%, transparent 72%);
+    }
+
+    .page-shell {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ---- HUD primitives ---- */
+    .hud-label {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      position: relative;
+    }
+
+    .panel-bracket::before,
+    .panel-bracket::after {
+      content: '';
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      border-color: var(--hud-line);
+      border-style: solid;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .panel-bracket::before {
+      top: -1px;
+      left: -1px;
+      border-width: 2px 0 0 2px;
+    }
+
+    .panel-bracket::after {
+      bottom: -1px;
+      right: -1px;
+      border-width: 0 2px 2px 0;
+    }
+
+    .bracket-tr,
+    .bracket-bl {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      border-style: solid;
+      border-color: var(--hud-line);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .bracket-tr {
+      top: -1px;
+      right: -1px;
+      border-width: 2px 2px 0 0;
+    }
+
+    .bracket-bl {
+      bottom: -1px;
+      left: -1px;
+      border-width: 0 0 2px 2px;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--status);
+      box-shadow: 0 0 8px var(--status);
+      display: inline-block;
+      flex-shrink: 0;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.06em;
+      padding: 0.3rem 0.65rem;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--muted);
+      background: var(--surface);
+      white-space: nowrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.25rem;
+      border-radius: 0.75rem;
+      font-weight: 600;
+      font-size: 0.9rem;
+      border: 1px solid transparent;
+      cursor: pointer;
+      text-decoration: none !important;
+      transition: filter 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .btn-primary:hover { filter: brightness(1.08); }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--text);
+      border-color: var(--border);
+    }
+
+    .btn-ghost:hover { background: var(--glow); }
+
+    .skill-pill {
+      display: inline-block;
+      font-size: 0.75rem;
+      padding: 0.3rem 0.65rem;
+      margin: 0.15rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--surface-solid);
+      color: var(--text);
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .skill-pill:hover {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--glow);
+    }
+
+    .metric-val {
+      font-family: var(--display);
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+    }
+
+    .section {
+      padding: 3.5rem 1.5rem;
+      max-width: 72rem;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-size: clamp(1.6rem, 3vw, 2.25rem);
+      margin: 0.4rem 0 1.25rem;
+    }
+
+    .grid-metrics {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.85rem;
+    }
+
+    @media (min-width: 768px) {
+      .grid-metrics { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    .role {
+      padding: 1.35rem 1.5rem;
+      margin-bottom: 1rem;
+      border-radius: 1rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .role:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px -8px rgba(29, 78, 216, 0.12);
+      border-color: rgba(29, 78, 216, 0.28);
+    }
+
+    .role h3 {
+      margin: 0 0 0.15rem;
+      font-size: 1.15rem;
+    }
+
+    .role ul {
+      margin: 0.75rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .role li {
+      position: relative;
+      padding-left: 1rem;
+      margin: 0.4rem 0;
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    .role li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.55em;
+      width: 5px;
+      height: 5px;
+      border-radius: 1px;
+      background: var(--accent);
+    }
+
+    .skills-grid {
+      display: grid;
+      gap: 0.85rem;
+      grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 768px) {
+      .skills-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (min-width: 1024px) {
+      .skills-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    .edu-grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 768px) {
+      .edu-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    .activity-grid {
+      display: grid;
+      gap: 0.85rem;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    /* ---- Nav ---- */
+    .top-nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      background: color-mix(in srgb, var(--bg) 82%, transparent);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .top-nav__inner {
+      max-width: 72rem;
+      margin: 0 auto;
+      padding: 0.85rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      min-height: var(--nav-height);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      text-decoration: none !important;
+      color: var(--text);
+      flex-shrink: 0;
+    }
+
+    .brand-mark {
+      width: 2.1rem;
+      height: 2.1rem;
+      border-radius: 0.55rem;
+      display: grid;
+      place-items: center;
+      background: var(--accent);
+      color: #fff;
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 0.85rem;
+      box-shadow: 0 0 0 1px var(--hud-line), 0 0 18px var(--glow);
+    }
+
+    .nav-desktop {
+      display: none;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      font-size: 0.85rem;
+      align-items: center;
+    }
+
+    .nav-desktop a {
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+
+    .nav-desktop a:hover,
+    .nav-desktop a.active {
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .nav-desktop a.active {
+      font-weight: 500;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    #mobile-menu-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 0.65rem;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      cursor: pointer;
+    }
+
+    #mobile-menu {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      border-top: 1px solid transparent;
+    }
+
+    #mobile-menu.open {
+      max-height: 22rem;
+      border-top-color: var(--border);
+    }
+
+    #mobile-menu .mobile-links {
+      padding: 0.75rem 1.5rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+      max-width: 72rem;
+      margin: 0 auto;
+    }
+
+    #mobile-menu a {
+      display: block;
+      padding: 0.65rem 0.75rem;
+      border-radius: 0.65rem;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    #mobile-menu a:hover {
+      background: var(--glow);
+      color: var(--text);
+    }
+
+    @media (min-width: 960px) {
+      .nav-desktop { display: flex; }
+      #mobile-menu-btn { display: none; }
+    }
+
+    /* ---- Hero ---- */
+    .hero-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .avatar-frame {
+      width: 11.5rem;
+      height: 11.5rem;
+      border-radius: 1.25rem;
+      overflow: hidden;
+      flex-shrink: 0;
+      box-shadow: 0 0 0 1px var(--hud-line), 0 20px 50px var(--glow);
+    }
+
+    .avatar-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    @media (min-width: 768px) {
+      .avatar-frame {
+        width: 13rem;
+        height: 13rem;
+      }
+    }
+
+    .hero-copy { flex: 1; min-width: 16rem; }
+
+    .resume-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.75rem 1.75rem;
+      border-radius: 1.1rem;
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+      color: #fff;
+      border: 1px solid rgba(147, 197, 253, 0.25);
+    }
+
+    .resume-cta .hud-label { color: #93c5fd; }
+    .resume-cta p { color: #cbd5e1; margin: 0.35rem 0 0; max-width: 28rem; }
+    .resume-cta .btn-primary {
+      background: #fff;
+      color: #0f172a;
+    }
+
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 1.5rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--muted);
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer a { color: var(--muted); }
+    .footer a:hover { color: var(--accent); }
+
+    .footer-inner {
+      max-width: 72rem;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: space-between;
+      align-items: center;
+      text-align: left;
+    }
+
+    #back-to-top {
+      position: fixed;
+      bottom: 1.25rem;
+      right: 1.25rem;
+      z-index: 60;
+      width: 2.75rem;
+      height: 2.75rem;
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      background: var(--accent);
+      color: #fff;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
+      box-shadow: 0 8px 24px rgba(29, 78, 216, 0.25);
+    }
+
+    #back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    #back-to-top:hover { transform: translateY(-2px); }
+
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 1rem;
+      z-index: 100;
+      padding: 0.5rem 1rem;
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.875rem;
+      font-weight: 600;
+      border-radius: 0 0 0.5rem 0.5rem;
+      transition: top 0.2s ease;
+    }
+
+    .skip-link:focus { top: 0; }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .logo-float-item { animation: none !important; }
+      .logo-float-layer,
+      .logo-float-layer__inner { transform: none !important; }
+      .fade-in { opacity: 1; transform: none; transition: none; }
+      .role:hover { transform: none; }
+    }
+
+    @media print {
+      .logo-float-layer, .grid-bg, .top-nav, #back-to-top, #mobile-menu-btn { display: none !important; }
+      .panel { backdrop-filter: none; background: #fff; break-inside: avoid; }
+    }
+  </style>
+</head>
+<body id="top">
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <!-- Soft grid -->
+  <div class="grid-bg" aria-hidden="true"></div>
+
+  <!-- Floating Data & AI logos — left/right margins only (never under content) -->
+  <div class="logo-float-layer" id="logo-float-layer" aria-hidden="true">
+    <div class="logo-float-layer__inner" id="logo-float-inner">
+      <div class="logo-rail logo-rail--left">
+        <div class="logo-float-item" style="--delay: 0s;"><img src="assets/logos/googlecloud.svg" alt="" loading="lazy" decoding="async"></div>
+        <div class="logo-float-item" style="--delay: -2s;"><img src="assets/logos/python.svg" alt="" loading="lazy" decoding="async"></div>
+        <div class="logo-float-item" style="--delay: -4s;"><img src="assets/logos/snowflake.svg" alt="" loading="lazy" decoding="async"></div>
+        <div class="logo-float-item" style="--delay: -1s;"><img src="assets/logos/powerbi.svg" alt="" loading="lazy" decoding="async"></div>
+        <div class="logo-float-item" style="--delay: -6s;"><img src="assets/logos/sql.svg" alt="" loading="lazy" decoding="async"></div>
+        <div class="logo-float-item" style="--delay: -3s;"><img src="assets/logos/visualstudiocode.svg" alt="" loading="lazy" decoding="async"></div>
+        <div class="logo-float-item" style="--delay: -7s;"><img src="assets/logos/grok.svg" alt="" loading="lazy" decoding="async"></div>
+        <div class="logo-float-item" style="--delay: -5s;"><img src="assets/logos/amazonaws.svg" alt="" loading="lazy" decoding="async"></div>
+      </div>
+      <div class="logo-rail logo-rail--right">
+        <div class="logo-float-item" style="--delay: -1.5s;"><img src="assets/logos/microsoftazure.svg" alt="" loading="lazy" decoding="async"></div>
+        <div class="logo-float-item" style="--delay: -3.5s;"><img src="assets/logos/anthropic.svg" alt="" loading="lazy" decoding="async"></div>
+        <div class="logo-float-item" style="--delay: -0.5s;"><img src="assets/logos/githubcopilot.svg" alt="" loading="lazy" decoding="async"></div>
+        <div class="logo-float-item" style="--delay: -8s;"><img src="assets/logos/python.svg" alt="" loading="lazy" decoding="async"></div>
+        <div class="logo-float-item" style="--delay: -2.5s;"><img src="assets/logos/snowflake.svg" alt="" loading="lazy" decoding="async"></div>
+        <div class="logo-float-item" style="--delay: -6.5s;"><img src="assets/logos/powerbi.svg" alt="" loading="lazy" decoding="async"></div>
+        <div class="logo-float-item" style="--delay: -4.5s;"><img src="assets/logos/googlecloud.svg" alt="" loading="lazy" decoding="async"></div>
+        <div class="logo-float-item" style="--delay: -9s;"><img src="assets/logos/grok.svg" alt="" loading="lazy" decoding="async"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-shell">
+    <header class="top-nav" role="banner">
+      <div class="top-nav__inner">
+        <a href="#top" class="brand" aria-label="Todor Papazov — Home">
+          <span class="brand-mark">TP</span>
+          <span>
+            <span style="display:block;font-weight:600;line-height:1.1;">Todor Papazov</span>
+            <span class="mono muted" style="font-size:0.62rem;letter-spacing:0.1em;">DATA ANALYTICS &amp; DATA SCIENCE</span>
+          </span>
+        </a>
+
+        <nav class="nav-desktop" aria-label="Main navigation">
+          <a href="#about" class="nav-link" data-section="about">About</a>
+          <a href="#experience" class="nav-link" data-section="experience">Experience</a>
+          <a href="#skills" class="nav-link" data-section="skills">Skills</a>
+          <a href="#activity" class="nav-link" data-section="activity">Activity</a>
+          <a href="#contact" class="nav-link" data-section="contact">Contact</a>
+          <span class="chip"><span class="status-dot"></span> SYS · ONLINE</span>
+          <a class="btn btn-primary" href="#resume" style="padding:0.45rem 0.9rem;font-size:0.8rem;">
+            <i class="fa-solid fa-download" aria-hidden="true"></i> Resume
+          </a>
+        </nav>
+
+        <div class="nav-actions">
+          <a class="btn btn-ghost" href="https://www.linkedin.com/in/todorpapazov" target="_blank" rel="noopener noreferrer"
+             aria-label="LinkedIn profile" style="padding:0.45rem 0.75rem;font-size:0.8rem;display:none;" id="nav-linkedin">
+            <i class="fab fa-linkedin" style="color:#0a66c2;" aria-hidden="true"></i>
+          </a>
+          <button id="mobile-menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle navigation menu">
+            <i class="fa-solid fa-bars" id="menu-icon-open" aria-hidden="true"></i>
+            <i class="fa-solid fa-xmark hidden" id="menu-icon-close" aria-hidden="true" style="display:none;"></i>
+          </button>
+        </div>
+      </div>
+
+      <div id="mobile-menu">
+        <div class="mobile-links">
+          <a href="#about" class="mobile-nav-link">About</a>
+          <a href="#experience" class="mobile-nav-link">Experience</a>
+          <a href="#skills" class="mobile-nav-link">Skills</a>
+          <a href="#activity" class="mobile-nav-link">Activity</a>
+          <a href="#contact" class="mobile-nav-link">Contact</a>
+          <a href="#resume" class="mobile-nav-link" style="color:var(--accent);font-weight:600;">Download Resume</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- Hero -->
+      <section class="section" style="padding-top:2.5rem;" aria-label="Introduction">
+        <div class="hero-row">
+          <div class="panel panel-bracket avatar-frame">
+            <span class="bracket-tr"></span><span class="bracket-bl"></span>
+            <img src="assets/images/todor-papazov.jpg" alt="Todor 'Todd' Papazov professional headshot"
+                 width="208" height="208" loading="eager" decoding="async">
+          </div>
+          <div class="hero-copy">
+            <div class="chip" style="margin-bottom:0.75rem;"><span class="status-dot"></span> OPEN TO OPPORTUNITIES</div>
+            <div class="hud-label">DATA ANALYTICS &amp; DATA SCIENCE</div>
+            <h1 class="display" style="font-size:clamp(2.2rem,5vw,3.4rem);margin:0.35rem 0 0.4rem;line-height:1.05;">
+              Todor "Todd" Papazov
+            </h1>
+            <p style="font-size:1.2rem;margin:0 0 0.75rem;color:var(--muted);">Operations Data Analyst @ TRIMEDX</p>
+            <p class="muted" style="max-width:36rem;margin:0 0 1.1rem;">
+              Data analytics professional with 7+ years in data preparation, pipelines, and statistical modeling for healthcare operations and financial services.
+            </p>
+            <div style="display:flex;flex-wrap:wrap;gap:0.6rem;">
+              <a class="btn btn-primary" href="#resume">
+                <i class="fa-solid fa-download" aria-hidden="true"></i> Download Resume
+              </a>
+              <a class="btn btn-ghost" href="https://github.com/TodorPapazov" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-github" aria-hidden="true"></i> GitHub
+              </a>
+              <a class="btn btn-ghost" href="https://www.linkedin.com/in/todorpapazov" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn
+              </a>
+            </div>
+            <div class="mono muted" style="margin-top:0.9rem;font-size:0.75rem;">
+              <i class="fa-solid fa-location-dot" aria-hidden="true"></i> Westfield, Indiana · He/Him
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Metrics -->
+      <section class="section" style="padding-top:0;" aria-label="Key achievements">
+        <div class="grid-metrics">
+          <div class="panel panel-bracket role fade-in" style="margin:0;text-align:center;padding:1.15rem;">
+            <span class="bracket-tr"></span><span class="bracket-bl"></span>
+            <div class="metric-val">$19M</div>
+            <div class="mono muted" style="font-size:0.65rem;margin-top:0.35rem;letter-spacing:0.06em;">ANNUAL COST SAVINGS</div>
+          </div>
+          <div class="panel panel-bracket role fade-in" style="margin:0;text-align:center;padding:1.15rem;">
+            <span class="bracket-tr"></span><span class="bracket-bl"></span>
+            <div class="metric-val">25%</div>
+            <div class="mono muted" style="font-size:0.65rem;margin-top:0.35rem;letter-spacing:0.06em;">REPORTING ERROR REDUCTION</div>
+          </div>
+          <div class="panel panel-bracket role fade-in" style="margin:0;text-align:center;padding:1.15rem;">
+            <span class="bracket-tr"></span><span class="bracket-bl"></span>
+            <div class="metric-val">1M+</div>
+            <div class="mono muted" style="font-size:0.65rem;margin-top:0.35rem;letter-spacing:0.06em;">RECORDS ANALYZED</div>
+          </div>
+          <div class="panel panel-bracket role fade-in" style="margin:0;text-align:center;padding:1.15rem;">
+            <span class="bracket-tr"></span><span class="bracket-bl"></span>
+            <div class="metric-val">7+</div>
+            <div class="mono muted" style="font-size:0.65rem;margin-top:0.35rem;letter-spacing:0.06em;">YEARS OF EXPERIENCE</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About -->
+      <section id="about" class="section fade-in">
+        <div class="hud-label">About</div>
+        <h2 class="section-title">Data professional focused on pipelines, exploratory analysis, and modeling insights.</h2>
+        <div class="panel panel-bracket role">
+          <span class="bracket-tr"></span><span class="bracket-bl"></span>
+          <p class="muted" style="margin:0 0 0.85rem;">
+            Results-driven Data Analytics professional with 7+ years specializing in data preparation, wrangling, exploratory analysis, pipeline development, and statistical modeling for healthcare operations and financial services in regulated environments.
+          </p>
+          <p class="muted" style="margin:0;">
+            Expert in Python (Pandas, NumPy), SQL, Snowflake, and Power BI. Proven track record building data analysis pipelines and performing exploratory analyses that reduced reporting errors by 25% and supported $19M in cost savings plus 15% revenue growth. MBA-trained analyst who partners closely with stakeholders to drive data initiatives that deliver actionable insights.
+          </p>
+        </div>
+      </section>
+
+      <!-- Experience -->
+      <section id="experience" class="section fade-in">
+        <div class="hud-label">Experience</div>
+        <h2 class="section-title">Professional Experience</h2>
+
+        <article class="panel panel-bracket role">
+          <span class="bracket-tr"></span><span class="bracket-bl"></span>
+          <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:0.5rem;align-items:flex-start;">
+            <div>
+              <h3>Operations Data Analyst</h3>
+              <div class="muted" style="font-size:0.9rem;">TRIMEDX — Indianapolis, IN (Healthcare Operations &amp; Technology)</div>
+            </div>
+            <span class="chip">Dec 2024 — Present</span>
+          </div>
+          <ul>
+            <li>Led data preparation and exploratory analysis on 1M+ healthcare records using Python, SQL, and Snowflake; reduced reporting errors by 25%.</li>
+            <li>Built data pipelines from CMMS, RTLS, and EHR systems into Power BI dashboards for KPI and performance tracking.</li>
+            <li>Supported forecasting and ROI modeling with statistical analysis across enterprise platforms.</li>
+            <li>Partnered with Clinical Engineering and operations leaders on reporting solutions and pipeline automation.</li>
+            <li>Contributed to $19M in annual cost savings through data-informed operational recommendations.</li>
+          </ul>
+        </article>
+
+        <article class="panel panel-bracket role">
+          <span class="bracket-tr"></span><span class="bracket-bl"></span>
+          <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:0.5rem;align-items:flex-start;">
+            <div>
+              <h3>Portfolio Analyst</h3>
+              <div class="muted" style="font-size:0.9rem;">TRIMEDX — Indianapolis, IN</div>
+            </div>
+            <span class="chip">Nov 2022 — Nov 2024</span>
+          </div>
+          <ul>
+            <li>Performed portfolio analysis and financial modeling on large datasets using SQL and Python.</li>
+            <li>Prepared forecasting models and performance summaries for senior stakeholder reporting.</li>
+            <li>Delivered recommendations that supported a 15% revenue increase through contract optimization.</li>
+            <li>Automated ETL workflows, improving data consistency and team productivity by 20%.</li>
+          </ul>
+        </article>
+
+        <article class="panel panel-bracket role">
+          <span class="bracket-tr"></span><span class="bracket-bl"></span>
+          <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:0.5rem;align-items:flex-start;">
+            <div>
+              <h3>Registered Wealth Management Client Associate</h3>
+              <div class="muted" style="font-size:0.9rem;">Merrill Lynch — San Francisco, CA (Financial Services – Highly Regulated Environment)</div>
+            </div>
+            <span class="chip">Aug 2019 — Aug 2022</span>
+          </div>
+          <ul>
+            <li>Analyzed portfolio and performance data with focus on accuracy and compliance in a regulated wealth management environment.</li>
+            <li>Created reports, visualizations, and pipelines to communicate performance and risk trends to advisors.</li>
+            <li>Delivered data-driven recommendations while maintaining reporting quality and compliance standards.</li>
+          </ul>
+        </article>
+
+        <article class="panel panel-bracket role">
+          <span class="bracket-tr"></span><span class="bracket-bl"></span>
+          <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:0.5rem;align-items:flex-start;">
+            <div>
+              <h3>Relationship Manager</h3>
+              <div class="muted" style="font-size:0.9rem;">Bank of America — San Carlos, CA</div>
+            </div>
+            <span class="chip">Dec 2016 — Aug 2019</span>
+          </div>
+          <ul>
+            <li>Tracked client performance and analyzed operational data to support business decisions.</li>
+            <li>Partnered with leadership on insights from validated datasets, consistently exceeding quarterly targets.</li>
+          </ul>
+        </article>
+      </section>
+
+      <!-- Skills -->
+      <section id="skills" class="section fade-in">
+        <div class="hud-label">Expertise</div>
+        <h2 class="section-title">Skills &amp; Competencies</h2>
+        <div class="skills-grid">
+          <div class="panel panel-bracket role" style="margin:0;">
+            <span class="bracket-tr"></span><span class="bracket-bl"></span>
+            <div class="hud-label" style="margin-bottom:0.65rem;"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Data Pipelines &amp; Analytics</div>
+            <div>
+              <span class="skill-pill">Data Preparation &amp; Wrangling</span>
+              <span class="skill-pill">Exploratory Data Analysis (EDA)</span>
+              <span class="skill-pill">Data Pipelines &amp; ETL</span>
+              <span class="skill-pill">Feature Preparation</span>
+              <span class="skill-pill">Large-Scale Data Analysis (1M+)</span>
+            </div>
+          </div>
+          <div class="panel panel-bracket role" style="margin:0;">
+            <span class="bracket-tr"></span><span class="bracket-bl"></span>
+            <div class="hud-label" style="margin-bottom:0.65rem;"><i class="fa-solid fa-database" aria-hidden="true"></i> Technical &amp; Platforms</div>
+            <div>
+              <span class="skill-pill">Python (Pandas, NumPy)</span>
+              <span class="skill-pill">SQL (Advanced)</span>
+              <span class="skill-pill">Snowflake</span>
+              <span class="skill-pill">Power BI (Dashboards, DAX, KPIs)</span>
+              <span class="skill-pill">R</span>
+              <span class="skill-pill">Advanced Excel / Power Query</span>
+            </div>
+          </div>
+          <div class="panel panel-bracket role" style="margin:0;">
+            <span class="bracket-tr"></span><span class="bracket-bl"></span>
+            <div class="hud-label" style="margin-bottom:0.65rem;"><i class="fa-solid fa-balance-scale" aria-hidden="true"></i> Analytics &amp; Domain</div>
+            <div>
+              <span class="skill-pill">HIPAA &amp; Financial Compliance</span>
+              <span class="skill-pill">Healthcare Operations Analytics</span>
+              <span class="skill-pill">Statistical Modeling &amp; Forecasting</span>
+              <span class="skill-pill">ROI &amp; Financial Modeling</span>
+              <span class="skill-pill">Risk &amp; Data Analytics</span>
+            </div>
+          </div>
+          <div class="panel panel-bracket role" style="margin:0;">
+            <span class="bracket-tr"></span><span class="bracket-bl"></span>
+            <div class="hud-label" style="margin-bottom:0.65rem;"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i> Additional Strengths</div>
+            <div>
+              <span class="skill-pill">Stakeholder Communication</span>
+              <span class="skill-pill">Process Improvement</span>
+              <span class="skill-pill">GenAI &amp; Low-Code Automation</span>
+              <span class="skill-pill">Prompt Engineering for Data</span>
+              <span class="skill-pill">Power Automate</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Education + Certs -->
+      <section id="education" class="section fade-in">
+        <div class="edu-grid">
+          <div class="panel panel-bracket role" style="margin:0;">
+            <span class="bracket-tr"></span><span class="bracket-bl"></span>
+            <div class="hud-label">Education</div>
+            <h3 class="section-title" style="font-size:1.35rem;margin-top:0.4rem;">Credentials</h3>
+            <div style="margin-bottom:1rem;">
+              <div style="font-weight:600;">Master of Business Administration (MBA), Finance and Investment Banking</div>
+              <div class="muted" style="font-size:0.9rem;">Lincoln University</div>
+            </div>
+            <div>
+              <div style="font-weight:600;">Bachelor of Science, Economics</div>
+              <div class="muted" style="font-size:0.9rem;">University of Economics — Varna</div>
+            </div>
+          </div>
+          <div class="panel panel-bracket role" style="margin:0;">
+            <span class="bracket-tr"></span><span class="bracket-bl"></span>
+            <div class="hud-label">Certifications</div>
+            <h3 class="section-title" style="font-size:1.35rem;margin-top:0.4rem;">Verified skills</h3>
+            <ul style="margin:0;padding-left:1.1rem;color:var(--muted);font-size:0.92rem;">
+              <li style="margin:0.4rem 0;">
+                <a href="https://www.skills.google/public_profiles/55cff512-2c46-460a-8993-2b7c6c2c1c8e" target="_blank" rel="noopener noreferrer">Google Cloud Data Analytics Certificate</a>
+                <span class="muted">— Google Cloud</span>
+              </li>
+              <li style="margin:0.4rem 0;">
+                <a href="https://developerbadges.snowflake.com/profile/todorpapazov/wallet" target="_blank" rel="noopener noreferrer">Snowflake Platform Associate Certification</a>
+                <span class="muted">— Snowflake</span>
+              </li>
+              <li style="margin:0.4rem 0;"><strong>SQL Data Analyst</strong> <span class="muted">— DataCamp</span></li>
+              <li style="margin:0.4rem 0;"><strong>Microsoft Excel Advanced</strong> <span class="muted">— Udemy</span></li>
+            </ul>
+            <div style="margin-top:0.85rem;display:flex;flex-wrap:wrap;gap:0.75rem;font-size:0.78rem;">
+              <a href="https://www.skills.google/public_profiles/55cff512-2c46-460a-8993-2b7c6c2c1c8e" target="_blank" rel="noopener noreferrer">Google Skills Profile ↗</a>
+              <a href="https://developerbadges.snowflake.com/profile/todorpapazov/wallet" target="_blank" rel="noopener noreferrer">Snowflake Badge Wallet ↗</a>
+            </div>
+            <div class="muted" style="margin-top:0.65rem;font-size:0.78rem;">Additional DataCamp SQL specializations: Data Manipulation, Intermediate, Joining Data in SQL</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Activity -->
+      <section id="activity" class="section fade-in">
+        <div class="hud-label">Activity</div>
+        <h2 class="section-title">Recent posts &amp; learning</h2>
+        <p class="muted" style="margin:-0.5rem 0 1.25rem;">A snapshot of ongoing professional development and community engagement (as of July 2026).</p>
+        <div class="activity-grid">
+          <div class="panel panel-bracket role" style="margin:0;">
+            <span class="bracket-tr"></span><span class="bracket-bl"></span>
+            <div class="chip" style="margin-bottom:0.5rem;"><i class="fab fa-x-twitter" aria-hidden="true"></i> X</div>
+            <div style="font-weight:600;font-size:0.95rem;">May 2025 · Power BI certification</div>
+            <p class="muted" style="font-size:0.88rem;margin:0.4rem 0 0;">Microsoft Learn — PL-300 + LinkedIn Learning Advanced DAX. AI Skills Fest voucher utilized for June 17, 2025 exam.</p>
+            <a href="https://x.com/TodorPapazov" target="_blank" rel="noopener noreferrer" style="font-size:0.78rem;display:inline-block;margin-top:0.55rem;">View on X →</a>
+          </div>
+          <div class="panel panel-bracket role" style="margin:0;">
+            <span class="bracket-tr"></span><span class="bracket-bl"></span>
+            <div class="chip" style="margin-bottom:0.5rem;"><i class="fab fa-x-twitter" aria-hidden="true"></i> X</div>
+            <div style="font-weight:600;font-size:0.95rem;">Jun 2026</div>
+            <p class="muted" style="font-size:0.88rem;margin:0.4rem 0 0;">/goal in Grok Build keeps working until completed — results more than astonishing. Great job @xai</p>
+            <a href="https://x.com/TodorPapazov" target="_blank" rel="noopener noreferrer" style="font-size:0.78rem;display:inline-block;margin-top:0.55rem;">View on X →</a>
+          </div>
+          <div class="panel panel-bracket role" style="margin:0;">
+            <span class="bracket-tr"></span><span class="bracket-bl"></span>
+            <div class="chip" style="margin-bottom:0.5rem;"><i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn</div>
+            <div style="font-weight:600;font-size:0.95rem;">AI Agents learning</div>
+            <p class="muted" style="font-size:0.88rem;margin:0.4rem 0 0;">Excited for the renewed 5-Day AI Agents Course with Kaggle &amp; Google. The best part, it is FREE.</p>
+            <a href="https://www.linkedin.com/in/todorpapazov" target="_blank" rel="noopener noreferrer" style="font-size:0.78rem;display:inline-block;margin-top:0.55rem;">View profile →</a>
+          </div>
+          <div class="panel panel-bracket role" style="margin:0;">
+            <span class="bracket-tr"></span><span class="bracket-bl"></span>
+            <div class="chip" style="margin-bottom:0.5rem;"><i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn</div>
+            <div style="font-weight:600;font-size:0.95rem;">Google Cloud Data Analytics</div>
+            <p class="muted" style="font-size:0.88rem;margin:0.4rem 0 0;">Google Cloud Data Analytics Certificate issued by Google Cloud to Todor Papazov.</p>
+            <a href="https://www.linkedin.com/in/todorpapazov" target="_blank" rel="noopener noreferrer" style="font-size:0.78rem;display:inline-block;margin-top:0.55rem;">View profile →</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="section fade-in">
+        <div class="panel panel-bracket role" style="text-align:center;padding:2rem;margin:0;">
+          <span class="bracket-tr"></span><span class="bracket-bl"></span>
+          <div class="hud-label">Contact</div>
+          <h2 class="section-title">Let's connect</h2>
+          <p class="muted" style="max-width:32rem;margin:0 auto 1.25rem;">
+            Open to data analytics, healthcare operations, and analytics engineering opportunities.
+          </p>
+          <div style="display:flex;flex-wrap:wrap;gap:0.65rem;justify-content:center;">
+            <a class="btn btn-ghost" href="https://www.linkedin.com/in/todorpapazov" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn
+            </a>
+            <a class="btn btn-ghost" href="https://github.com/TodorPapazov" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-github" aria-hidden="true"></i> GitHub
+            </a>
+            <a class="btn btn-ghost" href="https://x.com/TodorPapazov" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-x-twitter" aria-hidden="true"></i> X / Twitter
+            </a>
+            <a class="btn btn-primary" href="#resume">
+              <i class="fa-solid fa-download" aria-hidden="true"></i> Download Resume
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Resume CTA -->
+      <section id="resume" class="section fade-in" style="padding-bottom:4rem;">
+        <div class="resume-cta panel-bracket">
+          <span class="bracket-tr" style="border-color:rgba(147,197,253,0.5);"></span>
+          <span class="bracket-bl" style="border-color:rgba(147,197,253,0.5);"></span>
+          <div>
+            <div class="hud-label">Full details</div>
+            <h2 class="display" style="font-size:clamp(1.5rem,3vw,2rem);margin:0.35rem 0 0;">Download my complete resume</h2>
+            <p>Includes full experience, detailed achievements, and technical skills matrix.</p>
+          </div>
+          <div style="text-align:center;">
+            <a class="btn btn-primary" href="assets/resume/Todor_Papazov_Resume.pdf" download="Todor_Papazov_Resume.pdf">
+              <i class="fa-solid fa-download" aria-hidden="true"></i> Download PDF
+            </a>
+            <div class="mono" style="font-size:0.68rem;color:#94a3b8;margin-top:0.55rem;">Todor_Papazov_Resume.pdf</div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <div>
+          © 2026 Todor "Todd" Papazov · Westfield, IN<br>
+          <span style="font-size:0.75rem;">Data Analytics Professional | Data Science</span>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:1rem;">
+          <a href="https://github.com/TodorPapazov" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://www.linkedin.com/in/todorpapazov" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://x.com/TodorPapazov" target="_blank" rel="noopener noreferrer">X</a>
+        </div>
+        <div style="font-size:0.75rem;">
+          Hosted on <a href="https://pages.github.com/" target="_blank" rel="noopener noreferrer">GitHub Pages</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <button id="back-to-top" type="button" aria-label="Back to top">
+    <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+  </button>
+
+  <script>
+    (function () {
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const menuIconOpen = document.getElementById('menu-icon-open');
+      const menuIconClose = document.getElementById('menu-icon-close');
+      const backToTop = document.getElementById('back-to-top');
+      const logoLayer = document.getElementById('logo-float-layer');
+      const logoInner = document.getElementById('logo-float-inner');
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      function closeMobileMenu() {
+        mobileMenu.classList.remove('open');
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        menuIconOpen.style.display = '';
+        menuIconClose.style.display = 'none';
+      }
+
+      mobileMenuBtn.addEventListener('click', () => {
+        const isOpen = mobileMenu.classList.toggle('open');
+        mobileMenuBtn.setAttribute('aria-expanded', String(isOpen));
+        menuIconOpen.style.display = isOpen ? 'none' : '';
+        menuIconClose.style.display = isOpen ? '' : 'none';
+      });
+
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          const href = this.getAttribute('href');
+          if (!href || href === '#') return;
+          const target = document.querySelector(href);
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+            closeMobileMenu();
+          }
+        });
+      });
+
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('.nav-link[data-section]');
+
+      const scrollObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            navLinks.forEach(link => {
+              link.classList.toggle('active', link.dataset.section === entry.target.id);
+            });
+          }
+        });
+      }, { rootMargin: '-40% 0px -50% 0px', threshold: 0 });
+
+      sections.forEach(section => scrollObserver.observe(section));
+
+      const fadeObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            fadeObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+      document.querySelectorAll('.fade-in').forEach(el => fadeObserver.observe(el));
+
+      // Seamless float while scrolling: vertical sway only (stay in side margins)
+      let ticking = false;
+
+      function updateLogoParallax() {
+        ticking = false;
+        const y = window.scrollY || 0;
+        backToTop.classList.toggle('visible', y > 600);
+        if (reduceMotion || !logoLayer || !logoInner) return;
+        // Mostly vertical parallax so logos remain in the left/right gutters
+        const layerY = Math.sin(y * 0.002) * 12;
+        const innerY = Math.cos(y * 0.0017) * 8;
+        logoLayer.style.transform = 'translate3d(0, ' + layerY + 'px, 0)';
+        logoInner.style.transform = 'translate3d(0, ' + innerY + 'px, 0)';
+      }
+
+      function onScroll() {
+        if (!ticking) {
+          ticking = true;
+          requestAnimationFrame(updateLogoParallax);
+        }
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      updateLogoParallax();
+
+      backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+      });
+    })();
+  </script>
+</body>
+</html>
