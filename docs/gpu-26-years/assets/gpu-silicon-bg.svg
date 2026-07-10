@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Stylized GPU silicon die and circuit traces background">
+  <defs>
+    <linearGradient id="dieGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.35"/>
+      <stop offset="50%" stop-color="#6366f1" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#22d3ee" stop-opacity="0.12"/>
+    </linearGradient>
+    <linearGradient id="trace" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0"/>
+      <stop offset="40%" stop-color="#22d3ee" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#22d3ee" stop-opacity="0"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(34,211,238,0.07)" stroke-width="1"/>
+    </pattern>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="1.2"/>
+    </filter>
+  </defs>
+
+  <!-- PCB-ish grid -->
+  <rect width="1200" height="800" fill="url(#grid)"/>
+
+  <!-- Circuit traces (left) -->
+  <g stroke="url(#trace)" stroke-width="1.5" fill="none" opacity="0.7">
+    <path d="M0 120 H180 V200 H320 V280 H480"/>
+    <path d="M0 340 H140 V420 H260 V500 H400 V580"/>
+    <path d="M0 640 H220 V720 H380"/>
+    <path d="M1200 160 H980 V240 H860 V320 H720"/>
+    <path d="M1200 480 H1020 V560 H900 V640 H760"/>
+    <path d="M80 0 V100 H200 V180"/>
+    <path d="M1120 800 V680 H1000 V600"/>
+  </g>
+
+  <!-- Via / pad dots -->
+  <g fill="#22d3ee" opacity="0.35">
+    <circle cx="180" cy="120" r="3"/>
+    <circle cx="320" cy="200" r="3"/>
+    <circle cx="480" cy="280" r="3"/>
+    <circle cx="140" cy="340" r="3"/>
+    <circle cx="400" cy="500" r="3"/>
+    <circle cx="980" cy="160" r="3"/>
+    <circle cx="860" cy="240" r="3"/>
+    <circle cx="720" cy="320" r="3"/>
+    <circle cx="900" cy="560" r="3"/>
+  </g>
+
+  <!-- Stylized GPU package (center-right) -->
+  <g transform="translate(520,140)" filter="url(#soft)">
+    <!-- IHS / package -->
+    <rect x="40" y="40" width="420" height="420" rx="18" fill="rgba(15,23,42,0.55)" stroke="#22d3ee" stroke-opacity="0.35" stroke-width="2"/>
+    <!-- Die stack -->
+    <rect x="100" y="100" width="300" height="300" rx="8" fill="url(#dieGlow)" stroke="#22d3ee" stroke-opacity="0.5" stroke-width="1.5"/>
+    <!-- Memory chips around die -->
+    <g fill="rgba(34,211,238,0.12)" stroke="#22d3ee" stroke-opacity="0.4" stroke-width="1">
+      <rect x="55" y="110" width="36" height="52" rx="3"/>
+      <rect x="55" y="180" width="36" height="52" rx="3"/>
+      <rect x="55" y="250" width="36" height="52" rx="3"/>
+      <rect x="55" y="320" width="36" height="52" rx="3"/>
+      <rect x="409" y="110" width="36" height="52" rx="3"/>
+      <rect x="409" y="180" width="36" height="52" rx="3"/>
+      <rect x="409" y="250" width="36" height="52" rx="3"/>
+      <rect x="409" y="320" width="36" height="52" rx="3"/>
+    </g>
+    <!-- Core array lattice -->
+    <g stroke="rgba(34,211,238,0.28)" stroke-width="0.8" fill="none">
+      <path d="M130 130 H370 M130 160 H370 M130 190 H370 M130 220 H370 M130 250 H370 M130 280 H370 M130 310 H370 M130 340 H370 M130 370 H370"/>
+      <path d="M130 130 V370 M160 130 V370 M190 130 V370 M220 130 V370 M250 130 V370 M280 130 V370 M310 130 V370 M340 130 V370 M370 130 V370"/>
+    </g>
+    <!-- SM blocks -->
+    <g fill="rgba(99,102,241,0.25)" stroke="rgba(167,139,250,0.45)" stroke-width="0.8">
+      <rect x="145" y="145" width="40" height="40" rx="2"/>
+      <rect x="200" y="145" width="40" height="40" rx="2"/>
+      <rect x="255" y="145" width="40" height="40" rx="2"/>
+      <rect x="310" y="145" width="40" height="40" rx="2"/>
+      <rect x="145" y="200" width="40" height="40" rx="2"/>
+      <rect x="200" y="200" width="40" height="40" rx="2"/>
+      <rect x="255" y="200" width="40" height="40" rx="2"/>
+      <rect x="310" y="200" width="40" height="40" rx="2"/>
+      <rect x="145" y="255" width="40" height="40" rx="2"/>
+      <rect x="200" y="255" width="40" height="40" rx="2"/>
+      <rect x="255" y="255" width="40" height="40" rx="2"/>
+      <rect x="310" y="255" width="40" height="40" rx="2"/>
+      <rect x="145" y="310" width="40" height="40" rx="2"/>
+      <rect x="200" y="310" width="40" height="40" rx="2"/>
+      <rect x="255" y="310" width="40" height="40" rx="2"/>
+      <rect x="310" y="310" width="40" height="40" rx="2"/>
+    </g>
+    <!-- Power phase dots (VRM aesthetic) -->
+    <g fill="#34d399" opacity="0.35">
+      <circle cx="90" cy="70" r="4"/>
+      <circle cx="120" cy="70" r="4"/>
+      <circle cx="150" cy="70" r="4"/>
+      <circle cx="180" cy="70" r="4"/>
+      <circle cx="210" cy="70" r="4"/>
+      <circle cx="240" cy="70" r="4"/>
+      <circle cx="270" cy="70" r="4"/>
+      <circle cx="300" cy="70" r="4"/>
+    </g>
+    <!-- Label -->
+    <text x="250" y="470" text-anchor="middle" fill="#22d3ee" fill-opacity="0.45" font-family="ui-monospace, monospace" font-size="14" letter-spacing="3">GPU DIE · SILICON</text>
+  </g>
+
+  <!-- Hexagon fan motif (subtle) -->
+  <g transform="translate(160,480)" stroke="rgba(34,211,238,0.2)" fill="none" stroke-width="1.2">
+    <polygon points="60,10 100,35 100,85 60,110 20,85 20,35"/>
+    <polygon points="60,30 85,45 85,75 60,90 35,75 35,45"/>
+    <circle cx="60" cy="60" r="8"/>
+  </g>
+</svg>

@@ -1,8 +1,23 @@
-- 👋 Hi, I’m @TodorPapazov
-- 👀 I’m interested in Data Analysis and Data Science 
-- 🌱 I’m currently learning Microsoft Power BI and R
-- 💞️ I’m looking to collaborate on Data Projects.
-- 📫 How to reach me - GitHub, LinkedIn, twitter @TodorPapazov
+# Todor "Todd" Papazov
+
+**Data Quality & Analytics Professional** | Operations Data Analyst @ TRIMEDX
+
+[View my professional website →](https://todorpapazov.github.io/)
+
+- 👋 Hi, I’m @TodorPapazov 
+- 👀 I’m interested in Data Analysis, Data Quality, Power BI, and Data Science  
+- 🌱 Currently building expertise in Microsoft Power BI, R, Snowflake, and analytics engineering  
+- 💞️ Open to collaboration on data projects and healthcare analytics initiatives  
+- 📫 Reach me via [LinkedIn](https://www.linkedin.com/in/todorpapazov), [X/Twitter](https://x.com/TodorPapazov), or GitHub
+
+---
+
+**Quick links**
+- 🌐 [Career Website](https://todorpapazov.github.io/) — polished portfolio with resume, experience, and recent activity
+- 💼 [LinkedIn](https://www.linkedin.com/in/todorpapazov)
+- 🐦 [X / Twitter](https://x.com/TodorPapazov)
+
+---
 
 <!---
 TodorPapazov/TodorPapazov is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.

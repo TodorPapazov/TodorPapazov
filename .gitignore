@@ -1,0 +1,27 @@
+﻿GPU History/
+GPU History/**
+.venv/
+.venv/**
+__pycache__/
+**/__pycache__/
+*.pyc
+
+# GPU History exceptions restored per plan ("commit the resulting csv") and strategist recommendation.
+# Only these deliverables + .gitignore + SCOPE_NOTES should be in this goal's patch.
+!GPU History/generate_gpu_history.py
+!GPU History/gpu_history.csv
+!GPU History/README.md
+!GPU History/SCOPE_NOTES.md
+!GPU History/ship.py
+!GPU History/test_gpu_history.py
+
+gpu_local_run.log
+
+career-agent/**
+!career-agent/config.json
+!career-agent/README.md
+!career-agent/AGENTS.md
+!career-agent/.grok/
+!career-agent/.grok/skills/
+!career-agent/.grok/skills/career-main/
+!career-agent/.grok/skills/career-main/SKILL.md
