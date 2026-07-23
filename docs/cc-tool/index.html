@@ -1,0 +1,1309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CC Split Calculator — Indigo Split</title>
+  <style>
+    :root {
+      --accent: #818cf8;
+      --accent2: #a5b4fc;
+      --accent-dim: #4f46a5;
+      --bg: #0a0c18;
+      --surface: rgba(18, 22, 42, 0.88);
+      --surface2: #12162a;
+      --border: rgba(129, 140, 248, 0.3);
+      --glow: rgba(129, 140, 248, 0.14);
+      --text: #eef2ff;
+      --muted: #a5b4fc;
+      --a: #93c5fd;
+      --t: #a5b4fc;
+      --status: #60a5fa;
+      --good: #34d399;
+      --warn: #fbbf24;
+      --bad: #fb7185;
+      --radius: 12px;
+      --font: "Segoe UI", system-ui, -apple-system, sans-serif;
+      --mono: "Cascadia Code", Consolas, ui-monospace, monospace;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: var(--font);
+      color: var(--text);
+      line-height: 1.45;
+      min-height: 100vh;
+      background:
+        radial-gradient(ellipse at 50% 0%, var(--glow), transparent 50%),
+        var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .shell { max-width: 1200px; margin: 0 auto; padding: 1rem 1rem 2.5rem; }
+
+    .top-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.85rem;
+    }
+    .top-meta h1 {
+      margin: 0.2rem 0 0.15rem;
+      font-size: 1.35rem;
+      letter-spacing: -0.02em;
+      font-weight: 650;
+    }
+    .top-meta .sub {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      align-items: center;
+    }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.05em;
+      padding: 0.28rem 0.6rem;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--muted);
+      background: var(--surface2);
+    }
+    .chip strong { color: var(--text); font-weight: 600; }
+    .status-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--status);
+      box-shadow: 0 0 8px var(--status);
+      display: inline-block;
+    }
+
+    .hud-label {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .frame {
+      border: 1px solid var(--border);
+      box-shadow: inset 0 0 0 1px rgba(129, 140, 248, 0.08);
+      border-radius: 12px;
+      padding: 0.85rem;
+      background: linear-gradient(180deg, rgba(18, 22, 42, 0.5), transparent);
+    }
+
+    .summary-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.75rem;
+    }
+    .summary-metrics {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(120px, 1fr));
+      gap: 0.65rem;
+      width: 100%;
+      margin-top: 0.35rem;
+    }
+    @media (max-width: 800px) {
+      .summary-metrics { grid-template-columns: 1fr 1fr; }
+    }
+    .stat {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.7rem 0.85rem;
+    }
+    .stat .label {
+      font-size: 0.72rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .stat .value {
+      font-family: var(--mono);
+      font-size: 1.15rem;
+      font-weight: 650;
+      margin-top: 0.15rem;
+    }
+    .stat .sub {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 0.15rem;
+    }
+    .stat.a .value { color: var(--a); }
+    .stat.t .value { color: var(--t); }
+    .stat.good .value { color: var(--good); }
+
+    .stmt-row {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr 1fr;
+      gap: 0.65rem;
+      margin-bottom: 0.85rem;
+    }
+    @media (max-width: 900px) {
+      .stmt-row { grid-template-columns: 1fr 1fr; }
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 200px 1fr;
+      gap: 0.75rem;
+      margin: 0.5rem 0 0.85rem;
+    }
+    @media (max-width: 900px) {
+      .split { grid-template-columns: 1fr; }
+      .bridge { flex-direction: row; flex-wrap: wrap; }
+    }
+
+    .borrower-col {
+      padding: 1rem;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      min-height: 280px;
+    }
+    .borrower-col.a-side {
+      border-color: color-mix(in srgb, var(--a) 45%, transparent);
+    }
+    .borrower-col.t-side {
+      border-color: color-mix(in srgb, var(--t) 45%, transparent);
+    }
+    .metric {
+      font-family: var(--mono);
+      font-size: 1.35rem;
+      font-weight: 650;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+    }
+    .metric.a { color: var(--a); }
+    .metric.t { color: var(--t); }
+    .metric.accent { color: var(--accent); }
+
+    .bridge {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: center;
+      gap: 0.55rem;
+      text-align: center;
+      padding: 0.75rem 0.65rem;
+      border-radius: 10px;
+      border: 1px dashed var(--border);
+      background: var(--surface2);
+    }
+    .bridge .field { margin-bottom: 0.35rem; text-align: left; }
+
+    .panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.9rem 1rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .kv {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.5rem;
+      font-size: 0.88rem;
+      padding: 0.22rem 0;
+    }
+    .kv .k { color: var(--muted); }
+    .kv .v {
+      font-family: var(--mono);
+      font-weight: 600;
+    }
+    .kv .v.a, .tag-a { color: var(--a); }
+    .kv .v.t, .tag-t { color: var(--t); }
+
+    label {
+      display: block;
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-bottom: 0.28rem;
+    }
+    input[type="number"],
+    input[type="text"],
+    input[type="date"],
+    select {
+      width: 100%;
+      padding: 0.5rem 0.65rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--mono);
+      font-size: 0.92rem;
+    }
+    input:focus, select:focus {
+      outline: 2px solid var(--accent-dim);
+      border-color: var(--accent);
+    }
+    input:disabled, select:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .field { margin-bottom: 0.7rem; }
+    .field-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.65rem;
+    }
+    @media (max-width: 500px) {
+      .field-row { grid-template-columns: 1fr; }
+    }
+
+    .bt-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      margin-bottom: 0.75rem;
+    }
+    .bt-table th, .bt-table td {
+      text-align: left;
+      padding: 0.4rem 0.35rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .bt-table th {
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+    }
+    .bt-table td:last-child, .bt-table th:last-child { text-align: right; }
+    .bt-table input {
+      max-width: 130px;
+      margin-left: auto;
+      display: block;
+      text-align: right;
+    }
+    .bt-table select {
+      max-width: 90px;
+      margin-left: auto;
+      display: block;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 0.1rem 0.45rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 650;
+    }
+    .tag.a { background: rgba(147, 197, 253, 0.15); color: var(--a); }
+    .tag.t { background: rgba(165, 180, 252, 0.15); color: var(--t); }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-top: 0.65rem;
+    }
+    button {
+      border: 1px solid var(--border);
+      background: var(--surface2);
+      color: var(--text);
+      border-radius: 8px;
+      padding: 0.5rem 0.85rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: var(--font);
+    }
+    button:hover { border-color: var(--accent); background: #1a2040; }
+    button:active { transform: translateY(1px); }
+    button.primary {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #0a0c18;
+    }
+    button.primary:hover { background: var(--accent2); }
+    button.good {
+      background: rgba(52, 211, 153, 0.12);
+      border-color: rgba(52, 211, 153, 0.4);
+      color: var(--good);
+    }
+    button.danger {
+      background: rgba(251, 113, 133, 0.1);
+      border-color: rgba(251, 113, 133, 0.35);
+      color: var(--bad);
+    }
+    button.ghost { background: transparent; }
+    button.small { padding: 0.3rem 0.55rem; font-size: 0.78rem; }
+
+    .warn-box {
+      margin-top: 0.75rem;
+      padding: 0.65rem 0.8rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      display: none;
+    }
+    .warn-box.show { display: block; }
+    .warn-box.warn {
+      background: rgba(251, 191, 36, 0.1);
+      border: 1px solid rgba(251, 191, 36, 0.35);
+      color: var(--warn);
+    }
+    .warn-box.bad {
+      background: rgba(251, 113, 133, 0.1);
+      border: 1px solid rgba(251, 113, 133, 0.35);
+      color: #ff9ab0;
+    }
+    .warn-box.info {
+      background: rgba(129, 140, 248, 0.1);
+      border: 1px solid var(--border);
+      color: var(--accent2);
+    }
+
+    .estimate {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 0.3rem;
+    }
+
+    .ledger-wrap { overflow-x: auto; }
+    table.ledger {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.78rem;
+      min-width: 980px;
+    }
+    table.ledger th, table.ledger td {
+      padding: 0.4rem 0.4rem;
+      border-bottom: 1px solid var(--border);
+      text-align: right;
+      white-space: nowrap;
+      font-family: var(--mono);
+    }
+    table.ledger th {
+      color: var(--muted);
+      font-family: var(--font);
+      font-weight: 600;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      position: sticky;
+      top: 0;
+      background: var(--surface2);
+    }
+    table.ledger th:first-child,
+    table.ledger td:first-child {
+      text-align: left;
+      font-family: var(--font);
+    }
+    table.ledger tr:hover td { background: rgba(129, 140, 248, 0.06); }
+    table.ledger .empty {
+      text-align: center;
+      color: var(--muted);
+      font-family: var(--font);
+      padding: 1.5rem;
+    }
+
+    details.setup summary {
+      cursor: pointer;
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 0.75rem;
+      font-family: var(--mono);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+    }
+    details.setup[open] summary { margin-bottom: 0.85rem; }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.75rem;
+      padding: 0.75rem 1rem 1.5rem;
+      font-family: var(--mono);
+    }
+  </style>
+</head>
+<body data-skin="indigo-split">
+  <div class="shell">
+    <div class="top-meta">
+      <div>
+        <div class="hud-label">CC Split · dual borrower</div>
+        <h1>Credit Card Split Calculator</h1>
+        <p class="sub">Indigo Split · interest by balance share · statement interest &amp; min each month</p>
+      </div>
+      <div class="chip-row">
+        <span class="chip"><span class="status-dot"></span> LIVE</span>
+        <span class="chip">PROMO <strong>3.99%</strong></span>
+        <span class="chip">ENDS <strong>07/09/2027</strong></span>
+        <span class="chip">SEED <strong id="hdr-seed-total">$30,597.59</strong></span>
+        <span class="chip">MONTHS <strong id="hdr-months">0</strong></span>
+        <a class="chip" href="mockups/index.html">HUD gallery</a>
+      </div>
+    </div>
+
+    <div class="frame">
+      <!-- Running summary -->
+      <section class="summary-bar" aria-label="Running summary">
+        <div class="hud-label" style="margin:0">Indigo split · running totals</div>
+        <div class="chip">Σ <span class="mono" id="sum-total">$0.00</span></div>
+      </section>
+      <div class="summary-metrics">
+        <div class="stat a">
+          <div class="label">Borrower A balance</div>
+          <div class="value" id="sum-bal-a">$0.00</div>
+          <div class="sub" id="sum-share-a">—</div>
+        </div>
+        <div class="stat t">
+          <div class="label">Borrower T balance</div>
+          <div class="value" id="sum-bal-t">$0.00</div>
+          <div class="sub" id="sum-share-t">—</div>
+        </div>
+        <div class="stat">
+          <div class="label">Interest charged (all)</div>
+          <div class="value" id="sum-interest-all" style="font-size:1rem">$0.00</div>
+          <div class="sub">Promo APR 3.99%</div>
+        </div>
+        <div class="stat good">
+          <div class="label">Total paid</div>
+          <div class="value" id="sum-paid">$0.00</div>
+          <div class="sub" id="sum-paid-split">A $0 · T $0</div>
+        </div>
+      </div>
+
+      <!-- Statement inputs -->
+      <section class="panel" style="margin-top:0.85rem" aria-label="Statement snapshot">
+        <div class="hud-label">Current month · statement snapshot</div>
+        <div class="stmt-row" style="margin-top:0.55rem;margin-bottom:0">
+          <div class="field" style="margin:0">
+            <label for="month-label">Month label</label>
+            <input type="text" id="month-label" placeholder="e.g. Jul 2026 / stmt 07/09" />
+          </div>
+          <div class="field" style="margin:0">
+            <label for="due-date">Payment due date</label>
+            <input type="date" id="due-date" />
+          </div>
+          <div class="field" style="margin:0">
+            <label for="interest-total">Interest charged</label>
+            <input type="number" id="interest-total" min="0" step="0.01" />
+            <div class="estimate" id="interest-estimate"></div>
+          </div>
+          <div class="field" style="margin:0">
+            <label for="min-total">Total minimum due</label>
+            <input type="number" id="min-total" min="0" step="0.01" />
+          </div>
+        </div>
+        <div class="kv" style="margin-top:0.55rem">
+          <span class="k">Opening balances</span>
+          <span class="v" id="open-total">—</span>
+        </div>
+        <div class="kv">
+          <span class="k">After interest</span>
+          <span class="v" id="after-int-total">—</span>
+        </div>
+      </section>
+
+      <!-- Dual borrower split -->
+      <div class="split">
+        <div class="borrower-col a-side">
+          <div class="hud-label">Borrower <span class="tag a" id="tag-a">A</span></div>
+          <div class="metric a" id="open-a">$0.00</div>
+          <div class="muted mono" style="font-size:0.78rem;margin:0.25rem 0 0.65rem;color:var(--muted)">
+            Share <span id="share-a">—</span>
+          </div>
+          <div class="kv"><span class="k">Interest A</span><span class="v a" id="int-a">$0.00</span></div>
+          <div class="kv"><span class="k">After interest</span><span class="v a" id="after-a">$0.00</span></div>
+          <div class="kv"><span class="k">Min share A</span><span class="v a" id="min-a">$0.00</span></div>
+          <div class="field" style="margin-top:0.65rem;margin-bottom:0.4rem">
+            <label for="pay-a">Payment this month</label>
+            <input type="number" id="pay-a" min="0" step="0.01" />
+          </div>
+          <div class="btn-row">
+            <button type="button" class="small" data-pay-min="a">Pay min</button>
+            <button type="button" class="small good" data-pay-full="a">Pay remaining</button>
+          </div>
+          <div class="kv" style="margin-top:0.55rem">
+            <span class="k">Closing A</span><span class="v a" id="close-a">$0.00</span>
+          </div>
+        </div>
+
+        <div class="bridge" aria-label="Interest bridge">
+          <div class="hud-label">Interest bridge</div>
+          <div class="metric accent" id="bridge-interest">$0.00</div>
+          <div class="hud-label">Min due</div>
+          <div class="metric" style="font-size:1.05rem" id="bridge-min">$0.00</div>
+          <div class="chip" style="justify-content:center">Int T <span id="bridge-int-t">$0.00</span></div>
+          <div class="btn-row" style="justify-content:center">
+            <button type="button" id="btn-pay-both-min" class="small">Both min</button>
+            <button type="button" id="btn-pay-both-full" class="small good">Pay off</button>
+          </div>
+        </div>
+
+        <div class="borrower-col t-side">
+          <div class="hud-label">Borrower <span class="tag t" id="tag-t">T</span></div>
+          <div class="metric t" id="open-t">$0.00</div>
+          <div class="muted mono" style="font-size:0.78rem;margin:0.25rem 0 0.65rem;color:var(--muted)">
+            Share <span id="share-t">—</span>
+          </div>
+          <div class="kv"><span class="k">Interest T</span><span class="v t" id="int-t">$0.00</span></div>
+          <div class="kv"><span class="k">After interest</span><span class="v t" id="after-t">$0.00</span></div>
+          <div class="kv"><span class="k">Min share T</span><span class="v t" id="min-t">$0.00</span></div>
+          <div class="field" style="margin-top:0.65rem;margin-bottom:0.4rem">
+            <label for="pay-t">Payment this month</label>
+            <input type="number" id="pay-t" min="0" step="0.01" />
+          </div>
+          <div class="btn-row">
+            <button type="button" class="small" data-pay-min="t">Pay min</button>
+            <button type="button" class="small good" data-pay-full="t">Pay remaining</button>
+          </div>
+          <div class="kv" style="margin-top:0.55rem">
+            <span class="k">Closing T</span><span class="v t" id="close-t">$0.00</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button type="button" id="btn-apply-month" class="primary">Apply month → ledger</button>
+        <button type="button" id="btn-undo" class="ghost">Undo last month</button>
+        <button type="button" id="btn-export" class="ghost">Export CSV</button>
+      </div>
+      <div class="warn-box" id="month-warn"></div>
+
+      <!-- Ledger -->
+      <section class="panel" style="margin-top:0.9rem;margin-bottom:0" aria-label="Payment ledger">
+        <div class="hud-label">Payment ledger</div>
+        <div class="ledger-wrap" style="margin-top:0.5rem">
+          <table class="ledger">
+            <thead>
+              <tr>
+                <th>Month</th>
+                <th>Open A</th>
+                <th>Open T</th>
+                <th>Interest</th>
+                <th>Int A</th>
+                <th>Int T</th>
+                <th>Min</th>
+                <th>Min A</th>
+                <th>Min T</th>
+                <th>Pay A</th>
+                <th>Pay T</th>
+                <th>Close A</th>
+                <th>Close T</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody id="ledger-body">
+              <tr><td colspan="14" class="empty">No months applied yet. Enter the statement snapshot and click Apply month.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+
+    <!-- Setup -->
+    <section class="panel" style="margin-top:0.9rem">
+      <details class="setup" id="setup-details" open>
+        <summary>Setup — balance transfers (seed)</summary>
+        <table class="bt-table" id="bt-table">
+          <thead>
+            <tr>
+              <th>Transfer</th>
+              <th>Borrower</th>
+              <th>Amount</th>
+            </tr>
+          </thead>
+          <tbody id="bt-body"></tbody>
+          <tfoot>
+            <tr>
+              <td colspan="2"><strong>Seed totals</strong></td>
+              <td id="bt-totals">—</td>
+            </tr>
+          </tfoot>
+        </table>
+        <div class="field-row">
+          <div class="field">
+            <label for="label-a">Borrower A label</label>
+            <input type="text" id="label-a" value="A" maxlength="24" />
+          </div>
+          <div class="field">
+            <label for="label-t">Borrower T label</label>
+            <input type="text" id="label-t" value="T" maxlength="24" />
+          </div>
+        </div>
+        <div class="btn-row">
+          <button type="button" id="btn-apply-seed" class="primary">Apply seed balances</button>
+          <button type="button" id="btn-reset-all" class="danger">Reset everything</button>
+        </div>
+        <div class="warn-box info show" style="margin-top:0.75rem">
+          Month 1 defaults use the July 2026 statement: interest <strong>$83.66</strong>, min due <strong>$389.00</strong>.
+          After you apply a month, setup locks so history stays consistent — reset to re-seed.
+        </div>
+      </details>
+    </section>
+  </div>
+
+  <footer>
+    Indigo Split · data stays in each browser (localStorage) · promo 3.99% through 07/09/2027 ·
+    <a href="mockups/05-indigo-split.html">mock reference</a>
+  </footer>
+
+  <script>
+    (function () {
+      "use strict";
+
+      const STORAGE_KEY = "cc-split-calculator-v1";
+      const PROMO_APR = 0.0399;
+
+      const DEFAULT_BTS = [
+        { id: "wf", name: "Wells Fargo", amount: 3833.12, borrower: "T" },
+        { id: "disc", name: "Discover", amount: 7380.0, borrower: "T" },
+        { id: "chase", name: "Chase Card S", amount: 19384.47, borrower: "A" },
+      ];
+
+      const DEFAULT_MONTH1 = {
+        label: "Jul 2026 (stmt 07/09)",
+        dueDate: "2026-08-06",
+        interest: 83.66,
+        minPayment: 389.0,
+      };
+
+      let state;
+
+      function round2(n) {
+        return Math.round((Number(n) + Number.EPSILON) * 100) / 100;
+      }
+
+      function money(n) {
+        const v = round2(n);
+        return v.toLocaleString("en-US", {
+          style: "currency",
+          currency: "USD",
+          minimumFractionDigits: 2,
+        });
+      }
+
+      function parseMoney(el) {
+        const v = parseFloat(el.value);
+        return Number.isFinite(v) ? v : 0;
+      }
+
+      function splitProportional(total, weightA, weightT) {
+        const t = round2(total);
+        const wA = Math.max(0, weightA);
+        const wT = Math.max(0, weightT);
+        const sum = wA + wT;
+        if (sum <= 0 || t === 0) {
+          return { a: 0, t: 0, shareA: 0, shareT: 0 };
+        }
+        const shareA = wA / sum;
+        const shareT = wT / sum;
+        let partA = round2(t * shareA);
+        let partT = round2(t - partA);
+        if (round2(partA + partT) !== t) {
+          partT = round2(t - partA);
+        }
+        return { a: partA, t: partT, shareA, shareT };
+      }
+
+      function seedBalancesFromBts(bts) {
+        let a = 0;
+        let t = 0;
+        for (const row of bts) {
+          const amt = round2(row.amount);
+          if (row.borrower === "A") a = round2(a + amt);
+          else t = round2(t + amt);
+        }
+        return { openA: a, openT: t };
+      }
+
+      function currentOpen() {
+        if (state.history.length === 0) {
+          return { a: state.openA, t: state.openT };
+        }
+        const last = state.history[state.history.length - 1];
+        return { a: last.closeA, t: last.closeT };
+      }
+
+      function computeMonth(openA, openT, interestTotal, minTotal, payA, payT) {
+        const intSplit = splitProportional(interestTotal, openA, openT);
+        const afterA = round2(openA + intSplit.a);
+        const afterT = round2(openT + intSplit.t);
+        const minSplit = splitProportional(minTotal, afterA, afterT);
+        const pA = round2(Math.max(0, payA));
+        const pT = round2(Math.max(0, payT));
+        const closeA = round2(Math.max(0, afterA - pA));
+        const closeT = round2(Math.max(0, afterT - pT));
+        return {
+          openA: round2(openA),
+          openT: round2(openT),
+          interest: round2(interestTotal),
+          intA: intSplit.a,
+          intT: intSplit.t,
+          shareA: intSplit.shareA,
+          shareT: intSplit.shareT,
+          afterA,
+          afterT,
+          minTotal: round2(minTotal),
+          minA: minSplit.a,
+          minT: minSplit.t,
+          payA: pA,
+          payT: pT,
+          closeA,
+          closeT,
+          closeTotal: round2(closeA + closeT),
+        };
+      }
+
+      function defaultState() {
+        const bts = DEFAULT_BTS.map((r) => ({ ...r }));
+        const { openA, openT } = seedBalancesFromBts(bts);
+        return {
+          labels: { A: "A", T: "T" },
+          bts,
+          openA,
+          openT,
+          seedApplied: true,
+          history: [],
+          draft: {
+            label: DEFAULT_MONTH1.label,
+            dueDate: DEFAULT_MONTH1.dueDate,
+            interest: DEFAULT_MONTH1.interest,
+            minPayment: DEFAULT_MONTH1.minPayment,
+            payA: null,
+            payT: null,
+          },
+        };
+      }
+
+      function save() {
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+        } catch (_) { /* ignore quota */ }
+      }
+
+      function load() {
+        try {
+          const raw = localStorage.getItem(STORAGE_KEY);
+          if (!raw) return defaultState();
+          const parsed = JSON.parse(raw);
+          if (!parsed || !Array.isArray(parsed.history)) return defaultState();
+          return {
+            ...defaultState(),
+            ...parsed,
+            bts: Array.isArray(parsed.bts) ? parsed.bts : DEFAULT_BTS.map((r) => ({ ...r })),
+            labels: parsed.labels || { A: "A", T: "T" },
+            draft: { ...defaultState().draft, ...(parsed.draft || {}) },
+          };
+        } catch (_) {
+          return defaultState();
+        }
+      }
+
+      const $ = (id) => document.getElementById(id);
+
+      function renderBtTable() {
+        const body = $("bt-body");
+        body.innerHTML = "";
+        const locked = state.history.length > 0;
+        for (const row of state.bts) {
+          const tr = document.createElement("tr");
+          tr.innerHTML = `
+            <td>${escapeHtml(row.name)}</td>
+            <td></td>
+            <td></td>
+          `;
+          const sel = document.createElement("select");
+          sel.disabled = locked;
+          sel.innerHTML = `<option value="A">${escapeHtml(state.labels.A)}</option><option value="T">${escapeHtml(state.labels.T)}</option>`;
+          sel.value = row.borrower;
+          sel.addEventListener("change", () => {
+            row.borrower = sel.value;
+            if (!locked) applySeed(false);
+            else save();
+            renderAll();
+          });
+          tr.children[1].appendChild(sel);
+
+          const inp = document.createElement("input");
+          inp.type = "number";
+          inp.min = "0";
+          inp.step = "0.01";
+          inp.value = row.amount.toFixed(2);
+          inp.disabled = locked;
+          inp.addEventListener("change", () => {
+            row.amount = round2(parseFloat(inp.value) || 0);
+            if (!locked) applySeed(false);
+            else save();
+            renderAll();
+          });
+          tr.children[2].appendChild(inp);
+          body.appendChild(tr);
+        }
+
+        const { openA, openT } = seedBalancesFromBts(state.bts);
+        $("bt-totals").textContent =
+          `A ${money(openA)} · T ${money(openT)} · Σ ${money(openA + openT)}`;
+        $("hdr-seed-total").textContent = money(openA + openT);
+      }
+
+      function escapeHtml(s) {
+        return String(s)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;");
+      }
+
+      function applySeed(showFlash) {
+        const { openA, openT } = seedBalancesFromBts(state.bts);
+        state.openA = openA;
+        state.openT = openT;
+        state.seedApplied = true;
+        if (state.history.length === 0) {
+          state.draft = {
+            label: DEFAULT_MONTH1.label,
+            dueDate: DEFAULT_MONTH1.dueDate,
+            interest: DEFAULT_MONTH1.interest,
+            minPayment: DEFAULT_MONTH1.minPayment,
+            payA: null,
+            payT: null,
+          };
+        }
+        save();
+        if (showFlash) {
+          setWarn("info", "Seed balances applied. Enter statement interest & min, then payments.");
+        }
+      }
+
+      function readDraftFromForm() {
+        state.draft.label = $("month-label").value.trim() || `Month ${state.history.length + 1}`;
+        state.draft.dueDate = $("due-date").value || "";
+        state.draft.interest = parseMoney($("interest-total"));
+        state.draft.minPayment = parseMoney($("min-total"));
+        state.draft.payA = $("pay-a").value === "" ? null : parseMoney($("pay-a"));
+        state.draft.payT = $("pay-t").value === "" ? null : parseMoney($("pay-t"));
+        state.labels.A = $("label-a").value.trim() || "A";
+        state.labels.T = $("label-t").value.trim() || "T";
+      }
+
+      function writeDraftToForm() {
+        $("month-label").value = state.draft.label || "";
+        $("due-date").value = state.draft.dueDate || "";
+        $("interest-total").value =
+          state.draft.interest != null ? Number(state.draft.interest).toFixed(2) : "";
+        $("min-total").value =
+          state.draft.minPayment != null ? Number(state.draft.minPayment).toFixed(2) : "";
+        $("label-a").value = state.labels.A;
+        $("label-t").value = state.labels.T;
+      }
+
+      function livePreview() {
+        const open = currentOpen();
+        const interest = parseMoney($("interest-total"));
+        const minTotal = parseMoney($("min-total"));
+        let payA = $("pay-a").value === "" ? null : parseMoney($("pay-a"));
+        let payT = $("pay-t").value === "" ? null : parseMoney($("pay-t"));
+
+        const partial = computeMonth(open.a, open.t, interest, minTotal, 0, 0);
+
+        if (payA === null) payA = partial.minA;
+        if (payT === null) payT = partial.minT;
+
+        if ($("pay-a").value === "" && document.activeElement !== $("pay-a")) {
+          $("pay-a").placeholder = partial.minA.toFixed(2);
+        }
+        if ($("pay-t").value === "" && document.activeElement !== $("pay-t")) {
+          $("pay-t").placeholder = partial.minT.toFixed(2);
+        }
+
+        const m = computeMonth(open.a, open.t, interest, minTotal, payA, payT);
+
+        $("tag-a").textContent = state.labels.A;
+        $("tag-t").textContent = state.labels.T;
+
+        $("open-a").textContent = money(m.openA);
+        $("open-t").textContent = money(m.openT);
+        $("open-total").textContent =
+          `${money(m.openA)} + ${money(m.openT)} = ${money(m.openA + m.openT)}`;
+
+        $("share-a").textContent = (m.shareA * 100).toFixed(2) + "%";
+        $("share-t").textContent = (m.shareT * 100).toFixed(2) + "%";
+        $("int-a").textContent = money(m.intA);
+        $("int-t").textContent = money(m.intT);
+        $("after-a").textContent = money(m.afterA);
+        $("after-t").textContent = money(m.afterT);
+        $("after-int-total").textContent =
+          `${money(m.afterA)} + ${money(m.afterT)} = ${money(m.afterA + m.afterT)}`;
+        $("min-a").textContent = money(m.minA);
+        $("min-t").textContent = money(m.minT);
+        $("close-a").textContent = money(m.closeA);
+        $("close-t").textContent = money(m.closeT);
+
+        $("bridge-interest").textContent = money(m.interest);
+        $("bridge-min").textContent = money(m.minTotal);
+        $("bridge-int-t").textContent = money(m.intT);
+
+        const est = round2((open.a + open.t) * (PROMO_APR / 12));
+        $("interest-estimate").textContent =
+          `Estimate at 3.99%/12 ≈ ${money(est)} (statement wins)`;
+
+        const actualPayA = $("pay-a").value === "" ? partial.minA : parseMoney($("pay-a"));
+        const actualPayT = $("pay-t").value === "" ? partial.minT : parseMoney($("pay-t"));
+        const totalPay = round2(actualPayA + actualPayT);
+        const msgs = [];
+        let level = "info";
+
+        if (m.openA + m.openT <= 0) {
+          msgs.push("Both balances are zero — card is paid off.");
+          level = "info";
+        } else {
+          if (totalPay + 0.001 < m.minTotal) {
+            msgs.push(
+              `Combined payment ${money(totalPay)} is below card minimum ${money(m.minTotal)}.`
+            );
+            level = "warn";
+          }
+          if (actualPayA + 0.001 < m.minA) {
+            msgs.push(
+              `${state.labels.A} is under their min share (${money(actualPayA)} < ${money(m.minA)}).`
+            );
+            level = "warn";
+          }
+          if (actualPayT + 0.001 < m.minT) {
+            msgs.push(
+              `${state.labels.T} is under their min share (${money(actualPayT)} < ${money(m.minT)}).`
+            );
+            level = "warn";
+          }
+          if (actualPayA > m.afterA + 0.001) {
+            msgs.push(`${state.labels.A} payment exceeds balance after interest; excess ignored on close.`);
+            level = "info";
+          }
+          if (actualPayT > m.afterT + 0.001) {
+            msgs.push(`${state.labels.T} payment exceeds balance after interest; excess ignored on close.`);
+            level = "info";
+          }
+        }
+
+        if (msgs.length) setWarn(level, msgs.join(" "));
+        else clearWarn();
+
+        return m;
+      }
+
+      function setWarn(level, text) {
+        const el = $("month-warn");
+        el.className = "warn-box show " + level;
+        el.textContent = text;
+      }
+
+      function clearWarn() {
+        const el = $("month-warn");
+        el.className = "warn-box";
+        el.textContent = "";
+      }
+
+      function renderSummary() {
+        const open = currentOpen();
+        const total = round2(open.a + open.t);
+        const shareA = total > 0 ? open.a / total : 0;
+        const shareT = total > 0 ? open.t / total : 0;
+
+        let paidA = 0;
+        let paidT = 0;
+        let intAll = 0;
+        let intA = 0;
+        let intT = 0;
+        for (const row of state.history) {
+          paidA = round2(paidA + row.payA);
+          paidT = round2(paidT + row.payT);
+          intAll = round2(intAll + row.interest);
+          intA = round2(intA + row.intA);
+          intT = round2(intT + row.intT);
+        }
+
+        $("sum-bal-a").textContent = money(open.a);
+        $("sum-bal-t").textContent = money(open.t);
+        $("sum-share-a").textContent = `Share ${(shareA * 100).toFixed(2)}% · interest so far ${money(intA)}`;
+        $("sum-share-t").textContent = `Share ${(shareT * 100).toFixed(2)}% · interest so far ${money(intT)}`;
+        $("sum-total").textContent = money(total);
+        $("sum-interest-all").textContent = money(intAll);
+        $("sum-paid").textContent = money(paidA + paidT);
+        $("sum-paid-split").textContent =
+          `${state.labels.A} ${money(paidA)} · ${state.labels.T} ${money(paidT)}`;
+        $("hdr-months").textContent = String(state.history.length);
+      }
+
+      function renderLedger() {
+        const body = $("ledger-body");
+        if (state.history.length === 0) {
+          body.innerHTML =
+            '<tr><td colspan="14" class="empty">No months applied yet. Enter the statement snapshot and click Apply month.</td></tr>';
+          return;
+        }
+        body.innerHTML = "";
+        for (const row of state.history) {
+          const tr = document.createElement("tr");
+          tr.innerHTML = [
+            escapeHtml(row.label),
+            money(row.openA),
+            money(row.openT),
+            money(row.interest),
+            money(row.intA),
+            money(row.intT),
+            money(row.minTotal),
+            money(row.minA),
+            money(row.minT),
+            money(row.payA),
+            money(row.payT),
+            money(row.closeA),
+            money(row.closeT),
+            money(row.closeTotal),
+          ]
+            .map((c) => `<td>${c}</td>`)
+            .join("");
+          body.appendChild(tr);
+        }
+      }
+
+      function renderAll() {
+        $("label-a").disabled = state.history.length > 0;
+        $("label-t").disabled = state.history.length > 0;
+        if (state.history.length > 0) {
+          $("setup-details").open = false;
+        }
+        renderBtTable();
+        writeDraftToForm();
+        if (state.draft.payA != null) $("pay-a").value = Number(state.draft.payA).toFixed(2);
+        else $("pay-a").value = "";
+        if (state.draft.payT != null) $("pay-t").value = Number(state.draft.payT).toFixed(2);
+        else $("pay-t").value = "";
+        renderSummary();
+        renderLedger();
+        livePreview();
+      }
+
+      function applyMonth() {
+        readDraftFromForm();
+        const open = currentOpen();
+        const interest = state.draft.interest;
+        const minTotal = state.draft.minPayment;
+
+        const base = computeMonth(open.a, open.t, interest, minTotal, 0, 0);
+        const payA =
+          state.draft.payA == null ? base.minA : round2(Math.max(0, state.draft.payA));
+        const payT =
+          state.draft.payT == null ? base.minT : round2(Math.max(0, state.draft.payT));
+
+        const m = computeMonth(open.a, open.t, interest, minTotal, payA, payT);
+        const entry = {
+          label: state.draft.label,
+          dueDate: state.draft.dueDate,
+          ...m,
+        };
+        state.history.push(entry);
+
+        const n = state.history.length + 1;
+        state.draft = {
+          label: `Month ${n}`,
+          dueDate: "",
+          interest: null,
+          minPayment: null,
+          payA: null,
+          payT: null,
+        };
+
+        save();
+        renderAll();
+        $("interest-total").value = "";
+        $("min-total").value = "";
+        $("pay-a").value = "";
+        $("pay-t").value = "";
+        $("month-label").value = state.draft.label;
+        $("due-date").value = "";
+        setWarn(
+          "info",
+          `Applied “${entry.label}”. Closing total ${money(entry.closeTotal)}. Enter next statement’s interest & minimum when you have the snapshot.`
+        );
+        livePreview();
+      }
+
+      function undoLast() {
+        if (state.history.length === 0) {
+          setWarn("warn", "Nothing to undo.");
+          return;
+        }
+        const removed = state.history.pop();
+        state.draft = {
+          label: removed.label,
+          dueDate: removed.dueDate || "",
+          interest: removed.interest,
+          minPayment: removed.minTotal,
+          payA: removed.payA,
+          payT: removed.payT,
+        };
+        save();
+        renderAll();
+        setWarn("info", `Undid “${removed.label}”. Values restored to the form.`);
+      }
+
+      function exportCsv() {
+        if (state.history.length === 0) {
+          setWarn("warn", "No ledger rows to export.");
+          return;
+        }
+        const headers = [
+          "Month", "DueDate", "OpenA", "OpenT", "Interest", "IntA", "IntT",
+          "Min", "MinA", "MinT", "PayA", "PayT", "CloseA", "CloseT", "CloseTotal",
+        ];
+        const lines = [headers.join(",")];
+        for (const r of state.history) {
+          lines.push(
+            [
+              csvEscape(r.label),
+              r.dueDate || "",
+              r.openA, r.openT, r.interest, r.intA, r.intT,
+              r.minTotal, r.minA, r.minT, r.payA, r.payT,
+              r.closeA, r.closeT, r.closeTotal,
+            ].join(",")
+          );
+        }
+        const blob = new Blob([lines.join("\n")], { type: "text/csv;charset=utf-8" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "cc-split-ledger.csv";
+        a.click();
+        URL.revokeObjectURL(url);
+      }
+
+      function csvEscape(s) {
+        const t = String(s ?? "");
+        if (/[",\n]/.test(t)) return `"${t.replace(/"/g, '""')}"`;
+        return t;
+      }
+
+      function setPayMin(who) {
+        const open = currentOpen();
+        const interest = parseMoney($("interest-total"));
+        const minTotal = parseMoney($("min-total"));
+        const m = computeMonth(open.a, open.t, interest, minTotal, 0, 0);
+        if (who === "a") $("pay-a").value = m.minA.toFixed(2);
+        else $("pay-t").value = m.minT.toFixed(2);
+        readDraftFromForm();
+        save();
+        livePreview();
+      }
+
+      function setPayFull(who) {
+        const open = currentOpen();
+        const interest = parseMoney($("interest-total"));
+        const minTotal = parseMoney($("min-total"));
+        const m = computeMonth(open.a, open.t, interest, minTotal, 0, 0);
+        if (who === "a") $("pay-a").value = m.afterA.toFixed(2);
+        else $("pay-t").value = m.afterT.toFixed(2);
+        readDraftFromForm();
+        save();
+        livePreview();
+      }
+
+      function bind() {
+        $("btn-apply-seed").addEventListener("click", () => {
+          if (state.history.length > 0) {
+            setWarn("warn", "Clear history first (Reset) to re-seed balances.");
+            return;
+          }
+          applySeed(true);
+          renderAll();
+        });
+
+        $("btn-reset-all").addEventListener("click", () => {
+          if (!confirm("Reset all history and restore default balance transfers?")) return;
+          state = defaultState();
+          save();
+          renderAll();
+          setWarn("info", "Reset complete. Month 1 statement defaults loaded.");
+        });
+
+        $("btn-apply-month").addEventListener("click", () => {
+          readDraftFromForm();
+          if (state.draft.interest == null || $("interest-total").value === "") {
+            setWarn("bad", "Enter Interest charged from this month’s statement.");
+            $("interest-total").focus();
+            return;
+          }
+          if (state.draft.minPayment == null || $("min-total").value === "") {
+            setWarn("bad", "Enter Total minimum payment due from this month’s statement.");
+            $("min-total").focus();
+            return;
+          }
+          applyMonth();
+        });
+
+        $("btn-undo").addEventListener("click", undoLast);
+        $("btn-export").addEventListener("click", exportCsv);
+
+        $("btn-pay-both-min").addEventListener("click", () => {
+          setPayMin("a");
+          setPayMin("t");
+        });
+        $("btn-pay-both-full").addEventListener("click", () => {
+          setPayFull("a");
+          setPayFull("t");
+        });
+
+        document.querySelectorAll("[data-pay-min]").forEach((btn) => {
+          btn.addEventListener("click", () => setPayMin(btn.getAttribute("data-pay-min")));
+        });
+        document.querySelectorAll("[data-pay-full]").forEach((btn) => {
+          btn.addEventListener("click", () => setPayFull(btn.getAttribute("data-pay-full")));
+        });
+
+        ["interest-total", "min-total", "pay-a", "pay-t", "month-label", "due-date"].forEach(
+          (id) => {
+            $(id).addEventListener("input", () => {
+              readDraftFromForm();
+              save();
+              livePreview();
+            });
+          }
+        );
+
+        ["label-a", "label-t"].forEach((id) => {
+          $(id).addEventListener("change", () => {
+            readDraftFromForm();
+            save();
+            renderAll();
+          });
+        });
+      }
+
+      window.CCSplit = {
+        computeMonth,
+        splitProportional,
+        seedBalancesFromBts,
+        round2,
+        getState: () => state,
+      };
+
+      state = load();
+      bind();
+      renderAll();
+    })();
+  </script>
+</body>
+</html>

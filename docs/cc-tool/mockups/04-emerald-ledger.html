@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Emerald Ledger · CC Split HUD Mock</title>
+  <meta name="robots" content="noindex" />
+  <style>
+
+:root {
+  --accent: #34d399;
+  --accent2: #6ee7b7;
+  --bg: #061410;
+  --surface: rgba(8, 28, 22, 0.88);
+  --surface2: #0a1f18;
+  --text: #ecfdf5;
+  --muted: #6ee7b7;
+  --border: rgba(52, 211, 153, 0.28);
+  --glow: rgba(52, 211, 153, 0.12);
+  --a: #6ee7b7;
+  --t: #5eead4;
+  --status: #4ade80;
+  --warn: #fbbf24;
+  --display: "Segoe UI", system-ui, sans-serif;
+  --mono: "Cascadia Code", Consolas, ui-monospace, monospace;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: var(--display);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.45;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.mono { font-family: var(--mono); }
+.muted { color: var(--muted); }
+.hud-label {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+}
+.chip {
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.05em;
+  padding: 0.28rem 0.6rem; border: 1px solid var(--border);
+  border-radius: 999px; color: var(--muted); background: var(--surface2);
+}
+.status-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--status); box-shadow: 0 0 8px var(--status);
+  display: inline-block;
+}
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  position: relative;
+}
+.metric {
+  font-family: var(--mono);
+  font-size: 1.35rem;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+.metric.a { color: var(--a); }
+.metric.t { color: var(--t); }
+.metric.accent { color: var(--accent); }
+.kv { display: flex; justify-content: space-between; gap: 0.75rem; padding: 0.28rem 0; font-size: 0.88rem; }
+.kv .k { color: var(--muted); }
+.kv .v { font-family: var(--mono); font-weight: 600; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.35rem;
+  padding: 0.5rem 0.85rem; border-radius: 8px; border: 1px solid var(--border);
+  background: var(--surface2); color: var(--text); font-weight: 600; font-size: 0.82rem;
+  cursor: default; font-family: var(--display);
+}
+.btn-primary { background: var(--accent); color: #061018; border-color: var(--accent); }
+.btn-ghost { background: transparent; }
+.btn-row { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 0.65rem; }
+table.ledger {
+  width: 100%; border-collapse: collapse; font-size: 0.78rem; font-family: var(--mono);
+}
+table.ledger th, table.ledger td {
+  padding: 0.4rem 0.45rem; border-bottom: 1px solid var(--border); text-align: right; white-space: nowrap;
+}
+table.ledger th {
+  color: var(--muted); font-family: var(--display); font-size: 0.68rem;
+  text-transform: uppercase; letter-spacing: 0.06em; text-align: right;
+}
+table.ledger th:first-child, table.ledger td:first-child { text-align: left; font-family: var(--display); }
+.tag-a { color: var(--a); }
+.tag-t { color: var(--t); }
+.back {
+  font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--muted);
+}
+.mock-banner {
+  font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--warn); border: 1px dashed var(--border);
+  padding: 0.35rem 0.65rem; border-radius: 6px; display: inline-block;
+}
+
+
+body {
+  background:
+    linear-gradient(180deg, rgba(52,211,153,0.06), transparent 28%),
+    var(--bg);
+}
+.shell {
+  max-width: 1200px; margin: 0 auto; padding: 1rem 1rem 2.5rem;
+  display: grid; grid-template-columns: 240px 1fr; gap: 0.9rem;
+}
+.rail {
+  position: sticky; top: 0.75rem; align-self: start;
+  padding: 0.95rem; border-radius: 10px;
+  background: var(--surface2); border: 1px solid var(--border);
+}
+.rail .metric { font-size: 1.15rem; margin: 0.15rem 0 0.65rem; }
+.main-col { min-width: 0; }
+.panel { padding: 0.9rem 1rem; border-radius: 10px; margin-bottom: 0.85rem; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+@media (max-width: 900px) {
+  .shell { grid-template-columns: 1fr; }
+  .rail { position: static; }
+  .grid-2 { grid-template-columns: 1fr; }
+}
+
+  </style>
+</head>
+<body data-mock-id="emerald-ledger" data-mock-name="Emerald Ledger" data-layout="ledger" data-chrome="rail">
+
+<div class="shell">
+  <aside class="rail region-summary" data-region="summary">
+    <a class="back" href="index.html">← Gallery</a>
+    <div class="hud-label" style="margin-top:0.75rem">Emerald Ledger</div>
+    <p class="muted" style="font-size:0.8rem;margin:0.35rem 0 0.85rem">Finance HUD · side rail metrics · ledger as primary surface</p>
+    <span class="mock-banner">HUD mock</span>
+    <div style="margin-top:1rem" class="hud-label">Borrower A</div>
+    <div class="metric a" data-field="balance-a">$19,384.47</div>
+    <div class="muted mono" style="font-size:0.72rem;margin-bottom:0.75rem">63.35%</div>
+    <div class="hud-label">Borrower T</div>
+    <div class="metric t" data-field="balance-t">$11,213.12</div>
+    <div class="muted mono" style="font-size:0.72rem;margin-bottom:0.75rem">36.65%</div>
+    <div class="hud-label">Card total</div>
+    <div class="metric accent" data-field="balance-total">$30,597.59</div>
+    <div style="margin-top:0.85rem;display:flex;flex-direction:column;gap:0.35rem">
+      <span class="chip"><span class="status-dot"></span> PROMO 3.99%</span>
+      <span class="chip">ENDS 07/09/2027</span>
+    </div>
+  </aside>
+  <div class="main-col">
+    <div class="grid-2">
+      
+<section class="region-interest panel" data-region="interest-min" aria-label="Interest and minimum split">
+  <div class="hud-label">Statement snapshot · interest &amp; min</div>
+  <div class="kv"><span class="k">Month</span><span class="v">Jul 2026 (stmt 07/09)</span></div>
+  <div class="kv"><span class="k">Payment due</span><span class="v">08/06/2026</span></div>
+  <div class="kv"><span class="k">Interest charged</span><span class="v accent mono" data-field="interest-total">$83.66</span></div>
+  <div class="kv"><span class="k">Interest A</span><span class="v tag-a" data-field="interest-a">$53.00</span></div>
+  <div class="kv"><span class="k">Interest T</span><span class="v tag-t" data-field="interest-t">$30.66</span></div>
+  <div class="kv"><span class="k">After interest</span><span class="v" data-field="after-total">$30,681.25</span></div>
+  <div class="kv"><span class="k">Min payment due</span><span class="v" data-field="min-total">$389.00</span></div>
+  <div class="kv"><span class="k">Min share A</span><span class="v tag-a" data-field="min-a">$246.44</span></div>
+  <div class="kv"><span class="k">Min share T</span><span class="v tag-t" data-field="min-t">$142.56</span></div>
+</section>
+
+      
+<section class="region-payment panel" data-region="payment" aria-label="Payment actions">
+  <div class="hud-label">Payments this cycle</div>
+  <div class="kv"><span class="k">Pay A (min or more)</span><span class="v tag-a" data-field="pay-a">$246.44</span></div>
+  <div class="kv"><span class="k">Pay T (min or more)</span><span class="v tag-t" data-field="pay-t">$142.56</span></div>
+  <div class="kv"><span class="k">Closing A</span><span class="v tag-a" data-field="close-a">$19,191.03</span></div>
+  <div class="kv"><span class="k">Closing T</span><span class="v tag-t" data-field="close-t">$11,101.22</span></div>
+  <div class="kv"><span class="k">Closing total</span><span class="v" data-field="close-total">$30,292.25</span></div>
+  <div class="btn-row" data-region="payment-actions">
+    <span class="btn">Pay min A</span>
+    <span class="btn">Pay min T</span>
+    <span class="btn btn-primary">Both pay min</span>
+    <span class="btn btn-ghost">Both pay remaining</span>
+    <span class="btn btn-primary">Apply month → ledger</span>
+  </div>
+</section>
+
+    </div>
+    
+<section class="region-ledger panel" data-region="ledger" aria-label="Payment ledger">
+  <div class="hud-label">Payment ledger</div>
+  <div style="overflow-x:auto">
+    <table class="ledger">
+      <thead>
+        <tr>
+          <th>Month</th><th>Open A</th><th>Open T</th><th>Interest</th>
+          <th>Int A</th><th>Int T</th><th>Min</th><th>Pay A</th><th>Pay T</th>
+          <th>Close A</th><th>Close T</th><th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Jul 2026 (stmt 07/09)</td>
+          <td>$19,384.47</td>
+          <td>$11,213.12</td>
+          <td data-field="ledger-interest">$83.66</td>
+          <td>$53.00</td>
+          <td>$30.66</td>
+          <td>$389.00</td>
+          <td>$246.44</td>
+          <td>$142.56</td>
+          <td>$19,191.03</td>
+          <td>$11,101.22</td>
+          <td>$30,292.25</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+  </div>
+</div>
+
+  <footer style="text-align:center;padding:0.5rem 1rem 1.5rem;color:var(--muted);font-size:0.75rem;font-family:var(--mono)">
+    CC-tool HUD mock · Emerald Ledger · sample Jul 2026 statement · not production calculator ·
+    <a href="index.html">gallery</a> · <a href="../index.html">live tool</a>
+  </footer>
+  <!-- plain script only; file:// safe, no ES modules -->
+  <script>
+    (function () {
+      document.documentElement.setAttribute("data-hud-ready", "1");
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Indigo Split · CC Split HUD Mock</title>
+  <meta name="robots" content="noindex" />
+  <style>
+
+:root {
+  --accent: #818cf8;
+  --accent2: #a5b4fc;
+  --bg: #0a0c18;
+  --surface: rgba(18, 22, 42, 0.88);
+  --surface2: #12162a;
+  --text: #eef2ff;
+  --muted: #a5b4fc;
+  --border: rgba(129, 140, 248, 0.3);
+  --glow: rgba(129, 140, 248, 0.14);
+  --a: #93c5fd;
+  --t: #a5b4fc;
+  --status: #60a5fa;
+  --warn: #fbbf24;
+  --display: "Segoe UI", system-ui, sans-serif;
+  --mono: "Cascadia Code", Consolas, ui-monospace, monospace;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: var(--display);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.45;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.mono { font-family: var(--mono); }
+.muted { color: var(--muted); }
+.hud-label {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+}
+.chip {
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.05em;
+  padding: 0.28rem 0.6rem; border: 1px solid var(--border);
+  border-radius: 999px; color: var(--muted); background: var(--surface2);
+}
+.status-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--status); box-shadow: 0 0 8px var(--status);
+  display: inline-block;
+}
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  position: relative;
+}
+.metric {
+  font-family: var(--mono);
+  font-size: 1.35rem;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+.metric.a { color: var(--a); }
+.metric.t { color: var(--t); }
+.metric.accent { color: var(--accent); }
+.kv { display: flex; justify-content: space-between; gap: 0.75rem; padding: 0.28rem 0; font-size: 0.88rem; }
+.kv .k { color: var(--muted); }
+.kv .v { font-family: var(--mono); font-weight: 600; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.35rem;
+  padding: 0.5rem 0.85rem; border-radius: 8px; border: 1px solid var(--border);
+  background: var(--surface2); color: var(--text); font-weight: 600; font-size: 0.82rem;
+  cursor: default; font-family: var(--display);
+}
+.btn-primary { background: var(--accent); color: #061018; border-color: var(--accent); }
+.btn-ghost { background: transparent; }
+.btn-row { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 0.65rem; }
+table.ledger {
+  width: 100%; border-collapse: collapse; font-size: 0.78rem; font-family: var(--mono);
+}
+table.ledger th, table.ledger td {
+  padding: 0.4rem 0.45rem; border-bottom: 1px solid var(--border); text-align: right; white-space: nowrap;
+}
+table.ledger th {
+  color: var(--muted); font-family: var(--display); font-size: 0.68rem;
+  text-transform: uppercase; letter-spacing: 0.06em; text-align: right;
+}
+table.ledger th:first-child, table.ledger td:first-child { text-align: left; font-family: var(--display); }
+.tag-a { color: var(--a); }
+.tag-t { color: var(--t); }
+.back {
+  font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--muted);
+}
+.mock-banner {
+  font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--warn); border: 1px dashed var(--border);
+  padding: 0.35rem 0.65rem; border-radius: 6px; display: inline-block;
+}
+
+
+body {
+  background:
+    radial-gradient(ellipse at 50% 0%, var(--glow), transparent 50%),
+    var(--bg);
+  border: 0;
+}
+.shell {
+  max-width: 1200px; margin: 0 auto; padding: 1rem 1rem 2.5rem;
+}
+.frame {
+  border: 1px solid var(--border);
+  box-shadow: inset 0 0 0 1px rgba(129,140,248,0.08);
+  border-radius: 12px; padding: 0.85rem;
+  background: linear-gradient(180deg, rgba(18,22,42,0.5), transparent);
+}
+.split {
+  display: grid; grid-template-columns: 1fr 160px 1fr; gap: 0.75rem; margin: 0.85rem 0;
+}
+.borrower-col {
+  padding: 1rem; border-radius: 10px; border: 1px solid var(--border);
+  background: var(--surface);
+  min-height: 280px;
+}
+.borrower-col.a-side { border-color: color-mix(in srgb, var(--a) 45%, transparent); }
+.borrower-col.t-side { border-color: color-mix(in srgb, var(--t) 45%, transparent); }
+.bridge {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 0.65rem; text-align: center; padding: 0.5rem;
+  border-radius: 10px; border: 1px dashed var(--border); background: var(--surface2);
+}
+.panel { padding: 0.9rem 1rem; border-radius: 10px; }
+@media (max-width: 900px) {
+  .split { grid-template-columns: 1fr; }
+  .bridge { flex-direction: row; flex-wrap: wrap; }
+}
+
+  </style>
+</head>
+<body data-mock-id="indigo-split" data-mock-name="Indigo Split" data-layout="split" data-chrome="frame">
+
+<div class="shell">
+  
+  <div class="top-meta" style="display:flex;flex-wrap:wrap;gap:0.65rem;align-items:center;justify-content:space-between;margin-bottom:0.85rem">
+    <div>
+      <a class="back" href="index.html">← Gallery</a>
+      <h1 style="margin:0.35rem 0 0.2rem;font-size:1.35rem;letter-spacing:-0.02em">Indigo Split</h1>
+      <p class="muted" style="margin:0;font-size:0.9rem">Full dual-column A | T · center interest bridge · indigo frame</p>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:0.45rem;align-items:center">
+      <span class="mock-banner">HUD mock · pick or mix</span>
+      <span class="chip"><span class="status-dot"></span> LIVE PREVIEW</span>
+      <span class="chip">PROMO 3.99%</span>
+      <span class="chip">ENDS 07/09/2027</span>
+    </div>
+  </div>
+
+  <div class="frame">
+    <div class="region-summary" data-region="summary" style="display:flex;flex-wrap:wrap;gap:0.75rem;justify-content:space-between;align-items:center;margin-bottom:0.35rem">
+      <div class="hud-label" style="margin:0">Indigo split · dual borrower frame</div>
+      <div class="chip">Σ <span class="mono" data-field="balance-total">$30,597.59</span></div>
+    </div>
+    <div class="split">
+      <div class="borrower-col a-side">
+        <div class="hud-label">Borrower A</div>
+        <div class="metric a" data-field="balance-a">$19,384.47</div>
+        <div class="muted mono" style="font-size:0.78rem;margin-bottom:0.75rem">Share 63.35%</div>
+        <div class="kv"><span class="k">Interest A</span><span class="v tag-a" data-field="interest-a">$53.00</span></div>
+        <div class="kv"><span class="k">Min A</span><span class="v tag-a" data-field="min-a">$246.44</span></div>
+        <div class="kv"><span class="k">Pay A</span><span class="v tag-a" data-field="pay-a">$246.44</span></div>
+        <div class="kv"><span class="k">Close A</span><span class="v tag-a" data-field="close-a">$19,191.03</span></div>
+        <div class="btn-row"><span class="btn">Pay min A</span><span class="btn btn-ghost">Pay remaining A</span></div>
+      </div>
+      <div class="bridge region-interest" data-region="interest-min">
+        <div class="hud-label">Interest</div>
+        <div class="metric accent" data-field="interest-total">$83.66</div>
+        <div class="hud-label">Min due</div>
+        <div class="metric" style="font-size:1.05rem" data-field="min-total">$389.00</div>
+        <div class="muted mono" style="font-size:0.72rem">After $30,681.25</div>
+        <span class="chip">Int T $30.66</span>
+      </div>
+      <div class="borrower-col t-side region-payment" data-region="payment">
+        <div class="hud-label">Borrower T</div>
+        <div class="metric t" data-field="balance-t">$11,213.12</div>
+        <div class="muted mono" style="font-size:0.78rem;margin-bottom:0.75rem">Share 36.65%</div>
+        <div class="kv"><span class="k">Interest T</span><span class="v tag-t" data-field="interest-t">$30.66</span></div>
+        <div class="kv"><span class="k">Min T</span><span class="v tag-t" data-field="min-t">$142.56</span></div>
+        <div class="kv"><span class="k">Pay T</span><span class="v tag-t" data-field="pay-t">$142.56</span></div>
+        <div class="kv"><span class="k">Close T</span><span class="v tag-t" data-field="close-t">$11,101.22</span></div>
+        <div class="btn-row" data-region="payment-actions">
+          <span class="btn">Pay min T</span>
+          <span class="btn btn-primary">Both pay min</span>
+          <span class="btn btn-ghost">Pay remaining</span>
+        </div>
+      </div>
+    </div>
+    
+<section class="region-ledger panel" data-region="ledger" aria-label="Payment ledger">
+  <div class="hud-label">Payment ledger</div>
+  <div style="overflow-x:auto">
+    <table class="ledger">
+      <thead>
+        <tr>
+          <th>Month</th><th>Open A</th><th>Open T</th><th>Interest</th>
+          <th>Int A</th><th>Int T</th><th>Min</th><th>Pay A</th><th>Pay T</th>
+          <th>Close A</th><th>Close T</th><th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Jul 2026 (stmt 07/09)</td>
+          <td>$19,384.47</td>
+          <td>$11,213.12</td>
+          <td data-field="ledger-interest">$83.66</td>
+          <td>$53.00</td>
+          <td>$30.66</td>
+          <td>$389.00</td>
+          <td>$246.44</td>
+          <td>$142.56</td>
+          <td>$19,191.03</td>
+          <td>$11,101.22</td>
+          <td>$30,292.25</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+  </div>
+</div>
+
+  <footer style="text-align:center;padding:0.5rem 1rem 1.5rem;color:var(--muted);font-size:0.75rem;font-family:var(--mono)">
+    CC-tool HUD mock · Indigo Split · sample Jul 2026 statement · not production calculator ·
+    <a href="index.html">gallery</a> · <a href="../index.html">live tool</a>
+  </footer>
+  <!-- plain script only; file:// safe, no ES modules -->
+  <script>
+    (function () {
+      document.documentElement.setAttribute("data-hud-ready", "1");
+    })();
+  </script>
+</body>
+</html>

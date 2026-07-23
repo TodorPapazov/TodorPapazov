@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CC Split Calculator · HUD Mock Gallery</title>
+  <meta name="robots" content="noindex" />
+  <style>
+    :root {
+      --bg: #0b1020;
+      --card: #121a2e;
+      --text: #e8eefc;
+      --muted: #93a0bd;
+      --line: rgba(148,163,184,0.18);
+      --accent: #60a5fa;
+      --mono: "Cascadia Code", Consolas, ui-monospace, monospace;
+      --display: "Segoe UI", system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: var(--display);
+      background:
+        radial-gradient(ellipse at 20% 0%, rgba(96,165,250,0.12), transparent 45%),
+        radial-gradient(ellipse at 80% 20%, rgba(52,211,153,0.08), transparent 40%),
+        var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+    .wrap { max-width: 72rem; margin: 0 auto; padding: 2.25rem 1.25rem 4rem; }
+    h1 { font-size: clamp(1.7rem, 4vw, 2.4rem); letter-spacing: -0.03em; margin: 0 0 0.5rem; }
+    .lead { color: var(--muted); max-width: 44rem; line-height: 1.65; margin: 0 0 0.35rem; }
+    .mono { font-family: var(--mono); }
+    .hud-label {
+      font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem;
+    }
+    .links { display: flex; flex-wrap: wrap; gap: 0.75rem 1.25rem; margin: 1rem 0 0.25rem; font-size: 0.9rem; }
+    .grid {
+      display: grid; gap: 1rem; margin-top: 1.75rem;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 640px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1024px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    .card {
+      display: flex; flex-direction: column; text-decoration: none; color: inherit;
+      background: var(--card); border: 1px solid var(--line); border-radius: 1rem;
+      overflow: hidden; transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      border-color: color-mix(in srgb, var(--c) 55%, transparent);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.28), 0 0 0 1px color-mix(in srgb, var(--c) 30%, transparent);
+    }
+    .swatch {
+      height: 8.5rem; border-bottom: 1px solid var(--line);
+      display: grid; place-items: center; position: relative;
+    }
+    .swatch-inner {
+      width: 72%; height: 58%; border: 1px solid; border-radius: 0.65rem;
+      display: flex; align-items: flex-start; justify-content: space-between;
+      padding: 0.55rem 0.7rem; position: relative;
+    }
+    .swatch-inner::before {
+      content: ''; position: absolute; top: -1px; left: -1px;
+      width: 10px; height: 10px; border-top: 2px solid currentColor; border-left: 2px solid currentColor;
+    }
+    .swatch-inner::after {
+      content: ''; position: absolute; bottom: -1px; right: -1px;
+      width: 10px; height: 10px; border-bottom: 2px solid currentColor; border-right: 2px solid currentColor;
+    }
+    .card-body { padding: 1rem 1.05rem 1.15rem; }
+    .card-body h2 { margin: 0 0 0.35rem; font-size: 1.1rem; }
+    .card-body p { margin: 0; color: var(--muted); font-size: 0.88rem; line-height: 1.5; }
+    .meta { margin-top: 0.65rem; font-size: 0.72rem; color: var(--muted); letter-spacing: 0.04em; }
+    .note {
+      margin-top: 2rem; padding: 1rem 1.1rem; border-radius: 12px;
+      border: 1px solid var(--line); background: rgba(18,26,46,0.7); color: var(--muted); font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="hud-label">CC-tool · visual directions</div>
+    <h1>CC Split Calculator · HUD mocks</h1>
+    <p class="lead">
+      Five modern medium-density HUD skins for the two-borrower credit card splitter.
+      Open each page, compare chrome and palette, then pick one or mix layout of N + palette of M.
+    </p>
+    <div class="links">
+      <a href="../index.html">← Live calculator</a>
+      <a href="README.md">Mock README</a>
+      <span class="mono muted">file:// safe · no build</span>
+    </div>
+    <div class="grid">
+      
+    <a class="card" href="01-cyan-command.html" style="--c:#22d3ee;--bgc:#071018">
+      <div class="swatch" style="background:
+        radial-gradient(ellipse at 30% 20%, rgba(34, 211, 238, 0.12), transparent 55%),
+        #071018">
+        <div class="swatch-inner" style="color:#22d3ee;border-color:rgba(34, 211, 238, 0.28);background:#0c1c28">
+          <span style="font-family:var(--mono);font-size:0.68rem;letter-spacing:0.12em">CYAN COMMAND</span>
+          <span style="width:8px;height:8px;border-radius:50%;background:#34d399;box-shadow:0 0 8px #34d399"></span>
+        </div>
+      </div>
+      <div class="card-body">
+        <h2>Cyan Command</h2>
+        <p>Mission-control telemetry · corner brackets · dual A/T rails</p>
+        <div class="meta mono">command · brackets</div>
+      </div>
+    </a>
+    <a class="card" href="02-amber-ops.html" style="--c:#f59e0b;--bgc:#14110c">
+      <div class="swatch" style="background:
+        radial-gradient(ellipse at 30% 20%, rgba(245, 158, 11, 0.12), transparent 55%),
+        #14110c">
+        <div class="swatch-inner" style="color:#f59e0b;border-color:rgba(245, 158, 11, 0.3);background:#1c1610">
+          <span style="font-family:var(--mono);font-size:0.68rem;letter-spacing:0.12em">AMBER OPS</span>
+          <span style="width:8px;height:8px;border-radius:50%;background:#fbbf24;box-shadow:0 0 8px #fbbf24"></span>
+        </div>
+      </div>
+      <div class="card-body">
+        <h2>Amber Ops</h2>
+        <p>Ops board strip · dense status chips · ledger-forward table</p>
+        <div class="meta mono">ops · stripes</div>
+      </div>
+    </a>
+    <a class="card" href="03-violet-glass.html" style="--c:#a78bfa;--bgc:#0f0a1a">
+      <div class="swatch" style="background:
+        radial-gradient(ellipse at 30% 20%, rgba(167, 139, 250, 0.16), transparent 55%),
+        #0f0a1a">
+        <div class="swatch-inner" style="color:#a78bfa;border-color:rgba(167, 139, 250, 0.32);background:#1a1230">
+          <span style="font-family:var(--mono);font-size:0.68rem;letter-spacing:0.12em">VIOLET GLASS</span>
+          <span style="width:8px;height:8px;border-radius:50%;background:#c084fc;box-shadow:0 0 8px #c084fc"></span>
+        </div>
+      </div>
+      <div class="card-body">
+        <h2>Violet Glass</h2>
+        <p>Soft glass cards · violet glow · calmer medium density</p>
+        <div class="meta mono">glass · glow</div>
+      </div>
+    </a>
+    <a class="card" href="04-emerald-ledger.html" style="--c:#34d399;--bgc:#061410">
+      <div class="swatch" style="background:
+        radial-gradient(ellipse at 30% 20%, rgba(52, 211, 153, 0.12), transparent 55%),
+        #061410">
+        <div class="swatch-inner" style="color:#34d399;border-color:rgba(52, 211, 153, 0.28);background:#0a1f18">
+          <span style="font-family:var(--mono);font-size:0.68rem;letter-spacing:0.12em">EMERALD LEDGER</span>
+          <span style="width:8px;height:8px;border-radius:50%;background:#4ade80;box-shadow:0 0 8px #4ade80"></span>
+        </div>
+      </div>
+      <div class="card-body">
+        <h2>Emerald Ledger</h2>
+        <p>Finance HUD · side rail metrics · ledger as primary surface</p>
+        <div class="meta mono">ledger · rail</div>
+      </div>
+    </a>
+    <a class="card" href="05-indigo-split.html" style="--c:#818cf8;--bgc:#0a0c18">
+      <div class="swatch" style="background:
+        radial-gradient(ellipse at 30% 20%, rgba(129, 140, 248, 0.14), transparent 55%),
+        #0a0c18">
+        <div class="swatch-inner" style="color:#818cf8;border-color:rgba(129, 140, 248, 0.3);background:#12162a">
+          <span style="font-family:var(--mono);font-size:0.68rem;letter-spacing:0.12em">INDIGO SPLIT</span>
+          <span style="width:8px;height:8px;border-radius:50%;background:#60a5fa;box-shadow:0 0 8px #60a5fa"></span>
+        </div>
+      </div>
+      <div class="card-body">
+        <h2>Indigo Split</h2>
+        <p>Full dual-column A | T · center interest bridge · indigo frame</p>
+        <div class="meta mono">split · frame</div>
+      </div>
+    </a>
+    </div>
+    <div class="note">
+      <strong style="color:var(--text)">Sample data</strong> matches statement defaults:
+      A $19,384.47 · T $11,213.12 · interest $83.66 · min $389.00 · promo 3.99% through 07/09/2027.
+      These pages are <strong style="color:var(--text)">visual mocks only</strong> — payments are not wired.
+      Apply the chosen skin later to <span class="mono">CC-tool/index.html</span>.
+    </div>
+  </div>
+  <script>
+    (function () { document.documentElement.setAttribute("data-hud-gallery", "1"); })();
+  </script>
+</body>
+</html>
