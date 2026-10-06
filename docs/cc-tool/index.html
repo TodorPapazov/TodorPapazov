@@ -649,15 +649,18 @@
           <button type="button" id="btn-reset-all" class="danger">Reset everything</button>
         </div>
         <div class="warn-box info show" style="margin-top:0.75rem">
-          Month 1 defaults use the July 2026 statement: interest <strong>$83.66</strong>, min due <strong>$389.00</strong>.
-          After you apply a month, setup locks so history stays consistent — reset to re-seed.
+          Jul–Sep 2026 are already in the ledger.
+          Aug: T paid <strong>$400.00</strong> (A $0).
+          Sep: T paid <strong>$200.00</strong>, A paid <strong>$500.00</strong>.
+          The July $402.41 payment cleared the balance from before the transfers and is not in the split.
+          Reset reloads this history. October stays blank until that statement arrives.
         </div>
       </details>
     </section>
   </div>
 
   <footer>
-    Indigo Split · data stays in each browser (localStorage) · promo 3.99% through 07/09/2027 ·
+    Indigo Split skin · local-only · localStorage · promo 3.99% through 07/09/2027 ·
     <a href="mockups/05-indigo-split.html">mock reference</a>
   </footer>
 
@@ -665,7 +668,7 @@
     (function () {
       "use strict";
 
-      const STORAGE_KEY = "cc-split-calculator-v1";
+      const STORAGE_KEY = "cc-split-calculator-v2";
       const PROMO_APR = 0.0399;
 
       const DEFAULT_BTS = [
@@ -674,11 +677,42 @@
         { id: "chase", name: "Chase Card S", amount: 19384.47, borrower: "A" },
       ];
 
-      const DEFAULT_MONTH1 = {
-        label: "Jul 2026 (stmt 07/09)",
-        dueDate: "2026-08-06",
-        interest: 83.66,
-        minPayment: 389.0,
+      // Posted on the statement for that cycle. T paid $400 (Aug) and $200 (Sep);
+      // A paid the rest of each statement's payments ($0 and $500).
+      const STATEMENT_MONTHS = [
+        {
+          label: "Jul 2026 (stmt 07/09)",
+          dueDate: "2026-08-06",
+          interest: 83.66,
+          minPayment: 389.0,
+          payA: 0,
+          payT: 0,
+        },
+        {
+          label: "Aug 2026 (stmt 08/09)",
+          dueDate: "2026-09-06",
+          interest: 104.12,
+          minPayment: 406.0,
+          payA: 0,
+          payT: 400,
+        },
+        {
+          label: "Sep 2026 (stmt 09/09)",
+          dueDate: "2026-10-06",
+          interest: 102.77,
+          minPayment: 399.0,
+          payA: 500,
+          payT: 200,
+        },
+      ];
+
+      const NEXT_DRAFT = {
+        label: "Oct 2026 (next statement)",
+        dueDate: "",
+        interest: null,
+        minPayment: null,
+        payA: null,
+        payT: null,
       };
 
       let state;
@@ -768,6 +802,23 @@
         };
       }
 
+      function buildHistory(openA, openT) {
+        const history = [];
+        let a = openA;
+        let t = openT;
+        for (const row of STATEMENT_MONTHS) {
+          const m = computeMonth(a, t, row.interest, row.minPayment, row.payA, row.payT);
+          history.push({
+            label: row.label,
+            dueDate: row.dueDate,
+            ...m,
+          });
+          a = m.closeA;
+          t = m.closeT;
+        }
+        return history;
+      }
+
       function defaultState() {
         const bts = DEFAULT_BTS.map((r) => ({ ...r }));
         const { openA, openT } = seedBalancesFromBts(bts);
@@ -777,15 +828,8 @@
           openA,
           openT,
           seedApplied: true,
-          history: [],
-          draft: {
-            label: DEFAULT_MONTH1.label,
-            dueDate: DEFAULT_MONTH1.dueDate,
-            interest: DEFAULT_MONTH1.interest,
-            minPayment: DEFAULT_MONTH1.minPayment,
-            payA: null,
-            payT: null,
-          },
+          history: buildHistory(openA, openT),
+          draft: { ...NEXT_DRAFT },
         };
       }
 
@@ -874,13 +918,14 @@
         state.openT = openT;
         state.seedApplied = true;
         if (state.history.length === 0) {
+          const first = STATEMENT_MONTHS[0];
           state.draft = {
-            label: DEFAULT_MONTH1.label,
-            dueDate: DEFAULT_MONTH1.dueDate,
-            interest: DEFAULT_MONTH1.interest,
-            minPayment: DEFAULT_MONTH1.minPayment,
-            payA: null,
-            payT: null,
+            label: first.label,
+            dueDate: first.dueDate,
+            interest: first.interest,
+            minPayment: first.minPayment,
+            payA: first.payA,
+            payT: first.payT,
           };
         }
         save();
@@ -1232,11 +1277,11 @@
         });
 
         $("btn-reset-all").addEventListener("click", () => {
-          if (!confirm("Reset all history and restore default balance transfers?")) return;
+          if (!confirm("Reset the ledger to the Jul–Sep 2026 statements and restore the default balance transfers?")) return;
           state = defaultState();
           save();
           renderAll();
-          setWarn("info", "Reset complete. Month 1 statement defaults loaded.");
+          setWarn("info", "Reset complete. Jul–Sep 2026 statement history reloaded.");
         });
 
         $("btn-apply-month").addEventListener("click", () => {

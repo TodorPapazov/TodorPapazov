@@ -38,7 +38,7 @@ Invoke-Item ".\docs\cc-tool\index.html"
 - **T** starts at **$11,213.12**  
 - Promo APR **3.99%** through **07/09/2027**
 
-You can reassign transfers or edit amounts in **Setup** before any months are applied.
+Jul–Sep 2026 are already in the ledger. Setup stays locked while that history is present. **Reset everything** reloads these three months and the default transfers.
 
 ## Monthly workflow
 
@@ -58,18 +58,29 @@ You can reassign transfers or edit amounts in **Setup** before any months are ap
 
 **Undo last month** restores that month to the form.  
 **Export CSV** downloads the ledger.  
-**Reset everything** clears history and restores default transfers.
+**Reset everything** reloads the Jul–Sep 2026 ledger and the default transfers.
 
-## Month 1 example (July 2026 statement)
+The October form is blank. Enter that statement’s interest and minimum when it arrives, then apply it the same way.
 
-| | A | T | Total |
-|--|--:|--:|--:|
-| Opening | $19,384.47 | $11,213.12 | $30,597.59 |
-| Interest ($83.66) | ~$52.99 | ~$30.67 | $83.66 |
-| After interest | ~$19,437.46 | ~$11,243.79 | **$30,681.25** |
-| Min share of $389 | ~$246.50 | ~$142.50 | $389.00 |
+## Seeded ledger (Jul–Sep 2026)
 
-Statement interest is used as-is (first cycle used average daily balance, so it will not match a simple 3.99%÷12 on the full transfer total).
+Payments are the amounts posted on that statement. Interest is split by opening-balance share. Each closing total matches the statement new balance.
+
+| Month | Interest | Min due | Pay A | Pay T | Close total |
+|--|--:|--:|--:|--:|--:|
+| Jul 2026 (stmt 07/09) | $83.66 | $389.00 | $0.00 | $0.00 | $30,681.25 |
+| Aug 2026 (stmt 08/09) | $104.12 | $406.00 | $0.00 | $400.00 | $30,385.37 |
+| Sep 2026 (stmt 09/09) | $102.77 | $399.00 | $500.00 | $200.00 | $29,788.14 |
+
+**Who paid**
+
+- **August:** the only payment is $400. That is **T**. A paid $0.
+- **September:** $700 posted. T paid $200. A paid the other **$500**.
+- **July:** a $402.41 payment cleared the $402.41 balance that existed before the transfers. It is not part of this split. No payment was made against the transfer balances in that cycle.
+
+After September the balances are **A $19,069.39** and **T $10,718.75**. Paid so far: A $500, T $600. Interest so far: $290.55.
+
+July interest split (opening $19,384.47 / $11,213.12): A $53.00, T $30.66. Statement interest is used as-is. The first cycle used average daily balance, so it will not match a simple 3.99%÷12 on the full transfer total. August and September interest include a few cents of purchase interest ($0.32 and $0.24); that stays in the statement total and is split the same way.
 
 ## How interest is split
 
