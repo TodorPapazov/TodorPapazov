@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>US community diversity</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main>
+  <h1>Do more diverse US counties also show the local conditions in this hypothesis?</h1>
+  <p class="lede">Click a county to zoom in and read that community. The map colors one measure at a time. The panel places the county among counties of a similar size and shows how home values, the mix of who lives there, the foreign-born share, and unemployment have moved. These are published numbers side by side. They do not show that diversity caused an outcome, and they do not rank counties as better or worse places to live.</p>
+  <p class="method">A community is a county in the 50 states or the District of Columbia with at least 50,000 residents in the 2019-2023 American Community Survey. Smaller counties stay on the map in gray. Who lives there is the effective number of racial and ethnic groups. Born outside the United States is the foreign-born percent. The two scores are never averaged. Comparisons use three size bands: 50-150k, 150-500k, and 500k or more. The widest gap between race and ethnicity group counts and the county total is 0.0000. High school graduation is a ninth-grade cohort's four-year completion, not a test score. County highway spending is that government's own direct highway spending. A blank means the source did not publish a figure.</p>
+  <div class="layout">
+    <section class="stage">
+      <div class="toolbar">
+        <label>Color the map
+          <select id="measure"></select>
+        </label>
+        <label>Find a county
+          <input id="finder" type="search" placeholder="County name" list="county-names">
+        </label>
+        <datalist id="county-names"></datalist>
+        <div class="zoom-buttons">
+          <button type="button" id="zoom-us">United States</button>
+          <button type="button" id="zoom-closer">Closer</button>
+          <button type="button" id="zoom-in">Zoom in</button>
+          <button type="button" id="zoom-out">Zoom out</button>
+        </div>
+      </div>
+      <svg id="map" role="img" aria-label="Map of US counties"></svg>
+      <p id="legend" class="legend"></p>
+    </section>
+    <aside id="panel">
+      <h2>County</h2>
+      <p id="panel-empty">Click a county on the map.</p>
+      <div id="panel-body" hidden></div>
+    </aside>
+  </div>
+  <h2>How the hypothesis reads inside population bands</h2>
+  <ul class="findings"><li><strong>Unemployment rate.</strong> Who lives there lines up against the hypothesis (0.469117). Foreign-born percent lines up against the hypothesis (0.284597).</li><li><strong>Average annual payroll per employee.</strong> Who lives there lines up with the hypothesis (0.286721). Foreign-born percent lines up with the hypothesis (0.395135).</li><li><strong>Typical home value.</strong> Who lives there lines up with the hypothesis (0.316696). Foreign-born percent lines up with the hypothesis (0.598429).</li><li><strong>Five-year change in typical home value.</strong> Who lives there lines up with the hypothesis (0.081700). Foreign-born percent lines up with the hypothesis (0.147356).</li><li><strong>High school graduation rate.</strong> Who lives there lines up with the hypothesis (0.098446). Foreign-born percent lines up with the hypothesis (0.238657).</li><li><strong>Violent crime rate.</strong> Who lives there shows no clear direction (not defined). Foreign-born percent shows no clear direction (not defined).</li><li><strong>County highway spending per resident.</strong> Who lives there lines up with the hypothesis (0.321502). Foreign-born percent lines up with the hypothesis (0.315550).</li><li><strong>Entertainment categories with at least one establishment.</strong> Who lives there lines up with the hypothesis (0.190490). Foreign-born percent lines up with the hypothesis (0.321806).</li><li><strong>Costco warehouses per 100,000 residents.</strong> Who lives there shows no clear direction (not defined). Foreign-born percent shows no clear direction (not defined).</li><li><strong>Full-service restaurants per 10,000 residents.</strong> Who lives there lines up with the hypothesis (0.235329). Foreign-born percent lines up with the hypothesis (0.365803).</li><li><strong>Limited-service restaurants per 10,000 residents.</strong> Who lives there lines up with the hypothesis (0.381927). Foreign-born percent lines up with the hypothesis (0.271545).</li><li><strong>Movie theaters per 10,000 residents.</strong> Who lives there lines up with the hypothesis (0.369114). Foreign-born percent lines up with the hypothesis (0.412576).</li><li><strong>Bowling centers per 10,000 residents.</strong> Who lives there lines up with the hypothesis (0.230401). Foreign-born percent lines up with the hypothesis (0.263191).</li><li><strong>Museums per 10,000 residents.</strong> Who lives there lines up with the hypothesis (0.276241). Foreign-born percent lines up with the hypothesis (0.352444).</li><li><strong>Theater companies per 10,000 residents.</strong> Who lives there lines up with the hypothesis (0.379982). Foreign-born percent lines up with the hypothesis (0.430674).</li><li><strong>Fitness centers per 10,000 residents.</strong> Who lives there lines up with the hypothesis (0.312319). Foreign-born percent lines up with the hypothesis (0.408006).</li><li><strong>Drinking places per 10,000 residents.</strong> Who lives there lines up with the hypothesis (0.102929). Foreign-born percent lines up with the hypothesis (0.170949).</li></ul>
+  <p class="method">Home-value charts use the year-end Zillow index. December is the year-end month when that county has a December value. The latest year uses the newest month in the file. The Census charts are the 2017-2021, 2018-2022, and 2019-2023 five-year releases. Neighboring points share four years, so the line is a slow average, not a one-year shock. A missing point stays blank, including Connecticut counties whose codes changed. No crosswalk is filled in.</p>
+</main>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

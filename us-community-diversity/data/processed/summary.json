@@ -1,0 +1,1115 @@
+{
+  "bands": [
+    "50-150k",
+    "150-500k",
+    "500k+"
+  ],
+  "costco": {
+    "published": false,
+    "quartiles": {},
+    "text": "Costco warehouses are blank. OpenStreetMap did not return a usable warehouse list, so the comparison is not published. It is published only when at least 400 US points come back.",
+    "us_points": null
+  },
+  "county_count": 999,
+  "hypotheses": {
+    "foreign_born_pct": {
+      "label": "Born outside the United States",
+      "outcomes": {
+        "bowling_per_10k": {
+          "higher_is_better": true,
+          "label": "Bowling centers per 10,000 residents",
+          "line": "Bowling centers per 10,000 residents: the hypothesis expects a higher value where diversity is higher. Within population bands the Spearman correlation is 0.263191 across 999 counties (lines up with the hypothesis). The overall correlation, before banding, is 0.155704 across 999 counties. This describes the published numbers. It does not show that diversity caused the outcome.",
+          "overall": {
+            "coefficient": "0.155704",
+            "direction": "positive",
+            "n": 999
+          },
+          "reading": "lines up with the hypothesis",
+          "within_band": {
+            "bands": {
+              "150-500k": {
+                "coefficient": "-0.240997",
+                "direction": "negative",
+                "n": 310
+              },
+              "50-150k": {
+                "coefficient": "-0.141903",
+                "direction": "negative",
+                "n": 546
+              },
+              "500k+": {
+                "coefficient": "-0.481533",
+                "direction": "negative",
+                "n": 143
+              }
+            },
+            "coefficient": "0.263191",
+            "direction": "positive",
+            "n": 999
+          }
+        },
+        "costco_per_100k": {
+          "higher_is_better": true,
+          "label": "Costco warehouses per 100,000 residents",
+          "line": "Costco warehouses per 100,000 residents: the hypothesis expects a higher value where diversity is higher. Within population bands the Spearman correlation is not defined across 0 counties (no clear direction). The overall correlation, before banding, is not defined across 0 counties. This describes the published numbers. It does not show that diversity caused the outcome.",
+          "overall": {
+            "coefficient": null,
+            "direction": "none",
+            "n": 0
+          },
+          "reading": "no clear direction",
+          "within_band": {
+            "bands": {},
+            "coefficient": null,
+            "direction": "none",
+            "n": 0
+          }
+        },
+        "drinking_places_per_10k": {
+          "higher_is_better": true,
+          "label": "Drinking places per 10,000 residents",
+          "line": "Drinking places per 10,000 residents: the hypothesis expects a higher value where diversity is higher. Within population bands the Spearman correlation is 0.170949 across 999 counties (lines up with the hypothesis). The overall correlation, before banding, is -0.072184 across 999 counties. This describes the published numbers. It does not show that diversity caused the outcome.",
+          "overall": {
+            "coefficient": "-0.072184",
+            "direction": "negative",
+            "n": 999
+          },
+          "reading": "lines up with the hypothesis",
+          "within_band": {
+            "bands": {
+              "150-500k": {
+                "coefficient": "-0.240196",
+                "direction": "negative",
+                "n": 310
+              },
+              "50-150k": {
+                "coefficient": "-0.097032",
+                "direction": "negative",
+                "n": 546
+              },
+              "500k+": {
+                "coefficient": "-0.318662",
+                "direction": "negative",
+                "n": 143
+              }
+            },
+            "coefficient": "0.170949",
+            "direction": "positive",
+            "n": 999
+          }
+        },
+        "entertainment_kinds": {
+          "higher_is_better": true,
+          "label": "Entertainment categories with at least one establishment",
+          "line": "Entertainment categories with at least one establishment: the hypothesis expects a higher value where diversity is higher. Within population bands the Spearman correlation is 0.321806 across 999 counties (lines up with the hypothesis). The overall correlation, before banding, is 0.478470 across 999 counties. This describes the published numbers. It does not show that diversity caused the outcome.",
+          "overall": {
+            "coefficient": "0.478470",
+            "direction": "positive",
+            "n": 999
+          },
+          "reading": "lines up with the hypothesis",
+          "within_band": {
+            "bands": {
+              "150-500k": {
+                "coefficient": "0.104986",
+                "direction": "positive",
+                "n": 310
+              },
+              "50-150k": {
+                "coefficient": "0.097199",
+                "direction": "positive",
+                "n": 546
+              },
+              "500k+": {
+                "coefficient": "-0.185635",
+                "direction": "negative",
+                "n": 143
+              }
+            },
+            "coefficient": "0.321806",
+            "direction": "positive",
+            "n": 999
+          }
+        },
+        "fitness_per_10k": {
+          "higher_is_better": true,
+          "label": "Fitness centers per 10,000 residents",
+          "line": "Fitness centers per 10,000 residents: the hypothesis expects a higher value where diversity is higher. Within population bands the Spearman correlation is 0.408006 across 999 counties (lines up with the hypothesis). The overall correlation, before banding, is 0.389222 across 999 counties. This describes the published numbers. It does not show that diversity caused the outcome.",
+          "overall": {
+            "coefficient": "0.389222",
+            "direction": "positive",
+            "n": 999
+          },
+          "reading": "lines up with the hypothesis",
+          "within_band": {
+            "bands": {
+              "150-500k": {
+                "coefficient": "0.134461",
+                "direction": "positive",
+                "n": 310
+              },
+              "50-150k": {
+                "coefficient": "0.232401",
+                "direction": "positive",
+                "n": 546
+              },
+              "500k+": {
+                "coefficient": "0.017767",
+                "direction": "positive",
+                "n": 143
+              }
+            },
+            "coefficient": "0.408006",
+            "direction": "positive",
+            "n": 999
+          }
+        },
+        "full_service_restaurants_per_10k": {
+          "higher_is_better": true,
+          "label": "Full-service restaurants per 10,000 residents",
+          "line": "Full-service restaurants per 10,000 residents: the hypothesis expects a higher value where diversity is higher. Within population bands the Spearman correlation is 0.365803 across 999 counties (lines up with the hypothesis). The overall correlation, before banding, is 0.246966 across 999 counties. This describes the published numbers. It does not show that diversity caused the outcome.",
+          "overall": {
+            "coefficient": "0.246966",
+            "direction": "positive",
+            "n": 999
+          },
+          "reading": "lines up with the hypothesis",
+          "within_band": {
+            "bands": {
+              "150-500k": {
+                "coefficient": "0.151065",
+                "direction": "positive",
+                "n": 310
+              },
+              "50-150k": {
+                "coefficient": "0.139144",
+                "direction": "positive",
+                "n": 546
+              },
+              "500k+": {
+                "coefficient": "0.268915",
+                "direction": "positive",
+                "n": 143
+              }
+            },
+            "coefficient": "0.365803",
+            "direction": "positive",
+            "n": 999
+          }
+        },
+        "graduation_rate": {
+          "higher_is_better": true,
+          "label": "High school graduation rate",
+          "line": "High school graduation rate: the hypothesis expects a higher value where diversity is higher. Within population bands the Spearman correlation is 0.238657 across 950 counties (lines up with the hypothesis). The overall correlation, before banding, is -0.081603 across 950 counties. This describes the published numbers. It does not show that diversity caused the outcome.",
+          "overall": {
+            "coefficient": "-0.081603",
+            "direction": "negative",
+            "n": 950
+          },
+          "reading": "lines up with the hypothesis",
+          "within_band": {
+            "bands": {
+              "150-500k": {
+                "coefficient": "-0.015681",
+                "direction": "negative",
+                "n": 298
+              },
+              "50-150k": {
+                "coefficient": "0.006401",
+                "direction": "positive",
+                "n": 515
+              },
+              "500k+": {
+                "coefficient": "0.056448",
+                "direction": "positive",
+                "n": 137
+              }
+            },
+            "coefficient": "0.238657",
+            "direction": "positive",
+            "n": 950
+          }
+        },
+        "highway_per_resident": {
+          "higher_is_better": true,
+          "label": "County highway spending per resident",
+          "line": "County highway spending per resident: the hypothesis expects a higher value where diversity is higher. Within population bands the Spearman correlation is 0.315550 across 846 counties (lines up with the hypothesis). The overall correlation, before banding, is 0.065011 across 846 counties. This describes the published numbers. It does not show that diversity caused the outcome.",
+          "overall": {
+            "coefficient": "0.065011",
+            "direction": "positive",
+            "n": 846
+          },
+          "reading": "lines up with the hypothesis",
+          "within_band": {
+            "bands": {
+              "150-500k": {
+                "coefficient": "0.250251",
+                "direction": "positive",
+                "n": 282
+              },
+              "50-150k": {
+                "coefficient": "0.066610",
+                "direction": "positive",
+                "n": 443
+              },
+              "500k+": {
+                "coefficient": "0.050183",
+                "direction": "positive",
+                "n": 121
+              }
+            },
+            "coefficient": "0.315550",
+            "direction": "positive",
+            "n": 846
+          }
+        },
+        "home_value": {
+          "higher_is_better": true,
+          "label": "Typical home value",
+          "line": "Typical home value: the hypothesis expects a higher value where diversity is higher. Within population bands the Spearman correlation is 0.598429 across 990 counties (lines up with the hypothesis). The overall correlation, before banding, is 0.549338 across 990 counties. This describes the published numbers. It does not show that diversity caused the outcome.",
+          "overall": {
+            "coefficient": "0.549338",
+            "direction": "positive",
+            "n": 990
+          },
+          "reading": "lines up with the hypothesis",
+          "within_band": {
+            "bands": {
+              "150-500k": {
+                "coefficient": "0.451230",
+                "direction": "positive",
+                "n": 306
+              },
+              "50-150k": {
+                "coefficient": "0.432126",
+                "direction": "positive",
+                "n": 544
+              },
+              "500k+": {
+                "coefficient": "0.576545",
+                "direction": "positive",
+                "n": 140
+              }
+            },
+            "coefficient": "0.598429",
+            "direction": "positive",
+            "n": 990
+          }
+        },
+        "home_value_change_5yr": {
+          "higher_is_better": true,
+          "label": "Five-year change in typical home value",
+          "line": "Five-year change in typical home value: the hypothesis expects a higher value where diversity is higher. Within population bands the Spearman correlation is 0.147356 across 990 counties (lines up with the hypothesis). The overall correlation, before banding, is -0.214367 across 990 counties. This describes the published numbers. It does not show that diversity caused the outcome.",
+          "overall": {
+            "coefficient": "-0.214367",
+            "direction": "negative",
+            "n": 990
+          },
+          "reading": "lines up with the hypothesis",
+          "within_band": {
+            "bands": {
+              "150-500k": {
+                "coefficient": "-0.177511",
+                "direction": "negative",
+                "n": 306
+              },
+              "50-150k": {
+                "coefficient": "-0.170706",
+                "direction": "negative",
+                "n": 544
+              },
+              "500k+": {
+                "coefficient": "-0.146827",
+                "direction": "negative",
+                "n": 140
+              }
+            },
+            "coefficient": "0.147356",
+            "direction": "positive",
+            "n": 990
+          }
+        },
+        "limited_service_restaurants_per_10k": {
+          "higher_is_better": true,
+          "label": "Limited-service restaurants per 10,000 residents",
+          "line": "Limited-service restaurants per 10,000 residents: the hypothesis expects a higher value where diversity is higher. Within population bands the Spearman correlation is 0.271545 across 999 counties (lines up with the hypothesis). The overall correlation, before banding, is 0.161841 across 999 counties. This describes the published numbers. It does not show that diversity caused the outcome.",
+          "overall": {
+            "coefficient": "0.161841",
+            "direction": "positive",
+            "n": 999
+          },
+          "reading": "lines up with the hypothesis",
+          "within_band": {
+            "bands": {
+              "150-500k": {
+                "coefficient": "-0.123336",
+                "direction": "negative",
+                "n": 310
+              },
+              "50-150k": {
+                "coefficient": "0.038117",
+                "direction": "positive",
+                "n": 546
+              },
+              "500k+": {
+                "coefficient": "-0.000223",
+                "direction": "negative",
+                "n": 143
+              }
+            },
+            "coefficient": "0.271545",
+            "direction": "positive",
+            "n": 999
+          }
+        },
+        "movie_theaters_per_10k": {
+          "higher_is_better": true,
+          "label": "Movie theaters per 10,000 residents",
+          "line": "Movie theaters per 10,000 residents: the hypothesis expects a higher value where diversity is higher. Within population bands the Spearman correlation is 0.412576 across 999 counties (lines up with the hypothesis). The overall correlation, before banding, is 0.426063 across 999 counties. This describes the published numbers. It does not show that diversity caused the outcome.",
+          "overall": {
+            "coefficient": "0.426063",
+            "direction": "positive",
+            "n": 999
+          },
+          "reading": "lines up with the hypothesis",
+          "within_band": {
+            "bands": {
+              "150-500k": {
+                "coefficient": "0.127412",
+                "direction": "positive",
+                "n": 310
+              },
+              "50-150k": {
+                "coefficient": "0.114527",
+                "direction": "positive",
+                "n": 546
+              },
+              "500k+": {
+                "coefficient": "-0.124490",
+                "direction": "negative",
+                "n": 143
+              }
+            },
+            "coefficient": "0.412576",
+            "direction": "positive",
+            "n": 999
+          }
+        },
+        "museums_per_10k": {
+          "higher_is_better": true,
+          "label": "Museums per 10,000 residents",
+          "line": "Museums per 10,000 residents: the hypothesis expects a higher value where diversity is higher. Within population bands the Spearman correlation is 0.352444 across 999 counties (lines up with the hypothesis). The overall correlation, before banding, is 0.209660 across 999 counties. This describes the published numbers. It does not show that diversity caused the outcome.",
+          "overall": {
+            "coefficient": "0.209660",
+            "direction": "positive",
+            "n": 999
+          },
+          "reading": "lines up with the hypothesis",
+          "within_band": {
+            "bands": {
+              "150-500k": {
+                "coefficient": "-0.014061",
+                "direction": "negative",
+                "n": 310
+              },
+              "50-150k": {
+                "coefficient": "0.123975",
+                "direction": "positive",
+                "n": 546
+              },
+              "500k+": {
+                "coefficient": "-0.246808",
+                "direction": "negative",
+                "n": 143
+              }
+            },
+            "coefficient": "0.352444",
+            "direction": "positive",
+            "n": 999
+          }
+        },
+        "payroll_per_employee": {
+          "higher_is_better": true,
+          "label": "Average annual payroll per employee",
+          "line": "Average annual payroll per employee: the hypothesis expects a higher value where diversity is higher. Within population bands the Spearman correlation is 0.395135 across 999 counties (lines up with the hypothesis). The overall correlation, before banding, is 0.458845 across 999 counties. This describes the published numbers. It does not show that diversity caused the outcome.",
+          "overall": {
+            "coefficient": "0.458845",
+            "direction": "positive",
+            "n": 999
+          },
+          "reading": "lines up with the hypothesis",
+          "within_band": {
+            "bands": {
+              "150-500k": {
+                "coefficient": "0.205015",
+                "direction": "positive",
+                "n": 310
+              },
+              "50-150k": {
+                "coefficient": "0.209894",
+                "direction": "positive",
+                "n": 546
+              },
+              "500k+": {
+                "coefficient": "0.305506",
+                "direction": "positive",
+                "n": 143
+              }
+            },
+            "coefficient": "0.395135",
+            "direction": "positive",
+            "n": 999
+          }
+        },
+        "theater_companies_per_10k": {
+          "higher_is_better": true,
+          "label": "Theater companies per 10,000 residents",
+          "line": "Theater companies per 10,000 residents: the hypothesis expects a higher value where diversity is higher. Within population bands the Spearman correlation is 0.430674 across 999 counties (lines up with the hypothesis). The overall correlation, before banding, is 0.404952 across 999 counties. This describes the published numbers. It does not show that diversity caused the outcome.",
+          "overall": {
+            "coefficient": "0.404952",
+            "direction": "positive",
+            "n": 999
+          },
+          "reading": "lines up with the hypothesis",
+          "within_band": {
+            "bands": {
+              "150-500k": {
+                "coefficient": "0.152572",
+                "direction": "positive",
+                "n": 310
+              },
+              "50-150k": {
+                "coefficient": "0.102465",
+                "direction": "positive",
+                "n": 546
+              },
+              "500k+": {
+                "coefficient": "-0.086085",
+                "direction": "negative",
+                "n": 143
+              }
+            },
+            "coefficient": "0.430674",
+            "direction": "positive",
+            "n": 999
+          }
+        },
+        "unemployment_rate": {
+          "higher_is_better": false,
+          "label": "Unemployment rate",
+          "line": "Unemployment rate: the hypothesis expects a lower value where diversity is higher. Within population bands the Spearman correlation is 0.284597 across 999 counties (lines up against the hypothesis). The overall correlation, before banding, is 0.119257 across 999 counties. This describes the published numbers. It does not show that diversity caused the outcome.",
+          "overall": {
+            "coefficient": "0.119257",
+            "direction": "positive",
+            "n": 999
+          },
+          "reading": "lines up against the hypothesis",
+          "within_band": {
+            "bands": {
+              "150-500k": {
+                "coefficient": "0.113943",
+                "direction": "positive",
+                "n": 310
+              },
+              "50-150k": {
+                "coefficient": "0.037059",
+                "direction": "positive",
+                "n": 546
+              },
+              "500k+": {
+                "coefficient": "0.311628",
+                "direction": "positive",
+                "n": 143
+              }
+            },
+            "coefficient": "0.284597",
+            "direction": "positive",
+            "n": 999
+          }
+        },
+        "violent_crime_rate": {
+          "higher_is_better": false,
+          "label": "Violent crime rate",
+          "line": "Violent crime rate: the hypothesis expects a lower value where diversity is higher. Within population bands the Spearman correlation is not defined across 0 counties (no clear direction). The overall correlation, before banding, is not defined across 0 counties. This describes the published numbers. It does not show that diversity caused the outcome.",
+          "overall": {
+            "coefficient": null,
+            "direction": "none",
+            "n": 0
+          },
+          "reading": "no clear direction",
+          "within_band": {
+            "bands": {},
+            "coefficient": null,
+            "direction": "none",
+            "n": 0
+          }
+        }
+      }
+    },
+    "racial_ethnic": {
+      "label": "Who lives there",
+      "outcomes": {
+        "bowling_per_10k": {
+          "higher_is_better": true,
+          "label": "Bowling centers per 10,000 residents",
+          "line": "Bowling centers per 10,000 residents: the hypothesis expects a higher value where diversity is higher. Within population bands the Spearman correlation is 0.230401 across 999 counties (lines up with the hypothesis). The overall correlation, before banding, is 0.054601 across 999 counties. This describes the published numbers. It does not show that diversity caused the outcome.",
+          "overall": {
+            "coefficient": "0.054601",
+            "direction": "positive",
+            "n": 999
+          },
+          "reading": "lines up with the hypothesis",
+          "within_band": {
+            "bands": {
+              "150-500k": {
+                "coefficient": "-0.305549",
+                "direction": "negative",
+                "n": 310
+              },
+              "50-150k": {
+                "coefficient": "-0.247856",
+                "direction": "negative",
+                "n": 546
+              },
+              "500k+": {
+                "coefficient": "-0.418628",
+                "direction": "negative",
+                "n": 143
+              }
+            },
+            "coefficient": "0.230401",
+            "direction": "positive",
+            "n": 999
+          }
+        },
+        "costco_per_100k": {
+          "higher_is_better": true,
+          "label": "Costco warehouses per 100,000 residents",
+          "line": "Costco warehouses per 100,000 residents: the hypothesis expects a higher value where diversity is higher. Within population bands the Spearman correlation is not defined across 0 counties (no clear direction). The overall correlation, before banding, is not defined across 0 counties. This describes the published numbers. It does not show that diversity caused the outcome.",
+          "overall": {
+            "coefficient": null,
+            "direction": "none",
+            "n": 0
+          },
+          "reading": "no clear direction",
+          "within_band": {
+            "bands": {},
+            "coefficient": null,
+            "direction": "none",
+            "n": 0
+          }
+        },
+        "drinking_places_per_10k": {
+          "higher_is_better": true,
+          "label": "Drinking places per 10,000 residents",
+          "line": "Drinking places per 10,000 residents: the hypothesis expects a higher value where diversity is higher. Within population bands the Spearman correlation is 0.102929 across 999 counties (lines up with the hypothesis). The overall correlation, before banding, is -0.154724 across 999 counties. This describes the published numbers. It does not show that diversity caused the outcome.",
+          "overall": {
+            "coefficient": "-0.154724",
+            "direction": "negative",
+            "n": 999
+          },
+          "reading": "lines up with the hypothesis",
+          "within_band": {
+            "bands": {
+              "150-500k": {
+                "coefficient": "-0.248687",
+                "direction": "negative",
+                "n": 310
+              },
+              "50-150k": {
+                "coefficient": "-0.256592",
+                "direction": "negative",
+                "n": 546
+              },
+              "500k+": {
+                "coefficient": "-0.050402",
+                "direction": "negative",
+                "n": 143
+              }
+            },
+            "coefficient": "0.102929",
+            "direction": "positive",
+            "n": 999
+          }
+        },
+        "entertainment_kinds": {
+          "higher_is_better": true,
+          "label": "Entertainment categories with at least one establishment",
+          "line": "Entertainment categories with at least one establishment: the hypothesis expects a higher value where diversity is higher. Within population bands the Spearman correlation is 0.190490 across 999 counties (lines up with the hypothesis). The overall correlation, before banding, is 0.310484 across 999 counties. This describes the published numbers. It does not show that diversity caused the outcome.",
+          "overall": {
+            "coefficient": "0.310484",
+            "direction": "positive",
+            "n": 999
+          },
+          "reading": "lines up with the hypothesis",
+          "within_band": {
+            "bands": {
+              "150-500k": {
+                "coefficient": "-0.032577",
+                "direction": "negative",
+                "n": 310
+              },
+              "50-150k": {
+                "coefficient": "-0.140482",
+                "direction": "negative",
+                "n": 546
+              },
+              "500k+": {
+                "coefficient": "-0.017672",
+                "direction": "negative",
+                "n": 143
+              }
+            },
+            "coefficient": "0.190490",
+            "direction": "positive",
+            "n": 999
+          }
+        },
+        "fitness_per_10k": {
+          "higher_is_better": true,
+          "label": "Fitness centers per 10,000 residents",
+          "line": "Fitness centers per 10,000 residents: the hypothesis expects a higher value where diversity is higher. Within population bands the Spearman correlation is 0.312319 across 999 counties (lines up with the hypothesis). The overall correlation, before banding, is 0.239332 across 999 counties. This describes the published numbers. It does not show that diversity caused the outcome.",
+          "overall": {
+            "coefficient": "0.239332",
+            "direction": "positive",
+            "n": 999
+          },
+          "reading": "lines up with the hypothesis",
+          "within_band": {
+            "bands": {
+              "150-500k": {
+                "coefficient": "0.001369",
+                "direction": "positive",
+                "n": 310
+              },
+              "50-150k": {
+                "coefficient": "0.067419",
+                "direction": "positive",
+                "n": 546
+              },
+              "500k+": {
+                "coefficient": "-0.036255",
+                "direction": "negative",
+                "n": 143
+              }
+            },
+            "coefficient": "0.312319",
+            "direction": "positive",
+            "n": 999
+          }
+        },
+        "full_service_restaurants_per_10k": {
+          "higher_is_better": true,
+          "label": "Full-service restaurants per 10,000 residents",
+          "line": "Full-service restaurants per 10,000 residents: the hypothesis expects a higher value where diversity is higher. Within population bands the Spearman correlation is 0.235329 across 999 counties (lines up with the hypothesis). The overall correlation, before banding, is 0.086827 across 999 counties. This describes the published numbers. It does not show that diversity caused the outcome.",
+          "overall": {
+            "coefficient": "0.086827",
+            "direction": "positive",
+            "n": 999
+          },
+          "reading": "lines up with the hypothesis",
+          "within_band": {
+            "bands": {
+              "150-500k": {
+                "coefficient": "0.022052",
+                "direction": "positive",
+                "n": 310
+              },
+              "50-150k": {
+                "coefficient": "-0.085944",
+                "direction": "negative",
+                "n": 546
+              },
+              "500k+": {
+                "coefficient": "0.223585",
+                "direction": "positive",
+                "n": 143
+              }
+            },
+            "coefficient": "0.235329",
+            "direction": "positive",
+            "n": 999
+          }
+        },
+        "graduation_rate": {
+          "higher_is_better": true,
+          "label": "High school graduation rate",
+          "line": "High school graduation rate: the hypothesis expects a higher value where diversity is higher. Within population bands the Spearman correlation is 0.098446 across 950 counties (lines up with the hypothesis). The overall correlation, before banding, is -0.244528 across 950 counties. This describes the published numbers. It does not show that diversity caused the outcome.",
+          "overall": {
+            "coefficient": "-0.244528",
+            "direction": "negative",
+            "n": 950
+          },
+          "reading": "lines up with the hypothesis",
+          "within_band": {
+            "bands": {
+              "150-500k": {
+                "coefficient": "-0.210864",
+                "direction": "negative",
+                "n": 298
+              },
+              "50-150k": {
+                "coefficient": "-0.185151",
+                "direction": "negative",
+                "n": 515
+              },
+              "500k+": {
+                "coefficient": "-0.191772",
+                "direction": "negative",
+                "n": 137
+              }
+            },
+            "coefficient": "0.098446",
+            "direction": "positive",
+            "n": 950
+          }
+        },
+        "highway_per_resident": {
+          "higher_is_better": true,
+          "label": "County highway spending per resident",
+          "line": "County highway spending per resident: the hypothesis expects a higher value where diversity is higher. Within population bands the Spearman correlation is 0.321502 across 846 counties (lines up with the hypothesis). The overall correlation, before banding, is 0.042185 across 846 counties. This describes the published numbers. It does not show that diversity caused the outcome.",
+          "overall": {
+            "coefficient": "0.042185",
+            "direction": "positive",
+            "n": 846
+          },
+          "reading": "lines up with the hypothesis",
+          "within_band": {
+            "bands": {
+              "150-500k": {
+                "coefficient": "0.162816",
+                "direction": "positive",
+                "n": 282
+              },
+              "50-150k": {
+                "coefficient": "0.067343",
+                "direction": "positive",
+                "n": 443
+              },
+              "500k+": {
+                "coefficient": "-0.032783",
+                "direction": "negative",
+                "n": 121
+              }
+            },
+            "coefficient": "0.321502",
+            "direction": "positive",
+            "n": 846
+          }
+        },
+        "home_value": {
+          "higher_is_better": true,
+          "label": "Typical home value",
+          "line": "Typical home value: the hypothesis expects a higher value where diversity is higher. Within population bands the Spearman correlation is 0.316696 across 990 counties (lines up with the hypothesis). The overall correlation, before banding, is 0.229585 across 990 counties. This describes the published numbers. It does not show that diversity caused the outcome.",
+          "overall": {
+            "coefficient": "0.229585",
+            "direction": "positive",
+            "n": 990
+          },
+          "reading": "lines up with the hypothesis",
+          "within_band": {
+            "bands": {
+              "150-500k": {
+                "coefficient": "0.049411",
+                "direction": "positive",
+                "n": 306
+              },
+              "50-150k": {
+                "coefficient": "0.036054",
+                "direction": "positive",
+                "n": 544
+              },
+              "500k+": {
+                "coefficient": "0.282120",
+                "direction": "positive",
+                "n": 140
+              }
+            },
+            "coefficient": "0.316696",
+            "direction": "positive",
+            "n": 990
+          }
+        },
+        "home_value_change_5yr": {
+          "higher_is_better": true,
+          "label": "Five-year change in typical home value",
+          "line": "Five-year change in typical home value: the hypothesis expects a higher value where diversity is higher. Within population bands the Spearman correlation is 0.081700 across 990 counties (lines up with the hypothesis). The overall correlation, before banding, is -0.263896 across 990 counties. This describes the published numbers. It does not show that diversity caused the outcome.",
+          "overall": {
+            "coefficient": "-0.263896",
+            "direction": "negative",
+            "n": 990
+          },
+          "reading": "lines up with the hypothesis",
+          "within_band": {
+            "bands": {
+              "150-500k": {
+                "coefficient": "-0.156323",
+                "direction": "negative",
+                "n": 306
+              },
+              "50-150k": {
+                "coefficient": "-0.275308",
+                "direction": "negative",
+                "n": 544
+              },
+              "500k+": {
+                "coefficient": "-0.297893",
+                "direction": "negative",
+                "n": 140
+              }
+            },
+            "coefficient": "0.081700",
+            "direction": "positive",
+            "n": 990
+          }
+        },
+        "limited_service_restaurants_per_10k": {
+          "higher_is_better": true,
+          "label": "Limited-service restaurants per 10,000 residents",
+          "line": "Limited-service restaurants per 10,000 residents: the hypothesis expects a higher value where diversity is higher. Within population bands the Spearman correlation is 0.381927 across 999 counties (lines up with the hypothesis). The overall correlation, before banding, is 0.302456 across 999 counties. This describes the published numbers. It does not show that diversity caused the outcome.",
+          "overall": {
+            "coefficient": "0.302456",
+            "direction": "positive",
+            "n": 999
+          },
+          "reading": "lines up with the hypothesis",
+          "within_band": {
+            "bands": {
+              "150-500k": {
+                "coefficient": "0.186786",
+                "direction": "positive",
+                "n": 310
+              },
+              "50-150k": {
+                "coefficient": "0.160651",
+                "direction": "positive",
+                "n": 546
+              },
+              "500k+": {
+                "coefficient": "0.304992",
+                "direction": "positive",
+                "n": 143
+              }
+            },
+            "coefficient": "0.381927",
+            "direction": "positive",
+            "n": 999
+          }
+        },
+        "movie_theaters_per_10k": {
+          "higher_is_better": true,
+          "label": "Movie theaters per 10,000 residents",
+          "line": "Movie theaters per 10,000 residents: the hypothesis expects a higher value where diversity is higher. Within population bands the Spearman correlation is 0.369114 across 999 counties (lines up with the hypothesis). The overall correlation, before banding, is 0.315923 across 999 counties. This describes the published numbers. It does not show that diversity caused the outcome.",
+          "overall": {
+            "coefficient": "0.315923",
+            "direction": "positive",
+            "n": 999
+          },
+          "reading": "lines up with the hypothesis",
+          "within_band": {
+            "bands": {
+              "150-500k": {
+                "coefficient": "-0.007600",
+                "direction": "negative",
+                "n": 310
+              },
+              "50-150k": {
+                "coefficient": "0.025886",
+                "direction": "positive",
+                "n": 546
+              },
+              "500k+": {
+                "coefficient": "0.012093",
+                "direction": "positive",
+                "n": 143
+              }
+            },
+            "coefficient": "0.369114",
+            "direction": "positive",
+            "n": 999
+          }
+        },
+        "museums_per_10k": {
+          "higher_is_better": true,
+          "label": "Museums per 10,000 residents",
+          "line": "Museums per 10,000 residents: the hypothesis expects a higher value where diversity is higher. Within population bands the Spearman correlation is 0.276241 across 999 counties (lines up with the hypothesis). The overall correlation, before banding, is 0.083802 across 999 counties. This describes the published numbers. It does not show that diversity caused the outcome.",
+          "overall": {
+            "coefficient": "0.083802",
+            "direction": "positive",
+            "n": 999
+          },
+          "reading": "lines up with the hypothesis",
+          "within_band": {
+            "bands": {
+              "150-500k": {
+                "coefficient": "-0.061781",
+                "direction": "negative",
+                "n": 310
+              },
+              "50-150k": {
+                "coefficient": "-0.090005",
+                "direction": "negative",
+                "n": 546
+              },
+              "500k+": {
+                "coefficient": "-0.112094",
+                "direction": "negative",
+                "n": 143
+              }
+            },
+            "coefficient": "0.276241",
+            "direction": "positive",
+            "n": 999
+          }
+        },
+        "payroll_per_employee": {
+          "higher_is_better": true,
+          "label": "Average annual payroll per employee",
+          "line": "Average annual payroll per employee: the hypothesis expects a higher value where diversity is higher. Within population bands the Spearman correlation is 0.286721 across 999 counties (lines up with the hypothesis). The overall correlation, before banding, is 0.336258 across 999 counties. This describes the published numbers. It does not show that diversity caused the outcome.",
+          "overall": {
+            "coefficient": "0.336258",
+            "direction": "positive",
+            "n": 999
+          },
+          "reading": "lines up with the hypothesis",
+          "within_band": {
+            "bands": {
+              "150-500k": {
+                "coefficient": "0.089329",
+                "direction": "positive",
+                "n": 310
+              },
+              "50-150k": {
+                "coefficient": "0.022055",
+                "direction": "positive",
+                "n": 546
+              },
+              "500k+": {
+                "coefficient": "0.345241",
+                "direction": "positive",
+                "n": 143
+              }
+            },
+            "coefficient": "0.286721",
+            "direction": "positive",
+            "n": 999
+          }
+        },
+        "theater_companies_per_10k": {
+          "higher_is_better": true,
+          "label": "Theater companies per 10,000 residents",
+          "line": "Theater companies per 10,000 residents: the hypothesis expects a higher value where diversity is higher. Within population bands the Spearman correlation is 0.379982 across 999 counties (lines up with the hypothesis). The overall correlation, before banding, is 0.297212 across 999 counties. This describes the published numbers. It does not show that diversity caused the outcome.",
+          "overall": {
+            "coefficient": "0.297212",
+            "direction": "positive",
+            "n": 999
+          },
+          "reading": "lines up with the hypothesis",
+          "within_band": {
+            "bands": {
+              "150-500k": {
+                "coefficient": "0.021449",
+                "direction": "positive",
+                "n": 310
+              },
+              "50-150k": {
+                "coefficient": "-0.062953",
+                "direction": "negative",
+                "n": 546
+              },
+              "500k+": {
+                "coefficient": "0.144685",
+                "direction": "positive",
+                "n": 143
+              }
+            },
+            "coefficient": "0.379982",
+            "direction": "positive",
+            "n": 999
+          }
+        },
+        "unemployment_rate": {
+          "higher_is_better": false,
+          "label": "Unemployment rate",
+          "line": "Unemployment rate: the hypothesis expects a lower value where diversity is higher. Within population bands the Spearman correlation is 0.469117 across 999 counties (lines up against the hypothesis). The overall correlation, before banding, is 0.320112 across 999 counties. This describes the published numbers. It does not show that diversity caused the outcome.",
+          "overall": {
+            "coefficient": "0.320112",
+            "direction": "positive",
+            "n": 999
+          },
+          "reading": "lines up against the hypothesis",
+          "within_band": {
+            "bands": {
+              "150-500k": {
+                "coefficient": "0.350859",
+                "direction": "positive",
+                "n": 310
+              },
+              "50-150k": {
+                "coefficient": "0.302908",
+                "direction": "positive",
+                "n": 546
+              },
+              "500k+": {
+                "coefficient": "0.261826",
+                "direction": "positive",
+                "n": 143
+              }
+            },
+            "coefficient": "0.469117",
+            "direction": "positive",
+            "n": 999
+          }
+        },
+        "violent_crime_rate": {
+          "higher_is_better": false,
+          "label": "Violent crime rate",
+          "line": "Violent crime rate: the hypothesis expects a lower value where diversity is higher. Within population bands the Spearman correlation is not defined across 0 counties (no clear direction). The overall correlation, before banding, is not defined across 0 counties. This describes the published numbers. It does not show that diversity caused the outcome.",
+          "overall": {
+            "coefficient": null,
+            "direction": "none",
+            "n": 0
+          },
+          "reading": "no clear direction",
+          "within_band": {
+            "bands": {},
+            "coefficient": null,
+            "direction": "none",
+            "n": 0
+          }
+        }
+      }
+    }
+  },
+  "min_population": 50000,
+  "race_group_gap": "0.000000",
+  "sanity_notes": [],
+  "scores_merged": false,
+  "sources": {
+    "costco": {
+      "detail": "OpenStreetMap did not return a usable warehouse list. The comparison needs at least 400 US points. No Costco counts were filled in.",
+      "label": "OpenStreetMap Costco points",
+      "status": "missing"
+    },
+    "highway": {
+      "detail": "Direct highway codes from the 2024 manual: E44, E45, F44, F45. Amounts are thousands of dollars. Sampled county governments: 1751. A blank county was not in that sample. A zero means the sampled county government had none of these highway amounts.",
+      "label": "Census 2024 government finances",
+      "status": "ok"
+    },
+    "home_value": {
+      "detail": "Latest month 2026-10-31. Five-year change is from 2021-10-31.",
+      "label": "Zillow county home value index",
+      "status": "ok"
+    },
+    "payroll_and_entertainment": {
+      "detail": "Establishments, and annual payroll in thousands of dollars divided by March employment.",
+      "label": "County Business Patterns 2023 county file",
+      "status": "ok"
+    },
+    "schools_and_crime": {
+      "detail": "High school graduation is the ninth-grade cohort rate. The 2025 data dictionary has no violent crime raw value, so that rate is blank. The 2025 analytic codebook text that could be read does not name a violent crime measure.",
+      "label": "County Health Rankings 2025 analytic file",
+      "status": "ok"
+    }
+  }
+}

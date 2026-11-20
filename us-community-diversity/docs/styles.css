@@ -1,0 +1,87 @@
+:root {
+  color: #1c2430;
+  background: #f3efe6;
+  font-family: Georgia, "Palatino Linotype", Palatino, serif;
+}
+
+* { box-sizing: border-box; }
+
+body { margin: 0; line-height: 1.45; }
+
+main { max-width: 1180px; margin: 0 auto; padding: 28px 18px 64px; }
+
+h1 { font-size: 2rem; line-height: 1.15; margin-bottom: 0.4rem; }
+
+h2 { font-size: 1.25rem; margin: 0 0 0.4rem; }
+
+.lede, .method { max-width: 46rem; }
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(260px, 0.9fr);
+  gap: 18px;
+  align-items: start;
+  margin-top: 18px;
+}
+
+.stage, aside, .findings {
+  background: #fffdf8;
+  border: 1px solid #e2dbcf;
+  border-radius: 10px;
+}
+
+.stage { padding: 12px; }
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  align-items: end;
+  margin-bottom: 8px;
+}
+
+label { font-family: "Segoe UI", Candara, sans-serif; font-size: 0.92rem; }
+
+select, input, button {
+  font: inherit;
+  display: block;
+  margin-top: 4px;
+  padding: 7px 8px;
+  border: 1px solid #c9c0b2;
+  border-radius: 6px;
+  background: white;
+  color: inherit;
+}
+
+.zoom-buttons { display: flex; flex-wrap: wrap; gap: 6px; }
+
+button { cursor: pointer; background: #1c2430; color: #f3efe6; border-color: #1c2430; }
+
+#map { width: 100%; height: auto; background: #f7f3ea; border-radius: 8px; }
+
+.county, .other { vector-effect: non-scaling-stroke; }
+
+.county { cursor: pointer; }
+
+.other { cursor: default; }
+
+.legend, .axis, .note { font-family: "Segoe UI", Candara, sans-serif; font-size: 0.85rem; color: #3d4654; }
+
+aside { padding: 14px 16px 18px; position: sticky; top: 10px; max-height: calc(100vh - 20px); overflow: auto; }
+
+aside ul { padding-left: 1.1rem; font-family: "Segoe UI", Candara, sans-serif; font-size: 0.92rem; }
+
+figure { margin: 12px 0; }
+
+.chart { width: 100%; height: 88px; background: #f7f3ea; border-radius: 6px; }
+
+.chart polyline { fill: none; stroke: #0f5c5c; stroke-width: 2; }
+
+.findings { margin-top: 18px; padding: 8px 22px 14px; }
+
+.findings li { margin: 0.45rem 0; }
+
+@media (max-width: 800px) {
+  .layout { grid-template-columns: 1fr; }
+  aside { position: static; max-height: none; }
+}
