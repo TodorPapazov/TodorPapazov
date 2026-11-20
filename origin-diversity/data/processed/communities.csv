@@ -1,0 +1,253 @@
+community,set,rating,outcome,outcome_measure,outcome_year,newcomers,origin_count,rank_in_set
+Ohio,US state,63.4599,69680,Median household income (2023 dollars),2019-2023,593106,150,1
+District of Columbia,US state,59.3514,106287,Median household income (2023 dollars),2019-2023,89578,139,2
+Pennsylvania,US state,54.9314,76081,Median household income (2023 dollars),2019-2023,961247,150,3
+New Hampshire,US state,54.8839,95628,Median household income (2023 dollars),2019-2023,86095,134,4
+West Virginia,US state,52.5997,57917,Median household income (2023 dollars),2019-2023,30515,118,5
+Maryland,US state,52.3157,101652,Median household income (2023 dollars),2019-2023,1004774,149,6
+Connecticut,US state,52.2705,93760,Median household income (2023 dollars),2019-2023,555150,147,7
+New York,US state,51.8034,84578,Median household income (2023 dollars),2019-2023,4499070,149,8
+Virginia,US state,51.2821,90974,Median household income (2023 dollars),2019-2023,1120193,150,9
+Massachusetts,US state,50.1380,101341,Median household income (2023 dollars),2019-2023,1236518,148,10
+Missouri,US state,48.0466,68920,Median household income (2023 dollars),2019-2023,269902,146,11
+Vermont,US state,46.2149,78024,Median household income (2023 dollars),2019-2023,27968,125,12
+North Dakota,US state,46.0525,75949,Median household income (2023 dollars),2019-2023,34813,127,13
+Maine,US state,45.8489,71773,Median household income (2023 dollars),2019-2023,53627,133,14
+Minnesota,US state,45.3100,87556,Median household income (2023 dollars),2019-2023,488897,148,15
+Michigan,US state,45.2102,71149,Median household income (2023 dollars),2019-2023,707414,150,16
+Kentucky,US state,44.2374,62417,Median household income (2023 dollars),2019-2023,199605,146,17
+New Jersey,US state,44.2370,101050,Median household income (2023 dollars),2019-2023,2181755,149,18
+South Dakota,US state,41.2137,72421,Median household income (2023 dollars),2019-2023,35218,121,19
+Georgia,US state,40.5640,74664,Median household income (2023 dollars),2019-2023,1172456,149,20
+Delaware,US state,40.1538,82855,Median household income (2023 dollars),2019-2023,104694,137,21
+Montana,US state,37.9893,69922,Median household income (2023 dollars),2019-2023,25327,110,22
+Iowa,US state,37.8610,73147,Median household income (2023 dollars),2019-2023,182594,146,23
+South Carolina,US state,37.6557,66818,Median household income (2023 dollars),2019-2023,293556,145,24
+North Carolina,US state,36.8923,69904,Median household income (2023 dollars),2019-2023,923923,150,25
+Tennessee,US state,35.5416,67097,Median household income (2023 dollars),2019-2023,411840,150,26
+Washington,US state,33.6703,94952,Median household income (2023 dollars),2019-2023,1170683,149,27
+Indiana,US state,33.1439,70051,Median household income (2023 dollars),2019-2023,404588,149,28
+Wisconsin,US state,31.2138,75670,Median household income (2023 dollars),2019-2023,299804,145,29
+Florida,US state,31.1095,71711,Median household income (2023 dollars),2019-2023,4694298,150,30
+Louisiana,US state,30.9780,60023,Median household income (2023 dollars),2019-2023,218450,145,31
+Mississippi,US state,30.5269,54915,Median household income (2023 dollars),2019-2023,70565,133,32
+Rhode Island,US state,29.1454,86372,Median household income (2023 dollars),2019-2023,162413,133,33
+Alabama,US state,28.1955,62027,Median household income (2023 dollars),2019-2023,192039,140,34
+Oregon,US state,26.8088,80426,Median household income (2023 dollars),2019-2023,410791,148,35
+Nebraska,US state,26.4995,74985,Median household income (2023 dollars),2019-2023,151436,138,36
+Colorado,US state,26.3739,92470,Median household income (2023 dollars),2019-2023,556591,150,37
+Utah,US state,25.9399,91750,Median household income (2023 dollars),2019-2023,285013,142,38
+Alaska,US state,24.0253,89336,Median household income (2023 dollars),2019-2023,57131,129,39
+Illinois,US state,23.9034,81702,Median household income (2023 dollars),2019-2023,1833810,150,40
+Kansas,US state,21.2832,72639,Median household income (2023 dollars),2019-2023,211197,142,41
+Wyoming,US state,20.1407,74815,Median household income (2023 dollars),2019-2023,20364,103,42
+California,US state,19.2410,96334,Median household income (2023 dollars),2019-2023,10479497,150,43
+Oklahoma,US state,18.9951,63603,Median household income (2023 dollars),2019-2023,249771,149,44
+Nevada,US state,18.8278,75561,Median household income (2023 dollars),2019-2023,595347,147,45
+Idaho,US state,16.2367,74636,Median household income (2023 dollars),2019-2023,108586,133,46
+Arkansas,US state,15.9342,58773,Median household income (2023 dollars),2019-2023,158219,128,47
+Texas,US state,15.2662,76292,Median household income (2023 dollars),2019-2023,5095888,150,48
+Arizona,US state,13.7647,76872,Median household income (2023 dollars),2019-2023,935586,150,49
+Hawaii,US state,12.0920,98317,Median household income (2023 dollars),2019-2023,261130,139,50
+New Mexico,US state,7.6032,62125,Median household income (2023 dollars),2019-2023,195484,138,51
+Denmark,outside the US,59.3785,68043.55,GDP per capita (current US$),2023,847475,193,1
+Norway,outside the US,51.0604,90984.41,GDP per capita (current US$),2023,1012404,204,2
+Canada,outside the US,50.6873,54847.54,GDP per capita (current US$),2023,8805839,130,3
+Italy,outside the US,40.4260,39279.70,GDP per capita (current US$),2023,6553671,143,4
+Australia,outside the US,40.2672,65058.38,GDP per capita (current US$),2023,8111404,198,5
+Belgium,outside the US,36.8075,55244.68,GDP per capita (current US$),2023,2349032,84,6
+Sweden,outside the US,34.0254,54950.28,GDP per capita (current US$),2023,2272158,56,7
+Finland,outside the US,31.7104,52864.69,GDP per capita (current US$),2023,514432,178,8
+Spain,outside the US,29.0498,33493.22,GDP per capita (current US$),2023,8870527,48,9
+France,outside the US,28.3179,44700.14,GDP per capita (current US$),2023,9186757,54,10
+Israel,outside the US,26.2267,52126.45,GDP per capita (current US$),2023,2091569,71,11
+Luxembourg,outside the US,25.2114,133230.62,GDP per capita (current US$),2023,344309,180,12
+Netherlands,outside the US,25.1111,63515.60,GDP per capita (current US$),2023,2956518,41,13
+Iceland,outside the US,24.5217,82201.29,GDP per capita (current US$),2023,98818,156,14
+Cyprus,outside the US,24.4537,36623.71,GDP per capita (current US$),2023,202062,143,15
+Switzerland,outside the US,24.3057,104449.75,GDP per capita (current US$),2023,2773840,46,16
+Bulgaria,outside the US,22.9119,15854.02,GDP per capita (current US$),2023,299100,178,17
+Malta,outside the US,22.7400,40932.52,GDP per capita (current US$),2023,199466,84,18
+New Zealand,outside the US,21.3737,49302.34,GDP per capita (current US$),2023,1467989,49,19
+Austria,outside the US,21.2460,56579.50,GDP per capita (current US$),2023,2327064,44,20
+Portugal,outside the US,19.8336,27634.62,GDP per capita (current US$),2023,1127184,129,21
+United Kingdom,outside the US,19.1450,49919.69,GDP per capita (current US$),2023,11845479,36,22
+Sint Maarten (Dutch part),outside the US,19.1134,39451.82,GDP per capita (current US$),2023,30148,34,23
+Greece,outside the US,18.8517,23343.71,GDP per capita (current US$),2023,1423964,182,24
+Sri Lanka,outside the US,18.7515,3815.42,GDP per capita (current US$),2023,40698,50,25
+Germany,outside the US,17.6274,54776.77,GDP per capita (current US$),2023,16750084,28,26
+Saint Lucia,outside the US,17.0207,13616.64,GDP per capita (current US$),2023,8079,53,27
+Haiti,outside the US,16.5518,1681.84,GDP per capita (current US$),2023,19581,22,28
+Hungary,outside the US,14.9575,22208.65,GDP per capita (current US$),2023,689565,185,29
+China,outside the US,14.5041,12951.18,GDP per capita (current US$),2023,1638718,98,30
+Ireland,outside the US,14.5028,106818.92,GDP per capita (current US$),2023,1216237,27,31
+Libya,outside the US,14.4363,6026.52,GDP per capita (current US$),2023,897751,86,32
+Japan,outside the US,13.7769,35215.00,GDP per capita (current US$),2023,3409529,60,33
+Brazil,outside the US,13.6451,10377.59,GDP per capita (current US$),2023,1406299,108,34
+Bolivia (Plurinational State of),outside the US,13.4456,4274.71,GDP per capita (current US$),2023,183234,148,35
+Namibia,outside the US,13.2993,4225.99,GDP per capita (current US$),2023,116035,84,36
+Guinea,outside the US,12.7040,1555.49,GDP per capita (current US$),2023,117416,124,37
+Antigua and Barbuda,outside the US,12.6999,22012.26,GDP per capita (current US$),2023,30473,53,38
+Gabon,outside the US,12.3148,7802.82,GDP per capita (current US$),2023,449746,35,39
+Panama,outside the US,11.9934,18797.19,GDP per capita (current US$),2023,477749,89,40
+Fiji,outside the US,11.7688,5926.21,GDP per capita (current US$),2023,14362,15,41
+Saint Vincent and the Grenadines,outside the US,11.5186,10582.37,GDP per capita (current US$),2023,4820,16,42
+Curaçao,outside the US,11.3235,21217.81,GDP per capita (current US$),2023,80020,44,43
+Honduras,outside the US,11.3223,3227.46,GDP per capita (current US$),2023,39901,43,44
+Bermuda,outside the US,11.3158,132961.76,GDP per capita (current US$),2023,20171,36,45
+Argentina,outside the US,11.3130,14261.85,GDP per capita (current US$),2023,1958039,73,46
+Mali,outside the US,11.2622,1042.44,GDP per capita (current US$),2023,545323,57,47
+Dominica,outside the US,11.2603,9912.96,GDP per capita (current US$),2023,8440,34,48
+Saudi Arabia,outside the US,11.0667,36156.86,GDP per capita (current US$),2023,13683841,20,49
+Cayman Islands,outside the US,10.8265,100065.23,GDP per capita (current US$),2023,31935,58,50
+Zambia,outside the US,10.7234,1330.73,GDP per capita (current US$),2023,249205,30,51
+Chile,outside the US,10.7058,17081.52,GDP per capita (current US$),2023,1538324,96,52
+Guatemala,outside the US,10.6782,5754.43,GDP per capita (current US$),2023,92732,50,53
+Senegal,outside the US,10.3433,1698.03,GDP per capita (current US$),2023,281867,27,54
+South Africa,outside the US,10.0773,6034.27,GDP per capita (current US$),2023,2631100,120,55
+Cabo Verde,outside the US,10.0146,4794.90,GDP per capita (current US$),2023,16515,35,56
+Solomon Islands,outside the US,9.9824,1882.64,GDP per capita (current US$),2023,2469,16,57
+Nicaragua,outside the US,9.9017,2609.44,GDP per capita (current US$),2023,43757,54,58
+Mozambique,outside the US,9.7804,622.19,GDP per capita (current US$),2023,353143,17,59
+Tunisia,outside the US,9.7112,3951.12,GDP per capita (current US$),2023,63201,18,60
+Türkiye,outside the US,9.6956,13375.09,GDP per capita (current US$),2023,7083501,45,61
+Romania,outside the US,9.6832,18244.42,GDP per capita (current US$),2023,655579,28,62
+State of Palestine,outside the US,9.6157,3607.42,GDP per capita (current US$),2023,272481,15,63
+Jamaica,outside the US,9.6121,7542.40,GDP per capita (current US$),2023,24007,22,64
+Qatar,outside the US,9.5141,80195.87,GDP per capita (current US$),2023,2337000,34,65
+Aruba,outside the US,9.3816,34897.62,GDP per capita (current US$),2023,73494,23,66
+Mexico,outside the US,9.3108,13830.84,GDP per capita (current US$),2023,1726089,80,67
+Trinidad and Tobago,outside the US,9.2942,18308.45,GDP per capita (current US$),2023,113478,17,68
+Egypt,outside the US,9.0211,3456.79,GDP per capita (current US$),2023,1139820,73,69
+El Salvador,outside the US,8.8484,5319.72,GDP per capita (current US$),2023,43342,49,70
+Morocco,outside the US,8.7294,3813.73,GDP per capita (current US$),2023,111069,19,71
+Bahrain,outside the US,8.6491,29290.13,GDP per capita (current US$),2023,840202,34,72
+Kuwait,outside the US,8.5638,34091.97,GDP per capita (current US$),2023,3323191,34,73
+Slovakia,outside the US,8.5590,24614.87,GDP per capita (current US$),2023,323991,167,74
+Russian Federation,outside the US,8.4314,13987.00,GDP per capita (current US$),2023,7605774,43,75
+United Arab Emirates,outside the US,8.2742,49850.69,GDP per capita (current US$),2023,8157000,34,76
+Lithuania,outside the US,8.2528,27983.37,GDP per capita (current US$),2023,175194,128,77
+Seychelles,outside the US,8.1212,18130.53,GDP per capita (current US$),2023,13261,27,78
+Malawi,outside the US,8.0120,633.21,GDP per capita (current US$),2023,186719,13,79
+Ghana,outside the US,8.0007,2383.90,GDP per capita (current US$),2023,532286,44,80
+Congo,outside the US,7.8161,2477.98,GDP per capita (current US$),2023,385589,22,81
+Bahamas,outside the US,7.6750,38231.77,GDP per capita (current US$),2023,67285,75,82
+Togo,outside the US,7.5390,1182.33,GDP per capita (current US$),2023,281994,31,83
+Uruguay,outside the US,7.3134,23378.64,GDP per capita (current US$),2023,160064,18,84
+Bangladesh,outside the US,7.2440,2551.02,GDP per capita (current US$),2023,2906338,18,85
+Republic of Korea,outside the US,7.2326,35674.10,GDP per capita (current US$),2023,1811507,15,86
+Vanuatu,outside the US,7.1511,3708.19,GDP per capita (current US$),2023,3315,10,87
+Mauritius,outside the US,7.1242,11269.97,GDP per capita (current US$),2023,29142,23,88
+Nigeria,outside the US,7.0148,2138.76,GDP per capita (current US$),2023,1403281,10,89
+Kazakhstan,outside the US,6.9964,12879.43,GDP per capita (current US$),2023,2089797,29,90
+Barbados,outside the US,6.9764,25583.87,GDP per capita (current US$),2023,35187,22,91
+Slovenia,outside the US,6.9313,32660.48,GDP per capita (current US$),2023,315122,152,92
+Samoa,outside the US,6.8627,4822.74,GDP per capita (current US$),2023,3843,22,93
+Liberia,outside the US,6.8070,799.19,GDP per capita (current US$),2023,72423,26,94
+Czechia,outside the US,6.7519,31761.59,GDP per capita (current US$),2023,1025199,47,95
+Indonesia,outside the US,6.6803,4876.30,GDP per capita (current US$),2023,445726,27,96
+Montenegro,outside the US,6.6368,12258.16,GDP per capita (current US$),2023,92237,30,97
+Botswana,outside the US,6.5834,7827.30,GDP per capita (current US$),2023,116402,34,98
+Grenada,outside the US,6.5733,11414.48,GDP per capita (current US$),2023,7340,16,99
+Liechtenstein,outside the US,6.5114,206780.59,GDP per capita (current US$),2023,27669,110,100
+Malaysia,outside the US,6.4621,11386.04,GDP per capita (current US$),2023,3806514,27,101
+Serbia,outside the US,6.3975,12281.71,GDP per capita (current US$),2023,712550,40,102
+Estonia,outside the US,6.3759,30264.01,GDP per capita (current US$),2023,203046,145,103
+Brunei Darussalam,outside the US,6.3527,32890.55,GDP per capita (current US$),2023,119933,20,104
+Bosnia and Herzegovina,outside the US,6.3514,8663.02,GDP per capita (current US$),2023,34120,14,105
+Benin,outside the US,6.2480,1394.18,GDP per capita (current US$),2023,418202,11,106
+Latvia,outside the US,6.1977,22710.26,GDP per capita (current US$),2023,220471,118,107
+Nauru,outside the US,6.1973,13602.64,GDP per capita (current US$),2023,2548,11,108
+Faroe Islands,outside the US,6.1695,72486.69,GDP per capita (current US$),2023,8101,31,109
+Philippines,outside the US,6.0844,3804.08,GDP per capita (current US$),2023,87212,10,110
+Timor-Leste,outside the US,5.9818,1502.41,GDP per capita (current US$),2023,8303,16,111
+Kyrgyzstan,outside the US,5.9696,2138.22,GDP per capita (current US$),2023,194816,24,112
+Georgia,outside the US,5.8961,8283.67,GDP per capita (current US$),2023,81582,47,113
+Belize,outside the US,5.8192,7424.76,GDP per capita (current US$),2023,68706,16,114
+Saint Kitts and Nevis,outside the US,5.7690,22576.92,GDP per capita (current US$),2023,7958,14,115
+Central African Republic,outside the US,5.6908,495.98,GDP per capita (current US$),2023,94556,25,116
+Mongolia,outside the US,5.6527,5838.63,GDP per capita (current US$),2023,22589,29,117
+North Macedonia,outside the US,5.5490,8674.36,GDP per capita (current US$),2023,150902,20,118
+United Republic of Tanzania,outside the US,5.4356,1224.00,GDP per capita (current US$),2023,462371,28,119
+Poland,outside the US,5.3544,22145.27,GDP per capita (current US$),2023,1739901,63,120
+Thailand,outside the US,5.2969,7210.54,GDP per capita (current US$),2023,3179399,14,121
+Papua New Guinea,outside the US,5.2665,2966.06,GDP per capita (current US$),2023,31171,22,122
+India,outside the US,5.2573,2434.45,GDP per capita (current US$),2023,4796255,44,123
+Kenya,outside the US,5.2114,1942.59,GDP per capita (current US$),2023,992536,14,124
+Oman,outside the US,5.1896,21027.74,GDP per capita (current US$),2023,2283366,11,125
+Marshall Islands,outside the US,5.1790,6799.39,GDP per capita (current US$),2023,3309,7,126
+Democratic Republic of the Congo,outside the US,5.1522,660.21,GDP per capita (current US$),2023,1085090,9,127
+Guinea-Bissau,outside the US,5.0679,964.43,GDP per capita (current US$),2023,15064,12,128
+Turkmenistan,outside the US,4.9069,5298.46,GDP per capita (current US$),2023,193763,12,129
+Andorra,outside the US,4.8725,46812.45,GDP per capita (current US$),2023,48408,19,130
+Costa Rica,outside the US,4.7673,17140.77,GDP per capita (current US$),2023,628404,154,131
+Zimbabwe,outside the US,4.7489,2195.23,GDP per capita (current US$),2023,429108,7,132
+Uganda,outside the US,4.7013,1002.31,GDP per capita (current US$),2023,2057759,15,133
+Lesotho,outside the US,4.6497,921.44,GDP per capita (current US$),2023,15039,16,134
+Azerbaijan,outside the US,4.5963,7133.03,GDP per capita (current US$),2023,218460,20,135
+Venezuela (Bolivarian Republic of),outside the US,4.5425,3617.47,GDP per capita (current US$),2023,1263304,113,136
+Lao People's Democratic Republic,outside the US,4.4886,2066.95,GDP per capita (current US$),2023,51446,7,137
+Niger,outside the US,4.4761,647.93,GDP per capita (current US$),2023,449236,14,138
+Viet Nam,outside the US,4.3217,4322.83,GDP per capita (current US$),2023,326418,6,139
+Palau,outside the US,4.3170,15578.35,GDP per capita (current US$),2023,5212,9,140
+Eswatini,outside the US,4.3118,3755.52,GDP per capita (current US$),2023,33268,18,141
+Ethiopia,outside the US,4.2978,1055.81,GDP per capita (current US$),2023,1168455,13,142
+Cameroon,outside the US,4.2832,1720.48,GDP per capita (current US$),2023,642948,23,143
+Paraguay,outside the US,4.2454,6303.26,GDP per capita (current US$),2023,180837,18,144
+Algeria,outside the US,4.1951,5370.48,GDP per capita (current US$),2023,259458,21,145
+Kiribati,outside the US,4.1035,2200.69,GDP per capita (current US$),2023,3302,8,146
+Suriname,outside the US,4.1003,5521.98,GDP per capita (current US$),2023,51902,5,147
+Ukraine,outside the US,4.0961,5139.60,GDP per capita (current US$),2023,5064173,31,148
+Madagascar,outside the US,4.0397,514.06,GDP per capita (current US$),2023,38625,5,149
+Sao Tome and Principe,outside the US,4.0037,2990.66,GDP per capita (current US$),2023,1955,7,150
+Côte d'Ivoire,outside the US,3.9727,2591.97,GDP per capita (current US$),2023,2880839,11,151
+Jordan,outside the US,3.9471,4906.24,GDP per capita (current US$),2023,5280168,9,152
+Croatia,outside the US,3.8924,22183.50,GDP per capita (current US$),2023,527831,72,153
+Micronesia (Fed. States of),outside the US,3.8683,3933.02,GDP per capita (current US$),2023,2894,13,154
+Singapore,outside the US,3.8591,86382.59,GDP per capita (current US$),2023,2841665,11,155
+New Caledonia,outside the US,3.7431,33701.89,GDP per capita (current US$),2023,76738,17,156
+Rwanda,outside the US,3.7313,1061.06,GDP per capita (current US$),2023,513316,6,157
+Maldives,outside the US,3.6865,12587.61,GDP per capita (current US$),2023,75099,23,158
+Sudan,outside the US,3.6764,797.28,GDP per capita (current US$),2023,2397113,16,159
+Mauritania,outside the US,3.6721,2127.96,GDP per capita (current US$),2023,195937,37,160
+Iraq,outside the US,3.5750,5965.32,GDP per capita (current US$),2023,370980,23,161
+Belarus,outside the US,3.5605,7896.75,GDP per capita (current US$),2023,1054604,59,162
+Sierra Leone,outside the US,3.5421,758.33,GDP per capita (current US$),2023,49997,31,163
+Ecuador,outside the US,3.4366,6718.14,GDP per capita (current US$),2023,747749,49,164
+Albania,outside the US,3.4221,9740.70,GDP per capita (current US$),2023,46377,7,165
+Tuvalu,outside the US,3.3758,5143.84,GDP per capita (current US$),2023,246,6,166
+Gambia,outside the US,3.3199,883.02,GDP per capita (current US$),2023,236137,8,167
+Armenia,outside the US,3.2861,8159.09,GDP per capita (current US$),2023,274645,15,168
+Myanmar,outside the US,3.2502,1233.20,GDP per capita (current US$),2023,79052,5,169
+Turks and Caicos Islands,outside the US,3.2066,35470.22,GDP per capita (current US$),2023,28455,7,170
+Burundi,outside the US,3.1728,249.80,GDP per capita (current US$),2023,387101,8,171
+Cambodia,outside the US,3.0478,2429.75,GDP per capita (current US$),2023,83925,27,172
+Lebanon,outside the US,3.0128,3477.72,GDP per capita (current US$),2023,1422583,9,173
+Dominican Republic,outside the US,2.9997,10630.43,GDP per capita (current US$),2023,738667,99,174
+Guyana,outside the US,2.9968,20473.70,GDP per capita (current US$),2023,54175,17,175
+French Polynesia,outside the US,2.9778,21832.28,GDP per capita (current US$),2023,30099,20,176
+Greenland,outside the US,2.9323,58498.97,GDP per capita (current US$),2023,5812,18,177
+Somalia,outside the US,2.9309,596.89,GDP per capita (current US$),2023,77972,4,178
+Monaco,outside the US,2.8485,256799.91,GDP per capita (current US$),2023,27106,3,179
+Pakistan,outside the US,2.8011,1360.32,GDP per capita (current US$),2023,4175958,9,180
+Republic of Moldova,outside the US,2.7914,6799.59,GDP per capita (current US$),2023,188207,32,181
+Tonga,outside the US,2.6704,5651.59,GDP per capita (current US$),2023,3581,6,182
+Uzbekistan,outside the US,2.6532,3015.98,GDP per capita (current US$),2023,1154963,11,183
+"China, Hong Kong SAR",outside the US,2.5294,50525.11,GDP per capita (current US$),2023,3063318,30,184
+Burkina Faso,outside the US,2.5231,873.20,GDP per capita (current US$),2023,739820,9,185
+Angola,outside the US,2.4578,2885.51,GDP per capita (current US$),2023,676507,14,186
+"China, Macao SAR",outside the US,2.3940,67216.36,GDP per capita (current US$),2023,426862,6,187
+Comoros,outside the US,2.2964,1723.89,GDP per capita (current US$),2023,12449,6,188
+Syrian Arab Republic,outside the US,2.2580,1056.78,GDP per capita (current US$),2022,896042,6,189
+Peru,outside the US,2.1798,7919.05,GDP per capita (current US$),2023,1837219,53,190
+Isle of Man,outside the US,2.1202,90015.21,GDP per capita (current US$),2023,43693,9,191
+Tajikistan,outside the US,2.0653,1178.48,GDP per capita (current US$),2023,276777,36,192
+Djibouti,outside the US,2.0600,3381.30,GDP per capita (current US$),2023,125996,4,193
+Afghanistan,outside the US,2.0300,413.76,GDP per capita (current US$),2023,98110,4,194
+San Marino,outside the US,1.9555,59871.33,GDP per capita (current US$),2023,5838,10,195
+Chad,outside the US,1.8812,949.99,GDP per capita (current US$),2023,1269673,11,196
+Bhutan,outside the US,1.7370,3831.33,GDP per capita (current US$),2023,55705,25,197
+Nepal,outside the US,1.6794,1382.38,GDP per capita (current US$),2023,470719,7,198
+Colombia,outside the US,1.4277,7012.49,GDP per capita (current US$),2023,3063518,55,199
+Equatorial Guinea,outside the US,1.2812,6788.35,GDP per capita (current US$),2023,248930,7,200
+Iran (Islamic Republic of),outside the US,1.1459,5049.30,GDP per capita (current US$),2023,3840654,8,201

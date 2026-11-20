@@ -1,0 +1,16 @@
+{
+  "rating": "Effective number of origin communities among people not born in the community. Zero newcomers score 0. One origin scores 1. An even split across k origins scores k.",
+  "sets": {
+    "US state": {
+      "coefficient": "0.151674",
+      "direction": "positive",
+      "n": 51
+    },
+    "outside the US": {
+      "coefficient": "0.417439",
+      "direction": "positive",
+      "n": 201
+    }
+  },
+  "sets_ranked_together": false
+}
