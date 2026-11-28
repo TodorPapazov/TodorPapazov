@@ -409,6 +409,13 @@
       font-family: var(--font);
     }
     table.ledger tr:hover td { background: rgba(129, 140, 248, 0.06); }
+    table.ledger tfoot td {
+      font-weight: 700;
+      color: var(--text);
+      border-bottom: none;
+      border-top: 1px solid var(--accent);
+    }
+    table.ledger tfoot tr:hover td { background: transparent; }
     table.ledger .empty {
       text-align: center;
       color: var(--muted);
@@ -474,14 +481,34 @@
           <div class="sub" id="sum-share-t">—</div>
         </div>
         <div class="stat">
-          <div class="label">Interest charged (all)</div>
+          <div class="label">Interest acquired</div>
           <div class="value" id="sum-interest-all" style="font-size:1rem">$0.00</div>
-          <div class="sub">Promo APR 3.99%</div>
+          <div class="sub">All payers · running total</div>
         </div>
         <div class="stat good">
           <div class="label">Total paid</div>
           <div class="value" id="sum-paid">$0.00</div>
-          <div class="sub" id="sum-paid-split">A $0 · T $0</div>
+          <div class="sub">All payers · running total</div>
+        </div>
+        <div class="stat a">
+          <div class="label">Interest acquired · <span id="sum-int-a-name">A</span></div>
+          <div class="value" id="sum-int-a" style="font-size:1rem">$0.00</div>
+          <div class="sub">Running total</div>
+        </div>
+        <div class="stat t">
+          <div class="label">Interest acquired · <span id="sum-int-t-name">T</span></div>
+          <div class="value" id="sum-int-t" style="font-size:1rem">$0.00</div>
+          <div class="sub">Running total</div>
+        </div>
+        <div class="stat a">
+          <div class="label">Paid by <span id="sum-paid-a-name">A</span></div>
+          <div class="value" id="sum-paid-a" style="font-size:1rem">$0.00</div>
+          <div class="sub">Running total</div>
+        </div>
+        <div class="stat t">
+          <div class="label">Paid by <span id="sum-paid-t-name">T</span></div>
+          <div class="value" id="sum-paid-t" style="font-size:1rem">$0.00</div>
+          <div class="sub">Running total</div>
         </div>
       </div>
 
@@ -609,6 +636,24 @@
             <tbody id="ledger-body">
               <tr><td colspan="14" class="empty">No months applied yet. Enter the statement snapshot and click Apply month.</td></tr>
             </tbody>
+            <tfoot id="ledger-foot" hidden>
+              <tr>
+                <td>Running total</td>
+                <td></td>
+                <td></td>
+                <td id="foot-interest">$0.00</td>
+                <td id="foot-int-a">$0.00</td>
+                <td id="foot-int-t">$0.00</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td id="foot-pay-a">$0.00</td>
+                <td id="foot-pay-t">$0.00</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tfoot>
           </table>
         </div>
       </section>
@@ -649,11 +694,14 @@
           <button type="button" id="btn-reset-all" class="danger">Reset everything</button>
         </div>
         <div class="warn-box info show" style="margin-top:0.75rem">
-          Jul–Sep 2026 are already in the ledger.
+          Jul–Nov 2026 are already in the ledger.
           Aug: T paid <strong>$400.00</strong> (A $0).
           Sep: T paid <strong>$200.00</strong>, A paid <strong>$500.00</strong>.
+          Oct: T paid <strong>$200.00</strong>, A paid <strong>$1,000.00</strong>.
+          Nov: T paid <strong>$450.00</strong>, A paid <strong>$2,000.00</strong>.
           The July $402.41 payment cleared the balance from before the transfers and is not in the split.
-          Reset reloads this history. October stays blank until that statement arrives.
+          Reset reloads this history. December stays blank until that statement arrives.
+          Interest acquired and amounts paid above are running totals.
         </div>
       </details>
     </section>
@@ -668,7 +716,7 @@
     (function () {
       "use strict";
 
-      const STORAGE_KEY = "cc-split-calculator-v2";
+      const STORAGE_KEY = "cc-split-calculator-v3";
       const PROMO_APR = 0.0399;
 
       const DEFAULT_BTS = [
@@ -677,8 +725,7 @@
         { id: "chase", name: "Chase Card S", amount: 19384.47, borrower: "A" },
       ];
 
-      // Posted on the statement for that cycle. T paid $400 (Aug) and $200 (Sep);
-      // A paid the rest of each statement's payments ($0 and $500).
+      // Posted on the statement for that cycle. CHK 9116 is T. Bill payer is A.
       const STATEMENT_MONTHS = [
         {
           label: "Jul 2026 (stmt 07/09)",
@@ -704,10 +751,26 @@
           payA: 500,
           payT: 200,
         },
+        {
+          label: "Oct 2026 (stmt 10/09)",
+          dueDate: "2026-11-06",
+          interest: 96.46,
+          minPayment: 382.0,
+          payA: 1000,
+          payT: 200,
+        },
+        {
+          label: "Nov 2026 (stmt 11/09)",
+          dueDate: "2026-12-06",
+          interest: 94.14,
+          minPayment: 356.0,
+          payA: 2000,
+          payT: 450,
+        },
       ];
 
       const NEXT_DRAFT = {
-        label: "Oct 2026 (next statement)",
+        label: "Dec 2026 (next statement)",
         dueDate: "",
         interest: null,
         minPayment: null,
@@ -1062,12 +1125,7 @@
         el.textContent = "";
       }
 
-      function renderSummary() {
-        const open = currentOpen();
-        const total = round2(open.a + open.t);
-        const shareA = total > 0 ? open.a / total : 0;
-        const shareT = total > 0 ? open.t / total : 0;
-
+      function runningTotals() {
         let paidA = 0;
         let paidT = 0;
         let intAll = 0;
@@ -1080,26 +1138,50 @@
           intA = round2(intA + row.intA);
           intT = round2(intT + row.intT);
         }
+        return { paidA, paidT, intAll, intA, intT };
+      }
 
+      function renderSummary() {
+        const open = currentOpen();
+        const total = round2(open.a + open.t);
+        const shareA = total > 0 ? open.a / total : 0;
+        const shareT = total > 0 ? open.t / total : 0;
+        const totals = runningTotals();
+
+        $("sum-int-a-name").textContent = state.labels.A;
+        $("sum-int-t-name").textContent = state.labels.T;
+        $("sum-paid-a-name").textContent = state.labels.A;
+        $("sum-paid-t-name").textContent = state.labels.T;
         $("sum-bal-a").textContent = money(open.a);
         $("sum-bal-t").textContent = money(open.t);
-        $("sum-share-a").textContent = `Share ${(shareA * 100).toFixed(2)}% · interest so far ${money(intA)}`;
-        $("sum-share-t").textContent = `Share ${(shareT * 100).toFixed(2)}% · interest so far ${money(intT)}`;
+        $("sum-share-a").textContent = `Share ${(shareA * 100).toFixed(2)}%`;
+        $("sum-share-t").textContent = `Share ${(shareT * 100).toFixed(2)}%`;
         $("sum-total").textContent = money(total);
-        $("sum-interest-all").textContent = money(intAll);
-        $("sum-paid").textContent = money(paidA + paidT);
-        $("sum-paid-split").textContent =
-          `${state.labels.A} ${money(paidA)} · ${state.labels.T} ${money(paidT)}`;
+        $("sum-interest-all").textContent = money(totals.intAll);
+        $("sum-int-a").textContent = money(totals.intA);
+        $("sum-int-t").textContent = money(totals.intT);
+        $("sum-paid").textContent = money(totals.paidA + totals.paidT);
+        $("sum-paid-a").textContent = money(totals.paidA);
+        $("sum-paid-t").textContent = money(totals.paidT);
         $("hdr-months").textContent = String(state.history.length);
       }
 
       function renderLedger() {
         const body = $("ledger-body");
+        const foot = $("ledger-foot");
+        const totals = runningTotals();
         if (state.history.length === 0) {
           body.innerHTML =
             '<tr><td colspan="14" class="empty">No months applied yet. Enter the statement snapshot and click Apply month.</td></tr>';
+          foot.hidden = true;
           return;
         }
+        foot.hidden = false;
+        $("foot-interest").textContent = money(totals.intAll);
+        $("foot-int-a").textContent = money(totals.intA);
+        $("foot-int-t").textContent = money(totals.intT);
+        $("foot-pay-a").textContent = money(totals.paidA);
+        $("foot-pay-t").textContent = money(totals.paidT);
         body.innerHTML = "";
         for (const row of state.history) {
           const tr = document.createElement("tr");
@@ -1277,11 +1359,11 @@
         });
 
         $("btn-reset-all").addEventListener("click", () => {
-          if (!confirm("Reset the ledger to the Jul–Sep 2026 statements and restore the default balance transfers?")) return;
+          if (!confirm("Reset the ledger to the Jul–Nov 2026 statements and restore the default balance transfers?")) return;
           state = defaultState();
           save();
           renderAll();
-          setWarn("info", "Reset complete. Jul–Sep 2026 statement history reloaded.");
+          setWarn("info", "Reset complete. Jul–Nov 2026 statement history reloaded.");
         });
 
         $("btn-apply-month").addEventListener("click", () => {

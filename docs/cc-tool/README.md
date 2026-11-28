@@ -8,6 +8,7 @@ Single-page tool that tracks a **shared credit card** for two people.
 - Uses **Interest charged** and **Minimum payment** from your statement snapshot  
 - Lets each borrower pay their **min share** or **more**  
 - Rolls balances forward month to month  
+- Shows a **running total** of interest acquired (all, A, and T) and of what each payer has paid  
 - Supports **pay remaining in full** (e.g. at promo end 07/09/2027)
 
 No install. Data stays in your browser (`localStorage`).
@@ -38,7 +39,7 @@ Invoke-Item ".\docs\cc-tool\index.html"
 - **T** starts at **$11,213.12**  
 - Promo APR **3.99%** through **07/09/2027**
 
-Jul–Sep 2026 are already in the ledger. Setup stays locked while that history is present. **Reset everything** reloads these three months and the default transfers.
+Jul–Nov 2026 are already in the ledger. Setup stays locked while that history is present. **Reset everything** reloads these five months and the default transfers.
 
 ## Monthly workflow
 
@@ -58,11 +59,13 @@ Jul–Sep 2026 are already in the ledger. Setup stays locked while that history 
 
 **Undo last month** restores that month to the form.  
 **Export CSV** downloads the ledger.  
-**Reset everything** reloads the Jul–Sep 2026 ledger and the default transfers.
+**Reset everything** reloads the Jul–Nov 2026 ledger and the default transfers.
 
-The October form is blank. Enter that statement’s interest and minimum when it arrives, then apply it the same way.
+The December form is blank. Enter that statement’s interest and minimum when it arrives, then apply it the same way.
 
-## Seeded ledger (Jul–Sep 2026)
+The summary cards and the ledger footer keep a running total of interest acquired (all, A, and T) and of what each payer has paid.
+
+## Seeded ledger (Jul–Nov 2026)
 
 Payments are the amounts posted on that statement. Interest is split by opening-balance share. Each closing total matches the statement new balance.
 
@@ -71,14 +74,18 @@ Payments are the amounts posted on that statement. Interest is split by opening-
 | Jul 2026 (stmt 07/09) | $83.66 | $389.00 | $0.00 | $0.00 | $30,681.25 |
 | Aug 2026 (stmt 08/09) | $104.12 | $406.00 | $0.00 | $400.00 | $30,385.37 |
 | Sep 2026 (stmt 09/09) | $102.77 | $399.00 | $500.00 | $200.00 | $29,788.14 |
+| Oct 2026 (stmt 10/09) | $96.46 | $382.00 | $1,000.00 | $200.00 | $28,684.60 |
+| Nov 2026 (stmt 11/09) | $94.14 | $356.00 | $2,000.00 | $450.00 | $26,328.74 |
 
 **Who paid**
 
 - **August:** the only payment is $400. That is **T**. A paid $0.
 - **September:** $700 posted. T paid $200. A paid the other **$500**.
+- **October:** $1,200 posted. A paid $1,000. T paid $200.
+- **November:** $2,450 posted. A paid $2,000. T paid $450.
 - **July:** a $402.41 payment cleared the $402.41 balance that existed before the transfers. It is not part of this split. No payment was made against the transfer balances in that cycle.
 
-After September the balances are **A $19,069.39** and **T $10,718.75**. Paid so far: A $500, T $600. Interest so far: $290.55.
+After November the balances are **A $16,190.64** and **T $10,138.10**. Paid so far: A $3,500, T $1,250. Interest acquired so far: $481.15 (A $306.17, T $174.98).
 
 July interest split (opening $19,384.47 / $11,213.12): A $53.00, T $30.66. Statement interest is used as-is. The first cycle used average daily balance, so it will not match a simple 3.99%÷12 on the full transfer total. August and September interest include a few cents of purchase interest ($0.32 and $0.24); that stays in the statement total and is split the same way.
 
